@@ -58,6 +58,8 @@ a{
     margin: 5px;
     width: fit-content;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
 .manusDistinction{
@@ -73,30 +75,22 @@ a{
 
 
 .auguryChoose{
-display: flex;
-flex-direction: column;
 height: 90vh;
-overflow: scroll;
+overflow: hidden;
 overflow-x: hidden;
 }
 
-.auguryChoose a{
-    padding-top: 5px;
 
-}
-
-#anguryChooseList::-webkit-scrollbar {
+#auguryChooseList::-webkit-scrollbar {
     display: none;
 }
 
-#anguryChoose::-webkit-scrollbar {
+#auguryChoose::-webkit-scrollbar {
     display: none;
 }
 
 
-#anguryChooseList{
-    display: flex;
-    flex-direction: column;
+#auguryChooseList{
     height: 90vh;
     overflow: scroll;
     padding-left: 10px;
