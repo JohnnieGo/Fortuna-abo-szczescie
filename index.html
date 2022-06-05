@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+</head>
+<body id="body" style="font-family: unifrakturmaguntiabook;">
+        <div class="screenCover" id="firstScreen">
+          <div class="auguryChoose" id="anguryChoose">
+            <h1>Wybór wróżby</h1>
+            <div id="anguryChooseList">
+                <a onclick="getWheel(1)" class="wheelSelect">Kto chce wiedźieć ieſli długo będzie żyw / Miec ná kole w ktorym Gąsiorek </a>
+                <a onclick="getWheel(2)" class="wheelSelect">Jeſli kto będzie Duchownym : ná kole w ktorym Gołąb.</a>
+                <a onclick="getWheel(3)" class="wheelSelect">Jeſli kto będzie podwyſzſzon : ná kole w ktorym Orzeł.</a>
+                <a onclick="getWheel(4)" class="wheelSelect">Jeſli kto będzie Fortunny : na kole w ktorym Papuſzka.</a>
+                <a onclick="getWheel(5)" class="wheelSelect">Jeſli ſye czyie myślenie ſpełni : na kole w ktorym Słowik.</a>
+                <a onclick="getWheel(6)" class="wheelSelect">Jeſli ſye dobrze ożenić : na kole w ktorym Wrona.</a>
+                <a onclick="getWheel(7)" class="wheelSelect">Jeſli kto komu jest prawie : ná kole w ktorym Synogarlica.</a>
+                <a onclick="getWheel(8)" class="wheelSelect">Jeſli kto będzie co wyſłuży ná panie : na kole w ktorym Sroka.</a>
+                <a onclick="getWheel(9)" class="wheelSelect">Jeſli co dobrze czynic : ná kole w ktorym Kruk.</a>
+                <a onclick="getWheel(10)" class="wheelSelect">Jeſli kto bydzie czego żąda : na kole w ktorym Krogulec.</a>
+                <a onclick="getWheel(11)" class="wheelSelect">Jeſli sye kto ná miłości dobrze ma : ná kole w ktorym Kur. </a>
+                <a onclick="getWheel(12)" class="wheelSelect">Jeſli dobrze do ktorego Pana przystać : na kole w ktorym Sokoł.</a>
+                <a onclick="getWheel(13)" class="wheelSelect">Jeſli ktora porodzi Syna albo Dziewkę : ná kole w ktorym Kuropátwá</a>
+                <a onclick="getWheel(14)" class="wheelSelect">Jeſli która białą głowę miłują : ná kole w którym Kukułká.</a>
+                <a onclick="getWheel(15)" class="wheelSelect">Jeſli która poymie dobrego Męża : ná koe w ktorym Szoṕ.</a>
+                <a onclick="getWheel(16)" class="wheelSelect">Jeſli która rychło zá Mąż poydzie : na kole w którym Biegżá</a>
+                <a onclick="getWheel(17)" class="wheelSelect">Jeſli kto będzie Bogáty : ná kole w którym Paw.</a>
+                <a onclick="getWheel(18)" class="wheelSelect">Jeſli dobrze być kupcem : ná kole w którym Zoraw.</a>
+                <a onclick="getWheel(19)" class="wheelSelect">Jesli drogá będzie ſzcześliwa : ná kole w którym Kaczor.</a>
+                <a onclick="getWheel(20)" class="wheelSelect">Jeſli kto zgubę naydzie : na kole w którym Bocian.</a>
+                <a onclick="getWheel(21)" class="wheelSelect">Jeſli kto z świátá zeydzie : na kole gdzie Sowa.</a>
+                <h5>W Krákowie Jan Żaborowski Programował.</h5>
+            </div>
+            <div id="changeFontFirstScreen" class="changeFont"><u>Zmnień font na współczesny</u></div>
+          </div>
+        </div>
+        <div class="screenCover" id="secondScreen">
+            <div id="container">
+                <div id="left">
+                    <div class="buttonToAuguryList" onclick="">Wróć do wyboru wróżby</div>
+                    <div class="buttonSpin" onclick="" style="font-size: xx-large;">Zakręć</div>
+                </div>
+                <div id="right" style="display: none;">
+                    <div class="displayNumber">-</div>
+                </div>
+                <img style="position: absolute; bottom: 0px; width: 50px; transform: rotate(90deg);" src="Manus.png">
+            </div> 
+            <div class="goToSecondWheelScreen">
+                <div class="centerFlex">
+                    <div class="SecondWheelScreenGoBack"><img src="x.png">Zakręć jeszcze raz</div>
+                    <div class="displayMessage">-</div>
+                    <img id="characterImage">
+                    <div class="goButton" id="clickCharacterText">-</div>
+                    <div class="displayAugury">-</div>
+                </div>        
+            </div>
+            <img id="imageid" class="wheel" src=""> 
+        </div>
+        <div class="screenCover" id="thirdScreen">
+            <div id="container">
+            </div> 
+        </div>
+    </div>
+    <div id="help">?</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+html{
+    scroll-behavior: smooth;
+
+}
+
+@font-face {
+    font-family: 'unifrakturmaguntiabook';
+    src: url('Fonts/unifrakturmaguntia-webfont.woff2') format('woff2'),
+         url('Fonts/unifrakturmaguntia-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    font-family: 'unifrakturmaguntiabook';
+    font-size: x-large;
+    position: relative;
+}
+
+h1{
+    text-align: center;
+}
+
+h5{
+    text-align: center;
+}
+
+a{
+    padding-bottom: 5px;
+}
+
+#app{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#changeFontFirstScreen{
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+}
+
+.auguryChoose{
+display: flex;
+flex-direction: column;
+height: 90vh;
+overflow: scroll;
+}
+
+.auguryChoose a{
+    padding-top: 5px;
+
+}
+
+#anguryChooseList::-webkit-scrollbar {
+    display: none;
+}
+
+#anguryChoose::-webkit-scrollbar {
+    display: none;
+}
+
+
+#anguryChooseList{
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    overflow: scroll;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#auguryWheelPlace img{
+    width: 100vw;
+}
+
+.wheel{
+    width: 100vw;
+}
+
+.button{
+    width: 100px;
+    height: 50px;
+}
+
+
+.displayNumber{
+    width: 100px;
+    height: 50px;
+    border: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.displayMessage{
+    width: 100%;
+    border: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    text-align: center;
+}
+
+
+
+#container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding-bottom: 50px;
+    padding-top: 10vh;
+    position: relative;
+}
+
+
+.buttonSpin{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.screenCover{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("Tło1.png");
+    background-size: cover;
+    background-attachment: inherit;
+    overflow: hidden;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.goToSecondWheelScreen{
+    overflow: auto;
+    scroll-behavior: auto;
+    overflow-x: hidden;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("Tło1.png");
+    background-size: cover;
+    background-attachment: inherit;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.SecondWheelScreenGoBack{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.SecondWheelScreenGoBack img{
+    height: 50px;
+}
+
+.centerFlex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 1040px;
+    padding-top: 30px;
+}
+
+#characterImage{
+    max-height: 80vh;
+    max-width: 80vw;
+}
+
+#imageid{
+    max-width: 600px;
+}
+
+#help{
+    text-align: right;
+    font-size: 40px;
+    position: fixed;
+    bottom: 10px;
+    padding-right: 15px;
+    right: 10px;
+    width: fit-content;
+    margin-right: 0;
+}
