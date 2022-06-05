@@ -30,9 +30,12 @@ goToAuguryList.addEventListener('click',() => {
     displayNumber.innerHTML = "-";
     displayAugury.innerHTML = "-";
     winningSymbolNr=0;
-    goToSecondWheelScreen.style.display = "none"
+    deg=0;
     actualDeg=0;
+    goToSecondWheelScreen.style.display = "none"
     wheel.style.transform = `rotate(${actualDeg}deg)`;
+    wheel.style.transition = 'none';
+    startButton.style.pointerEvents = 'auto';
 });
 
 function getWheel(wheelNumber){
@@ -43,7 +46,7 @@ function getWheel(wheelNumber){
     displayNumber.innerHTML = "-";
     displayAugury.innerHTML = "-";
     winningSymbolNr=0;
-    goToSecondWheelScreen.style.display = "none"
+    goToSecondWheelScreen.style.display = "none";
 }
 
 (function wheelSpin() {
@@ -69,7 +72,6 @@ function getWheel(wheelNumber){
         deg = Math.floor(2000 + Math.random() * 2000);
         wheel.style.transition = 'all 2s ease-out';
         wheel.style.transform = `rotate(${deg}deg)`;
-        console.log(currentWheelSelected)
     });
 
     wheel.addEventListener('transitionend', () => {
