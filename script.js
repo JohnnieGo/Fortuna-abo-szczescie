@@ -45,7 +45,7 @@ goToAuguryList.addEventListener('click',() => {
 });
 
 function getWheel(wheelNumber){
-    document.getElementById("imageid").src=`wheels/WheelCut${wheelNumber}.png`;
+    document.getElementById("imageid").src=`wheels/wheelcut${wheelNumber}.png`;
     currentWheelSelected = wheelNumber;
     document.getElementById("secondScreen").scrollIntoView();
     displayMessage.innerHTML = "-";
