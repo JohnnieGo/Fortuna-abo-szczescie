@@ -10,7 +10,9 @@
  const displayAugury = document.querySelector('.displayAugury');
  const goToSecondWheelScreen = document.querySelector('.goToSecondWheelScreen');
  const clickCharacterText = document.querySelector('#clickCharacterText');
- const SecondWheelScreenGoBack = document.querySelector(`.SecondWheelScreenGoBack`)
+ const SecondWheelScreenGoBack = document.querySelector(`.SecondWheelScreenGoBack`);
+ const characterImage = document.querySelector('#characterImage')
+
 
 changeFont.addEventListener('click',() => {
     if (body.style.fontFamily == "unifrakturmaguntiabook"){
@@ -24,7 +26,7 @@ changeFont.addEventListener('click',() => {
     }
 });
 
-goToAuguryList.addEventListener('click',() => {
+function resetValues (){
     document.getElementById("firstScreen").scrollIntoView();
     displayMessage.innerHTML = "-";
     displayNumber.innerHTML = "-";
@@ -36,10 +38,14 @@ goToAuguryList.addEventListener('click',() => {
     wheel.style.transform = `rotate(${actualDeg}deg)`;
     wheel.style.transition = 'none';
     startButton.style.pointerEvents = 'auto';
+}
+
+goToAuguryList.addEventListener('click',() => {
+    resetValues();
 });
 
 function getWheel(wheelNumber){
-    document.getElementById("imageid").src=`WheelCut${wheelNumber}.png`;
+    document.getElementById("imageid").src=`wheels/WheelCut${wheelNumber}.png`;
     currentWheelSelected = wheelNumber;
     document.getElementById("secondScreen").scrollIntoView();
     displayMessage.innerHTML = "-";
@@ -82,14 +88,19 @@ function getWheel(wheelNumber){
         // Pokazanie numerów kości
         displayNumber.innerHTML = symbolZones[winningSymbolNr];
         // Tekst z tarczy pierwszej;
-        displayMessage.innerHTML = wheelText[currentWheelSelected][winningSymbolNr];
+        messageChoose = wheelText[currentWheelSelected][winningSymbolNr]
+        displayMessage.innerHTML = messageChoose;
        // Zmiana tekstu w buttonie do przejścia do trzeciej sekcji
         clickCharacterText.innerHTML = `Kliknij w ${postaci[currentWheelSelected]}, by udać się z nim do miasta`;
         //Pokaż bohatera
         document.getElementById("characterImage").src = `characterPicture${currentWheelSelected}.png`;
         goButton.style.pointerEvents = 'auto';
-
         displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
+        //Wyłapanie zwieręcia i miasta
+        displayAnimal = messageChoose.split(' ');
+        console.log(displayAnimal[2]);
+        displayCity = messageChoose.split(' ');
+        console.log(displayCity[4]);
 
         // goButton.addEventListener('click', () => {
         // displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
@@ -103,27 +114,10 @@ function getWheel(wheelNumber){
             });
         });
 
-    // wheel.addEventListener('transitionend', () => {
-    //     startButton.style.pointerEvents = 'auto';
-    //     wheel.style.transition = 'none';
-    //     const actualDeg = deg % 360;
-    //     wheel.style.transform = `rotate(${actualDeg}deg)`;
-    //     handleWin(actualDeg);
-    //     // Pokazanie numerów kości
-    //     displayNumber.innerHTML = symbolZones[winningSymbolNr];
-    //     // Tekst z tarczy pierwszej;
-    //     displayMessage.innerHTML = wheelText[currentWheelSelected][winningSymbolNr];
-    //     goButton.style.pointerEvents = 'auto';
-    //     goButton.addEventListener('click', () => {
-    //         show2Wheel()
-    //     });
-    // });
-
-    // function show2Wheel(){
-    //     console.log("Works")
-    //     goButton.style.pointerEvents = 'none';
-
-    // }
+        characterImage.addEventListener('click',() => {
+            document.getElementById("thirdScreen").scrollIntoView();
+            ;
+        });
 
 })();
     
@@ -154,7 +148,7 @@ function getWheel(wheelNumber){
     // Gąsiorek
     const wheelText = {
         1: { //Tarcza 1
-            1: "Idź do kozy miasta Osmolin",
+            1: "Idź do Kozy miasta Osmolin",
             2: "Idź do Barana miasta Opole",
             3: "Idź do Borsuka miasta Podaycze",
             4: "Idź do Tchorza miasta Swierców",
