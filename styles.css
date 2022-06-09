@@ -48,7 +48,7 @@ a{
     position: absolute;
     bottom: 15px;
     left: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Libre Caslon Text', serif;
     font-size: medium;
     cursor: pointer;
 }
@@ -78,6 +78,7 @@ a{
 height: 90vh;
 overflow: hidden;
 overflow-x: hidden;
+overflow: scroll;
 }
 
 
@@ -248,6 +249,7 @@ overflow-x: hidden;
 #characterImage{
     max-height: 80vh;
     max-width: 80vw;
+    box-shadow: 0 0 1px 1px #EDCFB2;
 }
 
 #imageid{

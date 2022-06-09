@@ -1,4 +1,3 @@
- 
  const body = document.querySelector('#body')
  const changeFont = document.querySelector('.changeFont')
  const goToAuguryList = document.querySelector('.buttonToAuguryList');
@@ -16,7 +15,7 @@
 
 changeFont.addEventListener('click',() => {
     if (body.style.fontFamily == "unifrakturmaguntiabook"){
-        body.style.fontFamily = "Roboto";
+        body.style.fontFamily = "Libre Caslon Text";
         body.style.fontSize = "Large";
         changeFont.innerHTML = "<u>Zmień font na frakturę</u>"
     } else {
@@ -88,14 +87,14 @@ function getWheel(wheelNumber){
         // Pokazanie numerów kości
         displayNumber.innerHTML = symbolZones[winningSymbolNr];
         // Tekst z tarczy pierwszej;
-        messageChoose = wheelText[currentWheelSelected][winningSymbolNr]
+        messageChoose = wheelText[currentWheelSelected][winningSymbolNr];
         displayMessage.innerHTML = messageChoose;
        // Zmiana tekstu w buttonie do przejścia do trzeciej sekcji
         clickCharacterText.innerHTML = `Kliknij w ${postaci[currentWheelSelected]}, by udać się z nim do miasta`;
         //Pokaż bohatera
-        document.getElementById("characterImage").src = `characterPicture${currentWheelSelected}.png`;
+        document.getElementById("characterImage").src = `characterPictures/characterPicture${currentWheelSelected}.png`;
         goButton.style.pointerEvents = 'auto';
-        displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
+        // displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
         //Wyłapanie zwieręcia i miasta
         displayAnimal = messageChoose.split(' ');
         console.log(displayAnimal[2]);
@@ -146,55 +145,251 @@ function getWheel(wheelNumber){
     }
 
     // Gąsiorek
+    
     const wheelText = {
-        1: { //Tarcza 1
-            1: "Idź do Kozy miasta Osmolin",
-            2: "Idź do Barana miasta Opole",
-            3: "Idź do Borsuka miasta Podaycze",
-            4: "Idź do Tchorza miasta Swierców",
-            5: "Idź do Wiewiórki miast Przeworsko",
-            6: "Idź do Lasice miasta Stryy",
-            7: "Idź do Zaiąca miasta Mieścisko",
-            8: "Idź do Krzeczka miasta Zawichost",
-            9: "Idź do Nowogrod: miasta Rzeszów",
-            10: "Idź do Rosomaka miasta Szelechów",
-            11: "Idź do Królika miasta Szyrnik",
-            12: "Idź do Popielica miasta Brzeżek",
-            13: "Idź do Gronostaja miasta Rozprza",
-            14: "Idź do NIedźwiedzia miasta Sanok",
-            15: "Idź do Wydry miasta Lutomiersko",
-            16: "Idź do Liszki miasta Czyrsk",
-            17: "Idź do Wilka miasta Czarnków",
-            18: "Idź do Kuny miasta Zydaczów",
-            19: "Idź do Bobru miasta Chmielnik",
-            20: "Idź do Rysia miasta Grodek",
-            21: "Idź do Sobola miasta Bochnia"
+        1: { //Tarcza 1 Gąsiorek
+            1: "Idź do Kozy miástá Osmolin", // 1 1
+            2: "Idź do Baráná miástá Opolé", // 1 2
+            3: "Idź do Bor?uka miástá Podáyczé", // 2 2
+            4: "Idź do Tchorzá miástá Swierców", // 1 3
+            5: "Idź do Wiewiórki miast Przewor?ko", // 2 3
+            6: "Idź do Láśicé miástá Stryy", // 3 3
+            7: "Idź do Záiącá miástá Mieśći?ko", // 1 4
+            8: "Idź do Krzeczká miástá Záwichost", // 2 4
+            9: "Idź do Nowogrod miástá Rzeszów", // 3 4
+            10: "Idź do Rosomaká miástá Szelechów", // 4 4
+            11: "Idź do Króliká miástá Szyrniki", // 1 5
+            12: "Idź do Popielice miástá Brzéżek", // 2 5
+            13: "Idź do Gronostáiá miástá Kozprza", // 3 5
+            14: "Idź do Niedźwiedzia miástá Sanok", // 4 5
+            15: "Idź do Wydry miástá Lutomiersko", // 5 5
+            16: "Idź do Liszki miástá Czyrsk", // 1 6
+            17: "Idź do Wilká miástá Czárnków", // 2 6
+            18: "Idź do Kuny miástá Zydáczów", // 3 6
+            19: "Idź do Bobru miástá Chmielnik", // 4 6
+            20: "Idź do Ryśiá miástá Grodek", // 5 6
+            21: "Idź do Sobolá miástá Bochnia" // 6 6
         },
-        
-        2: { //Tarcza 2
-            1: "Idź do Sobol miasta Kozyrnik", 
-            2: "Idź do Kozy miasta Rożan",
-            3: "Idź do Barana miasta Mogilnica",
-            4: "Idź do Borsuka miasta Stężyca",
-            5: "Idź do Tchorza miast Roatyn",
-            6: "Idź do Wiewiorki miasta Stryykow",
-            7: "Idź do Lasice miasta Kuchtow",
-            8: "Idź do Zaiąca miasta Osieczno",
-            9: "Idź do Krzeczka miasta Rubieszów",
-            10: "Idź do Nowogro miasta Urzędów",
-            11: "Idź do Rosomaka miasta Wawrzynczyce",
-            12: "Idź do Krolika miasta Tuchola",
-            13: "Idź do Popielice miasta Chełm",
-            14: "Idź do Gronostaia miasta Szczyrek",
-            15: "Idź do Niedzwied miasta Poniec",
-            16: "Idź do Wydry miasta Ciechanów",
-            17: "Idź do Liszki miasta Lepno",
-            18: "Idź do Wilka miasta Legonice",
-            19: "Idź do Kuny miasta Opatowice",
-            20: "Idź do Bobru miasta Bełżyce",
-            21: "Idź do Rysia miasta Fordan"
-        }
+
+        2: { //Tarcza 2 Gołąb
+            1: "Idź do Sobolá miástá Kozyrnik",
+            2: "Idź do Kozy miástá Rożan",
+            3: "Idź do Birana miástá Mogilnicá",
+            4: "Idź do Borsuká miástá Stężycá",
+            5: "Idź do Tchorzá miasta Roátyn",
+            6: "Idź do Wiewiórki miástá Stryyków",
+            7: "Idź do Láśice miástá Kulitów",
+            8: "Idź do Záiącá miástá Ośieczno",
+            9: "Idź do Krzeczká miástá Rubieszów",
+            10: "Idź do Nowogrod miástá Urzędów",
+            11: "Idź do Rosomaká miástá Wáwrzinczyce",
+            12: "Idź do Króliká miástá Tuchola",
+            13: "Idź do Popielice miástá Chełm",
+            14: "Idź do Gronostáiá miástá Szczyrcz",
+            15: "Idź do Niedźwiedzia miástá Póniec",
+            16: "Idź do Wydry miástá Ciechanów",
+            17: "Idź do Liszki miástá Lepno",
+            18: "Idź do Wilká miástá Legonice",
+            19: "Idź do Kuny miástá Opátowice",
+            20: "Idź do Bobru miástá Bełżyce",
+            21: "Idź do Ryśiá miástá Fordan"
+        },
+
+        3: { //Tarcza 1 Orzeł
+            1: "Idź do Ryśiá miástá Lubin", // 1 1
+            2: "Idź do Sobolá miástá Kászkowo", // 1 2
+            3: "Idź do Kozy miástá Szérków", // 2 2
+            4: "Idź do Báráná miástá Rypin", // 1 3
+            5: "Idź do Borsuká miast Buk", // 2 3
+            6: "Idź do Tchorzá miástá Zwoleń", // 3 3
+            7: "Idź do Wiewiórki miástá Rzemień", // 1 4
+            8: "Idź do Láśice miástá Leszko", // 2 4
+            9: "Idź do Záiącá miástá Radomskie", // 3 4
+            10: "Idź do Krzeczká miástá Proszkowice", // 4 4
+            11: "Idź do Nowogrod miástá Trębowla", // 1 5
+            12: "Idź do Rosomaká miástá Opalenicá", // 2 5
+            13: "Idź do Króliká miástá Oleszko", // 3 5
+            14: "Idź do Popielice miástá Szczebrzeszyn", // 4 5
+            15: "Idź do Gronostáiá miástá Wolborz", // 5 5
+            16: "Idź do Niedźwiedzia miástá Ráwá", // 1 6
+            17: "Idź do Wydry miástá Gárwolin", // 2 6
+            18: "Idź do Liszki miástá Biéle", // 3 6
+            19: "Idź do Wilká miástá Gębicá", // 4 6
+            20: "Idź do Kuny miástá Syroczko", // 5 6
+            21: "Idź do Bobru miástá Kobylno" // 6 6
+        },
+
+	4: { //Tarcza 4 Pápugá
+            1: "Idź do Wilká miástá Opátowek", // 1 1
+            2: "Idź do Kuny miástá Rzeszów", // 1 2
+            3: "Idź do Bobru miástá Bircza", // 2 2
+            4: "Idź do Rysiá miástá Dopczyce", // 1 3
+            5: "Idź do Sobolá miastá Gołogóry", // 2 3
+            6: "Idź do Kozy miástá Solec", // 3 3
+            7: "Idź do Báráná miástá Widáwá", // 1 4
+            8: "Idź do Borsuká miástá Krocko", // 2 4
+            9: "Idź do Tchorzá miástá Mosiná", // 3 4
+            10: "Idź do Wiewiórki miástá Wysokié", // 4 4
+            11: "Idź do Láśice miástá Bolesłáwiec", // 1 5
+            12: "Idź do Záiącá miástá Kraśnik", // 2 5
+            13: "Idź do Krzeczká miástá Koło", // 3 5
+            14: "Idź do Nowogrod miástá Brzyska", // 4 5
+            15: "Idź do Rosomaká miástá Zychlin", // 5 5
+            16: "Idź do Króliká miástá Páczánów", // 1 6
+            17: "Idź do Popielice miástá Bábimost", // 2 6
+            18: "Idź do Gronostáiá miástá Przedbórz", // 3 6
+            19: "Idź do Niedźwiedzia miástá Ostrowia", // 4 6
+            20: "Idź do Wydry miástá Drzewicá", // 5 6
+            21: "Idź do Liszki miástá Gostyń" // 6 6
+        },
+
+	5: { //Tarcza 5 Słowik
+            1: "Idź do Niedźwiedzia miástá Pakość", // 1 1
+            2: "Idź do Wydry miástá Inowłódz", // 1 2
+            3: "Idź do Liszki miástá Msków", // 2 2
+            4: "Idź do Wilká miástá Márgonin", // 1 3
+            5: "Idź do Kuny miastá Lábiszyn", // 2 3
+            6: "Idź do Bobru miástá Dubiecko", // 3 3
+            7: "Idź do Rysiá miástá Kłodáwá", // 1 4
+            8: "Idź do Sobolá miástá Brzostek", // 2 4
+            9: "Idź do Kozy miástá Sokal", // 3 4
+            10: "Idź do Bárána miástá Smotrzyc", // 4 4
+            11: "Idź do Borsuká miástá Wawálnicá", // 1 5
+            12: "Idź do Tchorzá miástá Grzegorzów", // 2 5
+            13: "Idź do Wiewiórki miástá Kleczów", // 3 5
+            14: "Idź do Łásice miástá Kuflów", // 4 5
+            15: "Idź do Záiącá  miástá Będzyń", // 5 5
+            16: "Idź do Krzeczká miástá Włozymiérz", // 1 6
+            17: "Idź do Nowogrod miástá Hołbok", // 2 6
+            18: "Idź do Rosomaká miástá Szyszkow", // 3 6
+            19: "Idź do Króliká miástá Tyráwá", // 4 6
+            20: "Idź do Popielice miástá Wąsoczyn", // 5 6
+            21: "Idź do Gronostáiá miástá Bárczyn" // 6 6
+        },
+
+	6: { //Tarcza 6 Wroná
+            1: "Idź do Bobru miástá Strzelec", // 1 1
+            2: "Idź do Rysiá miástá Słáwków", // 1 2
+            3: "Idź do Sobolá miástá Kwiatków", // 2 2
+            4: "Idź do Kozy miástá Kurnik", // 1 3
+            5: "Idź do Baráná miastá Kámionká", // 2 3
+            6: "Idź do Borsuká miástá Számotuły", // 3 3
+            7: "Idź do Tchorzá miástá Kołomyia", // 1 4
+            8: "Idź do Wiewiórki miástá Stárościanki", // 2 4
+            9: "Idź do Łásice miástá Jásłowiec", // 3 4
+            10: "Idź do Záiącá miástá Gośćin", // 4 4
+            11: "Idź do Krzeczká miástá Chodecz", // 1 5
+            12: "Idź do Nowogrod miástá Sielanów", // 2 5
+            13: "Idź do Rosomaká miástá Chęciny", // 3 5
+            14: "Idź do Króliká miástá Radzánów", // 4 5
+            15: "Idź do Popielice miástá Mielec", // 5 5
+            16: "Idź do Gronostáiá miástá Kurów", // 1 6
+            17: "Idź do Niedźwiedzia miástá Kłobucko", // 2 6
+            18: "Idź do Wydry miástá Strzeżów", // 3 6
+            19: "Idź do Liszki miástá Zábno", // 4 6
+            20: "Idź do Wilká miástá Piątek", // 5 6
+            21: "Idź do Kuny miástá Borek" // 6 6
+        },
+
+	7: { //Tarcza 7 Synogárlicá
+            1: "Idź do Liszki miástá Brzyská", // 1 1
+            2: "Idź do Wilká miástá Kostrzyn", // 1 2
+            3: "Idź do Kuny miástá Zwáradz", // 2 2
+            4: "Idź do Bobru miástá Secemin", // 1 3
+            5: "Idź do Ryśiá miastá Huchań", // 2 3
+            6: "Idź do Sobolá miástá Zduny", // 3 3
+            7: "Idź do Kozy miástá Rypno", // 1 4
+            8: "Idź do Baráná miástá Wártá", // 2 4
+            9: "Idź do Borsuká miástá Trzemeszno", // 3 4
+            10: "Idź do Tchorzá miástá Szrákowo", // 4 4
+            11: "Idź do Wiewiórki miástá Liw", // 1 5
+            12: "Idź do Łásice miástá Suleiów", // 2 5
+            13: "Idź do Záiącá miástá Wasosze", // 3 5
+            14: "Idź do Krzeczká miástá Wąkocko", // 4 5
+            15: "Idź do Nowogrod miástá Siećiechów", // 5 5
+            16: "Idź do Rosomaká miástá Rolno", // 1 6
+            17: "Idź do Króliká miástá Rychwał", // 2 6
+            18: "Idź do Popielice miástá Sieluń", // 3 6
+            19: "Idź do Gronostáiá miástá Gorzków", // 4 6
+            20: "Idź do Niedźwiedzia miástá Wrzesnia", // 5 6
+            21: "Idź do Wydry miástá Koźiegłowy" // 6 6
+        },
+		
+	8: { //Tarcza 8 Sroká
+            1: "Idź do Wydry miástá Ryszkowo", // 1 1
+            2: "Idź do Liszki miástá Sámbor", // 1 2
+            3: "Idź do Wilká miástá Niżánkowice", // 2 2
+            4: "Idź do Kuny miástá Górká", // 1 3
+            5: "Idź do Bobru miastá Lubomla", // 2 3
+            6: "Idź do Rysiá miástá Bábicá", // 3 3
+            7: "Idź do Sobolá miástá Dźiergów", // 1 4
+            8: "Idź do Kozy miástá Węgrowice", // 2 4
+            9: "Idź do Baráná miástá Pokrzywnicá", // 3 4
+            10: "Idź do Borsuká miástá Skrzynno", // 4 4
+            11: "Idź do Tchorzá miástá Niobylec", // 1 5
+            12: "Idź do Wiewiórki miástá Sepelborg", // 2 5
+            13: "Idź do Łásice miástá Denów", // 3 5
+            14: "Idź do Záiącá miástá Grodźec", // 4 5
+            15: "Idź do Krzeczká miástá Słupia", // 5 5
+            16: "Idź do Nowogrod miástá Jáworów", // 1 6
+            17: "Idź do Rosomaká miástá Przyrów", // 2 6
+            18: "Idź do Króliká miástá Oporów", // 3 6
+            19: "Idź do Popielice miástá Staw", // 4 6
+            20: "Idź do Gronostáiá miástá Stembeg", // 5 6 ???
+            21: "Idź do Niedźwiedzia miástá Zárnowiec" // 6 6
+        },
+		
+	9: { //Tarcza 9 Kruk
+            1: "Idź do Borsuká miástá Łáńcut", // 1 1
+            2: "Idź do Tchorzá miástá Wolbran", // 1 2
+            3: "Idź do Wiewiórki miástá Járocin", // 2 2
+            4: "Idź do Łásice miástá Kiebłow", // 1 3
+            5: "Idź do Záiącá miastá Rćina", // 2 3
+            6: "Idź do Krzeczká miástá Nowytarg", // 3 3
+            7: "Idź do Nowogrod miástá Sowozczów", // 1 4
+            8: "Idź do Rosomaká miástá Trzćiél", // 2 4
+            9: "Idź do Króliká miástá Bábin", // 3 4
+            10: "Idź do Popielice miástá Záłoszce", // 4 4
+            11: "Idź do Gronostáiá miástá Járząb", // 1 5
+            12: "Idź do Niedźwiedzia miástá Buczác", // 2 5
+            13: "Idź do Wydry miástá Horynin", // 3 5
+            14: "Idź do Liszki miástá Górno", // 4 5
+            15: "Idź do Wilká miástá Máłogoszce", // 5 5
+            16: "Idź do Kuny miástá Zákroczym", // 1 6
+            17: "Idź do Bobru miástá Chodel", // 2 6
+            18: "Idź do Rysiá miástá Lásko", // 3 6
+            19: "Idź do Sobolá miástá Fryálno", // 4 6
+            20: "Idź do Kozy miástá Kiernoźia", // 5 6 ???
+            21: "Idź do Baráná miástá Szczekocin" // 6 6
+        },
+		
+	10: { //Tarcza 10 Krogulec
+            1: "Idź do Rosomaká miástá Járosław", // 1 1
+            2: "Idź do Króliká miástá Rynárzów", // 1 2
+            3: "Idź do Popielice miástá Wyszkowo", // 2 2
+            4: "Idź do Gronostáiá miástá Przeclaw", // 1 3
+            5: "Idź do Niedźwiedzia miastá Sleszyn", // 2 3
+            6: "Idź do Wydry miástá Rátno", // 3 3
+            7: "Idź do Liszki miástá Zbączyn", // 1 4
+            8: "Idź do Wilká miástá Láskárzów", // 2 4
+            9: "Idź do Kuny miástá Jwánowice", // 3 4
+            10: "Idź do Bobru miástá Zárszyn", // 4 4
+            11: "Idź do Rysiá miástá Rydźiná", // 1 5
+            12: "Idź do Sobolá miástá Dobrogoszcz", // 2 5
+            13: "Idź do Kozy miástá Koszyczki", // 3 5
+            14: "Idź do Baráná miástá Kónin", // 4 5
+            15: "Idź do Borsuká miástá Chełmno", // 5 5
+            16: "Idź do Tchorzá miástá Lubaczów", // 1 6
+            17: "Idź do Wiewiórki miástá Stawiszyn", // 2 6
+            18: "Idź do Łásice miástá Wieluń", // 3 6
+            19: "Idź do Záiącá miástá Rywotycz", // 4 6
+            20: "Idź do Krzeczká miástá Człómniki", // 5 6 ???
+            21: "Idź do Nowogrod miástá Głęboczek" // 6 6
+        },
+
     }
+
+
 
 
     const tekstTestowy1 = {
