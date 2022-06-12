@@ -104,6 +104,9 @@ function getWheel(wheelNumber){
         citySplit = messageChoose.split(' ');
         city = citySplit[4];
 
+        currentCity=animalWheels[animal][city];
+        document.getElementById("secondWheel").src=`animalWheels/${animal}.png`;
+
         // goButton.addEventListener('click', () => {
         // displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
         // });
@@ -120,8 +123,6 @@ function getWheel(wheelNumber){
         characterImage.addEventListener('click',() => {
             console.log(animal, city);
             document.getElementById("thirdScreen").scrollIntoView();
-            currentCity=animalWheels[animal][city];
-            document.getElementById("secondWheel").src=`animalWheels/${animal}.png`;
         setTimeout (function () {
             degAnim = zoneSize*currentCity[1];
             animalWheel.style.transition = 'all 2s ease-out';
