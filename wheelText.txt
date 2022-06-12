@@ -1,0 +1,508 @@
+ const wheelText = {
+        1: { //Tarcza 1 Gπsiorek
+            1: "Idü do Kozy mi·st· Osmolin", // 1 1
+            2: "Idü do Bar·n· mi·st· OpolÈ", // 1 2
+            3: "Idü do Bor?uka mi·st· Pod·yczÈ", // 2 2
+            4: "Idü do Tchorz· mi·st· SwiercÛw", // 1 3
+            5: "Idü do WiewiÛrki miast Przewor?ko", // 2 3
+            6: "Idü do L·úice mi·st· Stryy", // 3 3
+            7: "Idü do Z·iπc· mi·st· MieúÊi?ko", // 1 4
+            8: "Idü do Krzeczk· mi·st· Z·wichost", // 2 4
+            9: "Idü do Nowogrod mi·st· RzeszÛw", // 3 4
+            10: "Idü do Rosomak· mi·st· SzelechÛw", // 4 4
+            11: "Idü do KrÛlik· mi·st· Szyrniki", // 1 5
+            12: "Idü do Popielice mi·st· BrzÈøek", // 2 5
+            13: "Idü do Gronost·i· mi·st· Kozprza", // 3 5
+            14: "Idü do Niedüwiedzia mi·st· Sanok", // 4 5
+            15: "Idü do Wydry mi·st· Lutomiersko", // 5 5
+            16: "Idü do Liszki mi·st· Czyrsk", // 1 6
+            17: "Idü do Wilk· mi·st· Cz·rnkÛw", // 2 6
+            18: "Idü do Kuny mi·st· Zyd·czÛw", // 3 6
+            19: "Idü do Bobru mi·st· Chmielnik", // 4 6
+            20: "Idü do Ryúi· mi·st· Grodek", // 5 6
+            21: "Idü do Sobol· mi·st· Bochnia" // 6 6
+        },
+
+        2: { //Tarcza 2 Go≥πb
+            1: "Idü do Sobol· mi·st· Kozyrnik",
+            2: "Idü do Kozy mi·st· Roøan",
+            3: "Idü do Birana mi·st· Mogilnic·",
+            4: "Idü do Borsuk· mi·st· StÍøyc·",
+            5: "Idü do Tchorz· miasta Ro·tyn",
+            6: "Idü do WiewiÛrki mi·st· StryykÛw",
+            7: "Idü do L·úice mi·st· KulitÛw",
+            8: "Idü do Z·iπc· mi·st· Oúieczno",
+            9: "Idü do Krzeczk· mi·st· RubieszÛw",
+            10: "Idü do Nowogrod mi·st· UrzÍdÛw",
+            11: "Idü do Rosomak· mi·st· W·wrzinczyce",
+            12: "Idü do KrÛlik· mi·st· Tuchola",
+            13: "Idü do Popielice mi·st· Che≥m",
+            14: "Idü do Gronost·i· mi·st· Szczyrcz",
+            15: "Idü do Niedüwiedzia mi·st· PÛniec",
+            16: "Idü do Wydry mi·st· CiechanÛw",
+            17: "Idü do Liszki mi·st· Lepno",
+            18: "Idü do Wilk· mi·st· Legonice",
+            19: "Idü do Kuny mi·st· Op·towice",
+            20: "Idü do Bobru mi·st· Be≥øyce",
+            21: "Idü do Ryúi· mi·st· Fordan"
+        },
+
+        3: { //Tarcza 1 Orze≥
+            1: "Idü do Ryúi· mi·st· Lubin", // 1 1
+            2: "Idü do Sobol· mi·st· K·szkowo", // 1 2
+            3: "Idü do Kozy mi·st· SzÈrkÛw", // 2 2
+            4: "Idü do B·r·n· mi·st· Rypin", // 1 3
+            5: "Idü do Borsuk· miast Buk", // 2 3
+            6: "Idü do Tchorz· mi·st· ZwoleÒ", // 3 3
+            7: "Idü do WiewiÛrki mi·st· RzemieÒ", // 1 4
+            8: "Idü do L·úice mi·st· Leszko", // 2 4
+            9: "Idü do Z·iπc· mi·st· Radomskie", // 3 4
+            10: "Idü do Krzeczk· mi·st· Proszkowice", // 4 4
+            11: "Idü do Nowogrod mi·st· TrÍbowla", // 1 5
+            12: "Idü do Rosomak· mi·st· Opalenic·", // 2 5
+            13: "Idü do KrÛlik· mi·st· Oleszko", // 3 5
+            14: "Idü do Popielice mi·st· Szczebrzeszyn", // 4 5
+            15: "Idü do Gronost·i· mi·st· Wolborz", // 5 5
+            16: "Idü do Niedüwiedzia mi·st· R·w·", // 1 6
+            17: "Idü do Wydry mi·st· G·rwolin", // 2 6
+            18: "Idü do Liszki mi·st· BiÈle", // 3 6
+            19: "Idü do Wilk· mi·st· GÍbic·", // 4 6
+            20: "Idü do Kuny mi·st· Syroczko", // 5 6
+            21: "Idü do Bobru mi·st· Kobylno" // 6 6
+        },
+
+		4: { //Tarcza 4 P·pug·
+            1: "Idü do Wilk· mi·st· Op·towek", // 1 1
+            2: "Idü do Kuny mi·st· RzeszÛw", // 1 2
+            3: "Idü do Bobru mi·st· Bircza", // 2 2
+            4: "Idü do Rysi· mi·st· Dopczyce", // 1 3
+            5: "Idü do Sobol· miast· Go≥ogÛry", // 2 3
+            6: "Idü do Kozy mi·st· Solec", // 3 3
+            7: "Idü do B·r·n· mi·st· Wid·w·", // 1 4
+            8: "Idü do Borsuk· mi·st· Krocko", // 2 4
+            9: "Idü do Tchorz· mi·st· Mosin·", // 3 4
+            10: "Idü do WiewiÛrki mi·st· WysokiÈ", // 4 4
+            11: "Idü do L·úice mi·st· Boles≥·wiec", // 1 5
+            12: "Idü do Z·iπc· mi·st· Kraúnik", // 2 5
+            13: "Idü do Krzeczk· mi·st· Ko≥o", // 3 5
+            14: "Idü do Nowogrod mi·st· Brzyska", // 4 5
+            15: "Idü do Rosomak· mi·st· Zychlin", // 5 5
+            16: "Idü do KrÛlik· mi·st· P·cz·nÛw", // 1 6
+            17: "Idü do Popielice mi·st· B·bimost", // 2 6
+            18: "Idü do Gronost·i· mi·st· PrzedbÛrz", // 3 6
+            19: "Idü do Niedüwiedzia mi·st· Ostrowia", // 4 6
+            20: "Idü do Wydry mi·st· Drzewic·", // 5 6
+            21: "Idü do Liszki mi·st· GostyÒ" // 6 6
+        },
+
+		5: { //Tarcza 5 S≥owik
+            1: "Idü do Niedüwiedzia mi·st· PakoúÊ", // 1 1
+            2: "Idü do Wydry mi·st· Inow≥Ûdz", // 1 2
+            3: "Idü do Liszki mi·st· MskÛw", // 2 2
+            4: "Idü do Wilk· mi·st· M·rgonin", // 1 3
+            5: "Idü do Kuny miast· L·biszyn", // 2 3
+            6: "Idü do Bobru mi·st· Dubiecko", // 3 3
+            7: "Idü do Rysi· mi·st· K≥od·w·", // 1 4
+            8: "Idü do Sobol· mi·st· Brzostek", // 2 4
+            9: "Idü do Kozy mi·st· Sokal", // 3 4
+            10: "Idü do B·r·na mi·st· Smotrzyc", // 4 4
+            11: "Idü do Borsuk· mi·st· Waw·lnic·", // 1 5
+            12: "Idü do Tchorz· mi·st· GrzegorzÛw", // 2 5
+            13: "Idü do WiewiÛrki mi·st· KleczÛw", // 3 5
+            14: "Idü do £·sice mi·st· KuflÛw", // 4 5
+            15: "Idü do Z·iπc·  mi·st· BÍdzyÒ", // 5 5
+            16: "Idü do Krzeczk· mi·st· W≥ozymiÈrz", // 1 6
+            17: "Idü do Nowogrod mi·st· Ho≥bok", // 2 6
+            18: "Idü do Rosomak· mi·st· Szyszkow", // 3 6
+            19: "Idü do KrÛlik· mi·st· Tyr·w·", // 4 6
+            20: "Idü do Popielice mi·st· Wπsoczyn", // 5 6
+            21: "Idü do Gronost·i· mi·st· B·rczyn" // 6 6
+        },
+
+		6: { //Tarcza 6 Wron·
+            1: "Idü do Bobru mi·st· Strzelec", // 1 1
+            2: "Idü do Rysi· mi·st· S≥·wkÛw", // 1 2
+            3: "Idü do Sobol· mi·st· KwiatkÛw", // 2 2
+            4: "Idü do Kozy mi·st· Kurnik", // 1 3
+            5: "Idü do Bar·n· miast· K·mionk·", // 2 3
+            6: "Idü do Borsuk· mi·st· Sz·motu≥y", // 3 3
+            7: "Idü do Tchorz· mi·st· Ko≥omyia", // 1 4
+            8: "Idü do WiewiÛrki mi·st· St·roúcianki", // 2 4
+            9: "Idü do £·sice mi·st· J·s≥owiec", // 3 4
+            10: "Idü do Z·iπc· mi·st· GoúÊin", // 4 4
+            11: "Idü do Krzeczk· mi·st· Chodecz", // 1 5
+            12: "Idü do Nowogrod mi·st· SielanÛw", // 2 5
+            13: "Idü do Rosomak· mi·st· ChÍciny", // 3 5
+            14: "Idü do KrÛlik· mi·st· Radz·nÛw", // 4 5
+            15: "Idü do Popielice mi·st· Mielec", // 5 5
+            16: "Idü do Gronost·i· mi·st· KurÛw", // 1 6
+            17: "Idü do Niedüwiedzia mi·st· K≥obucko", // 2 6
+            18: "Idü do Wydry mi·st· StrzeøÛw", // 3 6
+            19: "Idü do Liszki mi·st· Z·bno", // 4 6
+            20: "Idü do Wilk· mi·st· Piπtek", // 5 6
+            21: "Idü do Kuny mi·st· Borek" // 6 6
+        },
+
+		7: { //Tarcza 7 Synog·rlic·
+            1: "Idü do Liszki mi·st· Brzysk·", // 1 1
+            2: "Idü do Wilk· mi·st· Kostrzyn", // 1 2
+            3: "Idü do Kuny mi·st· Zw·radz", // 2 2
+            4: "Idü do Bobru mi·st· Secemin", // 1 3
+            5: "Idü do Ryúi· miast· HuchaÒ", // 2 3
+            6: "Idü do Sobol· mi·st· Zduny", // 3 3
+            7: "Idü do Kozy mi·st· Rypno", // 1 4
+            8: "Idü do Bar·n· mi·st· W·rt·", // 2 4
+            9: "Idü do Borsuk· mi·st· Trzemeszno", // 3 4
+            10: "Idü do Tchorz· mi·st· Szr·kowo", // 4 4
+            11: "Idü do WiewiÛrki mi·st· Liw", // 1 5
+            12: "Idü do £·sice mi·st· SuleiÛw", // 2 5
+            13: "Idü do Z·iπc· mi·st· Wasosze", // 3 5
+            14: "Idü do Krzeczk· mi·st· Wπkocko", // 4 5
+            15: "Idü do Nowogrod mi·st· SieÊiechÛw", // 5 5
+            16: "Idü do Rosomak· mi·st· Rolno", // 1 6
+            17: "Idü do KrÛlik· mi·st· Rychwa≥", // 2 6
+            18: "Idü do Popielice mi·st· SieluÒ", // 3 6
+            19: "Idü do Gronost·i· mi·st· GorzkÛw", // 4 6
+            20: "Idü do Niedüwiedzia mi·st· Wrzesnia", // 5 6
+            21: "Idü do Wydry mi·st· Koüieg≥owy" // 6 6
+        },
+		
+		8: { //Tarcza 8 Srok·
+            1: "Idü do Wydry mi·st· Ryszkowo", // 1 1
+            2: "Idü do Liszki mi·st· S·mbor", // 1 2
+            3: "Idü do Wilk· mi·st· Niø·nkowice", // 2 2
+            4: "Idü do Kuny mi·st· GÛrk·", // 1 3
+            5: "Idü do Bobru miast· Lubomla", // 2 3
+            6: "Idü do Rysi· mi·st· B·bic·", // 3 3
+            7: "Idü do Sobol· mi·st· DüiergÛw", // 1 4
+            8: "Idü do Kozy mi·st· WÍgrowice", // 2 4
+            9: "Idü do Bar·n· mi·st· Pokrzywnic·", // 3 4
+            10: "Idü do Borsuk· mi·st· Skrzynno", // 4 4
+            11: "Idü do Tchorz· mi·st· Niobylec", // 1 5
+            12: "Idü do WiewiÛrki mi·st· Sepelborg", // 2 5
+            13: "Idü do £·sice mi·st· DenÛw", // 3 5
+            14: "Idü do Z·iπc· mi·st· Grodüec", // 4 5
+            15: "Idü do Krzeczk· mi·st· S≥upia", // 5 5
+            16: "Idü do Nowogrod mi·st· J·worÛw", // 1 6
+            17: "Idü do Rosomak· mi·st· PrzyrÛw", // 2 6
+            18: "Idü do KrÛlik· mi·st· OporÛw", // 3 6
+            19: "Idü do Popielice mi·st· Staw", // 4 6
+            20: "Idü do Gronost·i· mi·st· Stembeg", // 5 6 ???
+            21: "Idü do Niedüwiedzia mi·st· Z·rnowiec" // 6 6
+        },
+		
+		9: { //Tarcza 9 Kruk
+            1: "Idü do Borsuk· mi·st· £·Òcut", // 1 1
+            2: "Idü do Tchorz· mi·st· Wolbran", // 1 2
+            3: "Idü do WiewiÛrki mi·st· J·rocin", // 2 2
+            4: "Idü do £·sice mi·st· Kieb≥ow", // 1 3
+            5: "Idü do Z·iπc· miast· RÊina", // 2 3
+            6: "Idü do Krzeczk· mi·st· Nowytarg", // 3 3
+            7: "Idü do Nowogrod mi·st· SowozczÛw", // 1 4
+            8: "Idü do Rosomak· mi·st· TrzÊiÈl", // 2 4
+            9: "Idü do KrÛlik· mi·st· B·bin", // 3 4
+            10: "Idü do Popielice mi·st· Z·≥oszce", // 4 4
+            11: "Idü do Gronost·i· mi·st· J·rzπb", // 1 5
+            12: "Idü do Niedüwiedzia mi·st· Bucz·c", // 2 5
+            13: "Idü do Wydry mi·st· Horynin", // 3 5
+            14: "Idü do Liszki mi·st· GÛrno", // 4 5
+            15: "Idü do Wilk· mi·st· M·≥ogoszce", // 5 5
+            16: "Idü do Kuny mi·st· Z·kroczym", // 1 6
+            17: "Idü do Bobru mi·st· Chodel", // 2 6
+            18: "Idü do Rysi· mi·st· L·sko", // 3 6
+            19: "Idü do Sobol· mi·st· Fry·lno", // 4 6
+            20: "Idü do Kozy mi·st· Kiernoüia", // 5 6 ???
+            21: "Idü do Bar·n· mi·st· Szczekocin" // 6 6
+        },
+		
+		10: { //Tarcza 10 Krogulec
+            1: "Idü do Rosomak· mi·st· J·ros≥aw", // 1 1
+            2: "Idü do KrÛlik· mi·st· Ryn·rzÛw", // 1 2
+            3: "Idü do Popielice mi·st· Wyszkowo", // 2 2
+            4: "Idü do Gronost·i· mi·st· Przeclaw", // 1 3
+            5: "Idü do Niedüwiedzia miast· Sleszyn", // 2 3
+            6: "Idü do Wydry mi·st· R·tno", // 3 3
+            7: "Idü do Liszki mi·st· Zbπczyn", // 1 4
+            8: "Idü do Wilk· mi·st· L·sk·rzÛw", // 2 4
+            9: "Idü do Kuny mi·st· Jw·nowice", // 3 4
+            10: "Idü do Bobru mi·st· Z·rszyn", // 4 4
+            11: "Idü do Rysi· mi·st· Rydüin·", // 1 5
+            12: "Idü do Sobol· mi·st· Dobrogoszcz", // 2 5
+            13: "Idü do Kozy mi·st· Koszyczki", // 3 5
+            14: "Idü do Bar·n· mi·st· KÛnin", // 4 5
+            15: "Idü do Borsuk· mi·st· Che≥mno", // 5 5
+            16: "Idü do Tchorz· mi·st· LubaczÛw", // 1 6
+            17: "Idü do WiewiÛrki mi·st· Stawiszyn", // 2 6
+            18: "Idü do £·sice mi·st· WieluÒ", // 3 6
+            19: "Idü do Z·iπc· mi·st· Rywotycz", // 4 6
+            20: "Idü do Krzeczk· mi·st· Cz≥Ûmniki", // 5 6 ???
+            21: "Idü do Nowogrod mi·st· G≥Íboczek" // 6 6
+        },
+		
+		11: { //Tarcza 11 Kur
+            1: "Idü do Nowogrod mi·st· Janowiec", // 1 1
+            2: "Idü do Rosomak· mi·st· Grzocholice", // 1 2
+            3: "Idü do KrÛlik· mi·st· Skπpe", // 2 2
+            4: "Idü do Popielice mi·st· Glini·ny", // 1 3
+            5: "Idü do Gronost·i· miast· Odal·now", // 2 3
+            6: "Idü do Niedüwiedzia mi·st· Pilc·", // 3 3
+            7: "Idü do Wydry mi·st· WrÛnki", // 1 4
+            8: "Idü do Liszki mi·st· T·rczy", // 2 4
+            9: "Idü do Wilk· mi·st· Kielce", // 3 4
+            10: "Idü do Kuny mi·st· Czyrkaszno", // 4 4
+            11: "Idü do Bobru mi·st· Olesznic·", // 1 5
+            12: "Idü do Ryúi· mi·st· Wiúni·", // 2 5
+            13: "Idü do Sobol· mi·st· PleszÛw", // 3 5
+            14: "Idü do Kozy mi·st· K·Êiπø", // 4 5
+            15: "Idü do Bar·n· mi·st· G≥odkowice", // 5 5
+            16: "Idü do Borsuk· mi·st· Bobrowni", // 1 6
+            17: "Idü do Tchorz· mi·st· Czucz", // 2 6
+            18: "Idü do WiewiÛrki mi·st· GrzymiszÛw", // 3 6
+            19: "Idü do L·úice mi·st· Milczyce", // 4 6
+            20: "Idü do Z·iπc· mi·st· Pczew", // 5 6 ???
+            21: "Idü do Krzeczk· mi·st· H·licz" // 6 6
+        },
+		
+		12: { //Tarcza 12 Soko≥
+            1: "Idü do Krzeczk· mi·st· Ropczyce", // 1 1
+            2: "Idü do Nowogrod mi·st· F·lkÛw", // 1 2
+            3: "Idü do Rosomak· mi·st· Lopienno", // 2 2
+            4: "Idü do KrÛlik· mi·st· Tyczyn", // 1 3
+            5: "Idü do Popielice miast· LutÛw", // 2 3
+            6: "Idü do Gronost·i· mi·st· Smigiel", // 3 3
+            7: "Idü do Niedüwiedzia mi·st· MyÒsk", // 1 4
+            8: "Idü do Wydry mi·st· Olsztynek", // 2 4
+            9: "Idü do Liszki mi·st· PÛ≥kpie", // 3 4
+            10: "Idü do Wilk· mi·st· Che≥møa", // 4 4
+            11: "Idü do Kuny mi·st· M≥·w·", // 1 5
+            12: "Idü do Bobru mi·st· Mi≥os≥aw", // 2 5
+            13: "Idü do Rysi· mi·st· TuchÛw", // 3 5
+            14: "Idü do Sobol· mi·st· Turobin", // 4 5
+            15: "Idü do Kozy mi·st· WieczbÛrø", // 5 5
+            16: "Idü do Bar·n· mi·st· Sk·win·", // 1 6
+            17: "Idü do Borsuk· mi·st· Szorstyn", // 2 6
+            18: "Idü do Tchorz· mi·st· J≥Ûw", // 3 6
+            19: "Idü do WiewiÛrki mi·st· SmielÛw", // 4 6
+            20: "Idü do L·úice mi·st· Zywiec", // 5 6 ???
+            21: "Idü do Z·iπc· mi·st· Wilczyno" // 6 6
+        },
+		
+		13: { //Tarcza 13 Kurop·tw·
+            1: "Idü do Z·iπc· mi·st· Sk·≥a", // 1 1
+            2: "Idü do Krzeczk· mi·st· Namys≥ow", // 1 2
+            3: "Idü do Nowogrod mi·st· Biel·wy", // 2 2
+            4: "Idü do Rosomak· mi·st· Koømin", // 1 3
+            5: "Idü do KrÛlik· miast· Wil·nÛw", // 2 3
+            6: "Idü do Popielice mi·st· KurzelÛw", // 3 3
+            7: "Idü do Gronost·i· mi·st· Busko", // 1 4
+            8: "Idü do Niedüwiedzia mi·st· Powidz", // 2 4
+            9: "Idü do Wydry mi·st· MiÍdzychÛd", // 3 4
+            10: "Idü do Liszki mi·st· M·kÛw", // 4 4
+            11: "Idü do Wilk· mi·st· Dukl·", // 1 5
+            12: "Idü do Kuny mi·st· Tyszkowice", // 2 5
+            13: "Idü do Bobru mi·st· WyszkÛw", // 3 5
+            14: "Idü do Rysi· mi·st· OstrÛw", // 4 5
+            15: "Idü do Sobol· mi·st· Szymb·rk", // 5 5
+            16: "Idü do Kozy mi·st· K·üimierz", // 1 6
+            17: "Idü do Bar·n· mi·st· Krzemieniec", // 2 6
+            18: "Idü do Borsuk· mi·st· WyszogrÛd", // 3 6
+            19: "Idü do Tchorz· mi·st· Stobnica", // 4 6
+            20: "Idü do WiewiÛrki mi·st· Krasnostaw", // 5 6 ???
+            21: "Idü do L·úice mi·st· PinczÛw" // 6 6
+        },
+		
+		14: { //Tarcza 14 Kuku≥k·
+            1: "Idü do Gronost·i· mi·st· S≥owaczÛw", // 1 1
+            2: "Idü do Niedüwiedzia mi·st· BodziÍÊin", // 1 2
+            3: "Idü do Wydry mi·st· Nowotaniec", // 2 2
+            4: "Idü do Liszki mi·st· Pi≥·", // 1 3
+            5: "Idü do Wilk· miast· Wieliczk·", // 2 3
+            6: "Idü do Kuny mi·st· ChrzanÛw", // 3 3
+            7: "Idü do Bobru mi·st· Pobiedüisk·", // 1 4
+            8: "Idü do Ryúi· mi·st· Rym·nÛw", // 2 4
+            9: "Idü do Sobol· mi·st· Krotyszyn", // 3 4
+            10: "Idü do Kozy mi·st· Brudzowo", // 4 4
+            11: "Idü do Bar·n· mi·st· Wπsoszyn", // 1 5
+            12: "Idü do Borsuk· mi·st· Pomorz·ny", // 2 5
+            13: "Idü do Tchorz· mi·st· I≥ø·", // 3 5
+            14: "Idü do WiewiÛrki mi·st· BrzozÛw", // 4 5
+            15: "Idü do L·úice mi·st· Sol", // 5 5
+            16: "Idü do Z·iπc· mi·st· Frystag", // 1 6
+            17: "Idü do Krzeczk· mi·st· Grzebo≥Ûw", // 2 6
+            18: "Idü do Nowogrod mi·st· CzchÛw", // 3 6
+            19: "Idü do Rosomak· mi·st· Gπs·w·", // 4 6
+            20: "Idü do KrÛlik· mi·st· SÍdüiszÛw", // 5 6 ???
+            21: "Idü do Popielice mi·st· SteszÛw" // 6 6
+        },
+		
+		15: { //Tarcza 15 Drop
+            1: "Idü do KrÛlik· mi·st· PieÒsko", // 1 1
+            2: "Idü do Popielice mi·st· Z≥oczew", // 1 2
+            3: "Idü do Gronost·i· mi·st· S≥uøÛw", // 2 2
+            4: "Idü do Niedüwiedzia mi·st· Kr·ienk·", // 1 3
+            5: "Idü do Wydry miast· Zadybie", // 2 3
+            6: "Idü do Liszki mi·st· OrchÛw", // 3 3
+            7: "Idü do Wilk· mi·st· Bnin", // 1 4
+            8: "Idü do Kuny mi·st· Dobra", // 2 4
+            9: "Idü do Bobru mi·st· Wielopole", // 3 4
+            10: "Idü do Ryúi· mi·st· Zb·rasz", // 4 4
+            11: "Idü do Sobol· mi·st· J·roczewo", // 1 5
+            12: "Idü do Kozy mi·st· JÍdrzeiÛw", // 2 5
+            13: "Idü do Bar·n· mi·st· Leszczysko", // 3 5
+            14: "Idü do Borsuk· mi·st· J·cymierz", // 4 5
+            15: "Idü do Tchorz· mi·st· BrÛg", // 5 5
+            16: "Idü do WiewiÛrki mi·st· Drohobicz", // 1 6
+            17: "Idü do L·úice mi·st· Znin", // 2 6
+            18: "Idü do Z·iπc· mi·st· Szubin", // 3 6
+            19: "Idü do Krzeczk· mi·st· Brzeünic·", // 4 6
+            20: "Idü do Nowogrod mi·st· Bedlno", // 5 6 ???
+            21: "Idü do Rosomak· mi·st· K·mieÒsko" // 6 6
+        },
+		
+		16: { //Tarcza 16 Piegz·
+            1: "Idü do Kuny mi·st· Przytyk", // 1 1
+            2: "Idü do Bobru mi·st· J·slisk·", // 1 2
+            3: "Idü do Ryúi· mi·st· KÍpno", // 2 2
+            4: "Idü do Sobol· mi·st· Z·rnow·", // 1 3
+            5: "Idü do Kozy miast· Prasznysz", // 2 3
+            6: "Idü do Bar·n· mi·st· Tuszyn", // 3 3
+            7: "Idü do Borsuk· mi·st· CzepielÛw", // 1 4
+            8: "Idü do Tchorz· mi·st· OstrzeszÛw", // 2 4
+            9: "Idü do WiewiÛrki mi·st· Syroczec", // 3 4
+            10: "Idü do L·úice mi·st· Sienno", // 4 4
+            11: "Idü do Z·iπc· mi·st· WaúniÛw", // 1 5
+            12: "Idü do Krzeczk· mi·st· Turk", // 2 5
+            13: "Idü do Nowogrod mi·st· SkierbieszÛw", // 3 5
+            14: "Idü do Rosomak· mi·st· MiedzybÛrz", // 4 5
+            15: "Idü do KrÛlik· mi·st· R·düi≥Ûw", // 5 5
+            16: "Idü do Popielice mi·st· Knyszowo", // 1 6
+            17: "Idü do Gronost·i· mi·st· SzochÛw", // 2 6
+            18: "Idü do Niedüwiedzia mi·st· Woys≥·wice", // 3 6
+            19: "Idü do Wydry mi·st· Felsztyn", // 4 6
+            20: "Idü do Liszki mi·st· Dolsko", // 5 6 ???
+            21: "Idü do Wilk· mi·st· Cieszyleszy" // 6 6
+        },
+		
+		17: { //Tarcza 17 Paw
+            1: "Idü do Popielice mi·st· Oúieczno", // 1 1
+            2: "Idü do Gronost·i· mi·st· Bydlin", // 1 2
+            3: "Idü do Niedüwiedzia mi·st· Go≥up", // 2 2
+            4: "Idü do Wydry mi·st· PopÛw", // 1 3
+            5: "Idü do Liszki miast· Woynicz", // 2 3
+            6: "Idü do Wilk· mi·st· ZgrobieÒ", // 3 3
+            7: "Idü do Kuny mi·st· Lobøenic·", // 1 4
+            8: "Idü do Bobru mi·st· Mielszyno", // 2 4
+            9: "Idü do Ryúi· mi·st· Prochnik", // 3 4
+            10: "Idü do Sobol· mi·st· Sielec", // 4 4
+            11: "Idü do Kozy mi·st· Grodziπc", // 1 5
+            12: "Idü do Bar·n· mi·st· Bobrk·", // 2 5
+            13: "Idü do Borsuk· mi·st· WieruszÛw", // 3 5
+            14: "Idü do Tchorz· mi·st· Gr·bÛw", // 4 5
+            15: "Idü do WiewiÛrki mi·st· Krzywcza", // 5 5
+            16: "Idü do L·úice mi·st· BrzeÒsk", // 1 6
+            17: "Idü do Z·iπc· mi·st· Bodz·nÛw", // 2 6
+            18: "Idü do Krzeczk· mi·st· Lomza", // 3 6
+            19: "Idü do Nowogrod mi·st· DÍbic·", // 4 6
+            20: "Idü do Rosomak· mi·st· Buøenin", // 5 6 ???
+            21: "Idü do KrÛlik· mi·st· W·lcz" // 6 6
+        },
+		
+		18: { //Tarcza 18 Zoraw
+            1: "Idü do Popielice mi·st· Szyd≥owiec", // 1 1
+            2: "Idü do Gronost·i· mi·st· Lowicz", // 1 2
+            3: "Idü do Niedüwiedzia mi·st· Brodnica", // 2 2
+            4: "Idü do Wydry mi·st· OstrÛd", // 1 3
+            5: "Idü do Liszki miast· Nur", // 2 3
+            6: "Idü do Wilk· mi·st· K≥ocko", // 3 3
+            7: "Idü do Kuny mi·st· Kutno", // 1 4
+            8: "Idü do Bobru mi·st· Oúiek", // 2 4
+            9: "Idü do Ryúi· mi·st· MiechÛw", // 3 4
+            10: "Idü do Sobol· mi·st· Mor·czewo", // 4 4
+            11: "Idü do Kozy mi·st· LÍkno", // 1 5
+            12: "Idü do Bar·n· mi·st· Dπbrowno", // 2 5
+            13: "Idü do Borsuk· mi·st· Sm·lino", // 3 5
+            14: "Idü do Tchorz· mi·st· CzyrwieÒsko", // 4 5
+            15: "Idü do WiewiÛrki mi·st· LelÛw", // 5 5
+            16: "Idü do L·úice mi·st· R·dymno", // 1 6
+            17: "Idü do Z·iπc· mi·st· K·mieÒ", // 2 6
+            18: "Idü do Krzeczk· mi·st· Golina", // 3 6
+            19: "Idü do Nowogrod mi·st· J·worniczek", // 4 6
+            20: "Idü do Rosomak· mi·st· Drobin", // 5 6 ???
+            21: "Idü do KrÛlik· mi·st· Mrocza" // 6 6
+        },
+
+		19: { //Tarcza 19 Kaczor
+            1: "Idü do WiewiÛrki mi·st· SobÛtka", // 1 1
+            2: "Idü do L·úice mi·st· ZÍbrÛw", // 1 2
+            3: "Idü do Z·iπc· mi·st· P·bij·nice", // 2 2
+            4: "Idü do Krzeczk· mi·st· SyczÛw", // 1 3
+            5: "Idü do Nowogrod miast· Myúlimice", // 2 3
+            6: "Idü do Rosomak· mi·st· I≥kusz", // 3 3
+            7: "Idü do KrÛlik· mi·st· TuliszkÛw", // 1 4
+            8: "Idü do Popielice mi·st· W≥oc≥·w", // 2 4
+            9: "Idü do Gronost·i· mi·st· L·towiÊ", // 3 4
+            10: "Idü do Niedüwiedzia mi·st· Sπchoczyn", // 4 4
+            11: "Idü do Wydry mi·st· Br·Òsk", // 1 5
+            12: "Idü do Liszki mi·st· Gπbin", // 2 5
+            13: "Idü do Wilk· mi·st· R·dzieiÛw", // 3 5
+            14: "Idü do Kuny mi·st· Ogrodüieniec", // 4 5
+            15: "Idü do Bobru mi·st· K≥Ûdwic·", // 5 5
+            16: "Idü do Ryúi· mi·st· Be≥z", // 1 6
+            17: "Idü do Sobol· mi·st· Dobrzyc·", // 2 6
+            18: "Idü do Kozy mi·st· W·rk·", // 3 6
+            19: "Idü do Bar·n· mi·st· Sz·dek", // 4 6
+            20: "Idü do Borsuk· mi·st· Pniewy", // 5 6 ???
+            21: "Idü do Tchorz· mi·st· MoúÊisk·" // 6 6
+        },
+		
+		20: { //Tarcza 20 BoÊian
+            1: "Idü do Tchorz· mi·st· Sk·rmierz", // 1 1
+            2: "Idü do WiewiÛrki mi·st· Kop·nice", // 1 2
+            3: "Idü do L·úice mi·st· Petulic·", // 2 2
+            4: "Idü do Z·iπc· mi·st· M·kÛw", // 1 3
+            5: "Idü do Krzeczk· miast· R·doszyce", // 2 3
+            6: "Idü do Nowogrod mi·st· WÍgrÛw", // 3 3
+            7: "Idü do Rosomak· mi·st· Uúcie", // 1 4
+            8: "Idü do KrÛlik· mi·st· KliffÛw", // 2 4
+            9: "Idü do Popielice mi·st· Przedecz", // 3 4
+            10: "Idü do Gronost·i· mi·st· Bukowiec", // 4 4
+            11: "Idü do Niedüwiedzia mi·st· Kromo≥Ûw", // 1 5
+            12: "Idü do Wydry mi·st· K·Òczug·", // 2 5
+            13: "Idü do Liszki mi·st· L·gÛw", // 3 5
+            14: "Idü do Wilk· mi·st· Oborniki", // 4 5
+            15: "Idü do Kuny mi·st· N·d·rzyn", // 5 5
+            16: "Idü do Bobru mi·st· Brzostek", // 1 6
+            17: "Idü do Ryúi· mi·st· Kr·kowiec", // 2 6
+            18: "Idü do Sobol· mi·st· Iutroszyn", // 3 6
+            19: "Idü do Kozy mi·st· Krzywin", // 4 6
+            20: "Idü do Bar·n· mi·st· ZmigrÛd", // 5 6 ???
+            21: "Idü do Borsuk· mi·st· Lodüia" // 6 6
+        },
+		
+		21: { //Tarcza 21 Sow·
+            1: "Idü do L·úice mi·st· Zegan", // 1 1
+            2: "Idü do Z·iπc· mi·st· Zegrze", // 1 2
+            3: "Idü do Krzeczk· mi·st· Po≥·niec", // 2 2
+            4: "Idü do Nowogrod mi·st· Krobia", // 1 3
+            5: "Idü do Rosomak· miast· LwÛwek", // 2 3
+            6: "Idü do KrÛlik· mi·st· ZagorÛw", // 3 3
+            7: "Idü do Popielice mi·st· J·s≥o", // 1 4
+            8: "Idü do Gronost·i· mi·st· Ko≥·czyce", // 2 4
+            9: "Idü do Niedüwiedzia mi·st· Zarki", // 3 4
+            10: "Idü do Wydry mi·st· Go≥ancz·", // 4 4
+            11: "Idü do Liszki mi·st· P≥ÛÒsko", // 1 5
+            12: "Idü do Wilk· mi·st· Grodüisko", // 2 5
+            13: "Idü do Kuny mi·st· Piaseczno", // 3 5
+            14: "Idü do Bobru mi·st· Peplin", // 4 5
+            15: "Idü do Ryúi· mi·st· Cieszkowice", // 5 5
+            16: "Idü do Sobol· mi·st· Sulumrzyce", // 1 6
+            17: "Idü do Kozy mi·st· Srzem", // 2 6
+            18: "Idü do Bar·n· mi·st· StryykÛw", // 3 6
+            19: "Idü do Borsuk· mi·st· ObrzywÛ≥", // 4 6
+            20: "Idü do Tchorz· mi·st· W·rzymÛw", // 5 6 ???
+            21: "Idü do WiewiÛrki mi·st· Bobowa" // 6 6
+        },
+
+
+    }
+

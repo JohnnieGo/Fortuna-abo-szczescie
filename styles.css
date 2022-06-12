@@ -11,6 +11,18 @@ html{
     font-style: normal;
 }
 
+@media only screen and (max-width: 600px) {
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+.body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }    
+  }
+
 body{
     justify-content: center;
     align-items: center;
@@ -32,6 +44,8 @@ h1{
 
 h5{
     text-align: center;
+    margin: 0;
+    margin-top: 20px;
 }
 
 a{
@@ -44,18 +58,29 @@ a{
     flex-direction: row;
 }
 
+.padding{
+    padding: 0px 5px 0px 5px;
+}
+
 #changeFontFirstScreen{
-    position: absolute;
-    bottom: 15px;
     left: 10px;
     font-family: 'Libre Caslon Text', serif;
     font-size: medium;
     cursor: pointer;
 }
 
+.header{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
 .wheelSelect{
     cursor: pointer;
-    margin: 5px;
+    margin: 0px 5px 10px 5px;
     width: fit-content;
     overflow: hidden;
     display: flex;
@@ -75,25 +100,48 @@ a{
 
 
 .auguryChoose{
-height: 90vh;
-overflow: hidden;
+max-width: 1040px;
+height: 75vh;
+overflow: auto;
 overflow-x: hidden;
-overflow: scroll;
+
 }
 
 
-#auguryChooseList::-webkit-scrollbar {
+/* .auguryChooseList::-webkit-scrollbar {
     display: none;
-}
+} */
 
-#auguryChoose::-webkit-scrollbar {
+/* .auguryChoose::-webkit-scrollbar {
     display: none;
+} */
+
+::-webkit-scrollbar-thumb {
+    background-image: url('scrollThumb.png'); 
+    height: 212px;
+    border-radius: 50px;
+  }
+
+::-webkit-scrollbar {
+    width: 24px;
 }
 
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url('scrollButtonUp.png'); 
+    height: 24px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url('scrollButtonDown.png'); 
+    height: 24px;
+}
+
+::-webkit-scrollbar{
+    background-color: transparent;
+}
 
 #auguryChooseList{
-    height: 90vh;
-    overflow: scroll;
+    overflow: hidden;
     padding-left: 10px;
     padding-right: 10px;
     text-indent: 5px;
@@ -105,12 +153,29 @@ overflow: scroll;
     align-items: center;
 }
 
+.footerMenu{
+    bottom: 10px;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px 0 5px;
+    box-sizing: border-box;
+}
+
+#help{
+    font-size: 5vh;
+}
+
 #auguryWheelPlace img{
     width: 100vw;
 }
 
 .wheel{
     width: 100vw;
+    max-width: 600px;
 }
 
 .button{
@@ -157,8 +222,9 @@ overflow: scroll;
 }
 
 .screenCover{
-    height: 100%;
-    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,6 +235,7 @@ overflow: scroll;
     position: relative;
     left: 0px;
     top: 0px;
+    box-sizing: border-box;
 }
 
 .goToSecondWheelScreen{
@@ -252,17 +319,44 @@ overflow: scroll;
     box-shadow: 0 0 1px 1px #EDCFB2;
 }
 
-#imageid{
-    max-width: 600px;
+#animalContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 50px;
+    padding-top: 10vh;
+    position: relative;  
+    transform: rotate(-90deg) translatey(20%);
 }
 
-#help{
-    text-align: right;
-    font-size: 40px;
-    position: fixed;
-    bottom: 10px;
-    padding-right: 15px;
-    right: 10px;
-    width: fit-content;
-    margin-right: 0;
+#thirdScreen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.animalWheel{
+    width: 120vw;
+    max-width: 800px;
+}
+
+#displayAuguryCoordinates{
+    width: 100%;
+    border: 1px black solid;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    text-align: center;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */}
+
+.fade{
+    transition: opacity 1s ease;
+}
+
+
