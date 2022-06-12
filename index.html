@@ -20,7 +20,7 @@
                         <span onclick="getWheel(1)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Kto chce wiedźieć ieſli długo będzie żyw / Miec ná kole w ktorym Gąsiorek</span>
                         <span onclick="getWheel(2)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto będzie Duchownym : ná kole w ktorym Gołąb.</span>
                         <span onclick="getWheel(3)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto będzie podwyſzſzon : ná kole w ktorym Orzeł.</span>
-                        <span onclick="getWheel(4)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto będzie Fortunny : na kole w ktorym Papuſzka.</span>
+                        <span onclick="getWheel(4)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto będzie fortunny : na kole w ktorym Papuſzka.</span>
                         <span onclick="getWheel(5)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli ſye czyie myślenie ſpełni : na kole w ktorym Słowik.</span>
                         <span onclick="getWheel(6)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli ſye dobrze ożenić : na kole w ktorym Wrona.</span>
                         <span onclick="getWheel(7)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto komu jest prawie : ná kole w ktorym Synogarlica.</span>
@@ -35,26 +35,12 @@
                         <span onclick="getWheel(19)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jesli drogá będzie ſzcześliwa : ná kole w którym Kaczor.</span>
                         <span onclick="getWheel(20)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto zgubę naydzie : na kole w którym Bocian.</span>
                         <span onclick="getWheel(21)" class="wheelSelect"><img class="manusDistinction" src="Manus.png">Jeſli kto z świátá zeydzie : na kole gdzie Sowa.</span>
-                        <span><h5>W Krákowie Jan Żaborowski Programował.</h5>
+                        <span><h5>W Krákowie Jan Żaborowski Przygotował.</h5>
                     </div>
-                </div>
-                <div class="footerMenu">
-                    <div id="changeFontFirstScreen" class="changeFont"><u>Zmnień font na współczesny</u></div>
-                    <div id="help">?</div>  
                 </div>
             </container>
         </div>
         <div class="screenCover" id="secondScreen">
-            <div id="container">
-                <div id="left">
-                    <div class="buttonToAuguryList button" onclick="">Wróć do wyboru wróżby</div>
-                    <div class="buttonSpin button" onclick="" style="font-size: xx-large;">Zakręć</div>
-                </div>
-                <div id="right" style="">
-                    <div class="displayNumber">-</div>
-                </div>
-                <img style="position: absolute; bottom: 0px; width: 50px;" src="manusCenter.png">
-            </div> 
             <div class="goToSecondWheelScreen">
                 <div class="centerFlex">
                     <div class="SecondWheelScreenGoBack button"><img src="x.png">Zakręć jeszcze raz</div>
@@ -64,15 +50,37 @@
                     <div class="displayAugury">-</div>
                 </div>        
             </div>
-            <img id="imageid" class="wheel" src=""> 
+            <container class="container">
+                <div class="header">
+                    <h2 id="firstScreenTitles"></h2>
+                </div>
+                <div id="secondScreenGoAndSpin">
+                    <div class="buttonToAuguryList btn" onclick="">Wróć do wyboru wróżby</div>
+                    <div class="buttonSpin btn" onclick="" style="font-size: xx-large;">Zakręć</div>
+                </div> 
+                <div id="auguryWheelContainer">
+                    <img src="manusCenter.png" id="auguryManus">
+                    <img id="imageid" class="wheel" src=""> 
+                </div>
+            </container>
         </div>
         <div class="screenCover" id="thirdScreen">
-            <div id="displayAuguryCoordinates"></div>
-            <div id="animalContainer">
-                <img style="position: absolute; width: 60px; transform: translateY(-40px); z-index: 10;" src="manusCenter.png">
-                <img id="secondWheel" class="animalWheel" src=""> 
-            </div> 
-            <div id="clickOnAnimal"></div>
+            <container class="container">
+                <div id="displayAuguryCoordinatesContainer">Twoja Sybilla to:
+                    <div id="displayAuguryCoordinates" class="fadeIn"></div>
+                </div>
+                <div id="animalContainer">
+                    <img style="position: absolute; width: 60px; transform: translateY(-40px); z-index: 10;" src="manusCenter.png">
+                    <img id="secondWheel" class="animalWheel" src=""> 
+                </div>
+                <div id="clickOnAnimal" class="fadeIn"></div>
+            </container>
+        </div>
+        <div class="footerMenu">
+            <div id="footerCenter">
+                <div class="changeFont"><u>Zmnień font na współczesny</u></div>
+                <div class="help">?</div>  
+            </div>
         </div>
     </div>
 

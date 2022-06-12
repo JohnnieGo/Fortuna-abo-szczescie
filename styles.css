@@ -38,9 +38,12 @@ body{
     position: relative;
 }
 
-h1{
+h1, h2{
     text-align: center;
+    margin: 0;
 }
+
+
 
 h5{
     text-align: center;
@@ -60,13 +63,6 @@ a{
 
 .padding{
     padding: 0px 5px 0px 5px;
-}
-
-#changeFontFirstScreen{
-    left: 10px;
-    font-family: 'Libre Caslon Text', serif;
-    font-size: medium;
-    cursor: pointer;
 }
 
 .header{
@@ -154,18 +150,32 @@ overflow-x: hidden;
 }
 
 .footerMenu{
-    bottom: 10px;
+    background-image: url(footerBackground.png);
+    background-size: auto;
+    background-position: 250px;
+    position: sticky;
+    bottom: 0px;
     height: 10vh;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 5px 0 5px;
+    justify-content: center;
     box-sizing: border-box;
+    box-shadow: 0 -5px 5px -5px #333;
+    z-index: 3;
 }
 
-#help{
+#footerCenter{
+    width: 100%;
+    max-width: 1040px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.help{
     font-size: 5vh;
 }
 
@@ -174,16 +184,27 @@ overflow-x: hidden;
 }
 
 .wheel{
-    width: 100vw;
-    max-width: 600px;
-}
-
-.button{
-    cursor: pointer;
+    max-width: 100vw;
+    max-height: 65vh;
 }
 
 
-.displayNumber{
+.container{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    max-width: 1040px;
+
+}
+
+/* .displayNumber{
     width: 100px;
     height: 50px;
     border: 1px black solid;
@@ -191,7 +212,7 @@ overflow-x: hidden;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
-}
+} */
 
 .displayMessage{
     width: 100%;
@@ -205,21 +226,16 @@ overflow-x: hidden;
 
 
 
-#container{
+#secondScreenGoAndSpin{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
+    height: 10vh;
     justify-content: space-around;
-    padding-bottom: 50px;
-    padding-top: 10vh;
+    align-items: center;
     position: relative;
 }
 
-
-.buttonSpin{
-    padding-top: 20px;
-    text-align: center;
-}
 
 .screenCover{
     height: 100vh;
@@ -246,12 +262,12 @@ overflow-x: hidden;
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 4;
     flex-direction: column;
     align-items: center;
     background-image: url("Tło1.png");
     background-size: cover;
-    background-attachment: inherit;
+    background-attachment:scroll;
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
@@ -325,10 +341,25 @@ overflow-x: hidden;
     width: 100%;
     justify-content: center;
     align-items: flex-start;
-    padding-bottom: 50px;
-    padding-top: 10vh;
     position: relative;  
-    transform: rotate(-90deg) translatey(20%);
+    padding-top: 20px;
+    transform: rotate(-90deg) translatey(10%);
+}
+
+#auguryWheelContainer{
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#auguryManus{
+    width: 50px;
+    transform: translateX(5px);
 }
 
 #thirdScreen{
@@ -338,25 +369,75 @@ overflow-x: hidden;
 }
 
 .animalWheel{
-    width: 120vw;
-    max-width: 800px;
+    /* width: 120vw; */
+    max-width: 110vw;
+    max-height: 65vh;
 }
 
-#displayAuguryCoordinates{
+.fadeIn{
+    animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -o-animation: fadein 4s; /* Opera */
+}
+
+
+.btn{  
+    box-sizing: inherit;
+  transition-property: all;
+  transition-duration: .6s;
+  transition-timing-function: ease;
+  cursor: pointer;
+  letter-spacing: 0;
+  position: relative;
+  width: fit-content;
+  z-index: 2;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .btn:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  #displayAuguryCoordinates{
+       display: none;
+       height: 15vh;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+  }
+
+  #displayAuguryCoordinatesContainer{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     width: 100%;
     border: 1px black solid;
-    display: none;
     align-items: center;
     justify-content: center;
     font-size: xx-large;
     text-align: center;
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */}
-
-.fade{
-    transition: opacity 1s ease;
-}
-
-
+  }
