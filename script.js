@@ -15,6 +15,7 @@
  const displayAuguryCoordinates = document.querySelector('#displayAuguryCoordinates');
  const clickOnAnimal = document.querySelector('#clickOnAnimal');
  const firstScreenH1 = document.querySelector('#firstScreenTitles');
+ const insertAuguryText = document.querySelector('#auguryText')
 
 
 changeFont.addEventListener('click',() => {
@@ -31,16 +32,18 @@ changeFont.addEventListener('click',() => {
 
 function resetValues (){
     document.getElementById("firstScreen").scrollIntoView();
-    displayMessage.innerHTML = "-";
+    displayMessage.innerHTML = "";
     // displayNumber.innerHTML = "-";
-    displayAugury.innerHTML = "-";
+    displayAugury.innerHTML = "";
     winningSymbolNr=0;
     deg=0;
     actualDeg=0;
+    degAnim=0;
     goToSecondWheelScreen.style.display = "none"
     wheel.style.transform = `rotate(${actualDeg}deg)`;
     wheel.style.transition = 'none';
     startButton.style.pointerEvents = 'auto';
+    displayAuguryCoordinates.innerHTML = '';
 }
 
 goToAuguryList.addEventListener('click',() => {
@@ -134,11 +137,21 @@ function getWheel(wheelNumber){
         });
 
         animalWheel.addEventListener('transitionend', () => {
-            displayAuguryCoordinates.innerHTML=`${currentCity[0]}`;
+            displayAuguryCoordinates.innerHTML=`Twoja sybilla to:${currentCity[0]}`;
             clickOnAnimal.innerHTML=`Kliknij na tarczę ${animal}, by przjeść do Sybilli i poznać swoją przyszłość`;
             displayAuguryCoordinates.style.display = "flex";
+            animalWheel.addEventListener('click',() => {
+                document.getElementById("fourthScreen").scrollIntoView();
+                //Wzięcie numerów Sybilli i wierszy
+                sybillaSplit=currentCity[0].split(' ');
+                sybillaNr=sybillaSplit[1];
+                wierszNr=sybillaSplit[3];
+                slicedSybillaNr=sybillaNr.slice(0,-1);
+                slicedWierszNr=wierszNr.slice(0,-1);
+                //Pokazanie Diva z wróżbą
+                insertAuguryText.innerHTML=wróżby[slicedSybillaNr][slicedWierszNr];
 
-
+            });
         });
 
 
@@ -749,7 +762,7 @@ function getWheel(wheelNumber){
             },
 
 
-        }
+    }
 
 
     const animalWheels = {
@@ -1280,4 +1293,83 @@ function getWheel(wheelNumber){
         19: "Jesli drogá będzie ſzczęśliwa",
         20: "Jeſli kto zgubę naydzie",
         21: "Jeſli kto z świátá zeydzie",
-        }
+    }
+
+    const wróżby = {
+1: {
+1:"Zadnemu Bóg nie raczył dać tego/<br/>Iżby był iſt wieku zdrowia ſwego:<br/>Wszákże co powiem iście tobie/<br/>Ze ty pomieſzkasz ná świecie ſobie.",
+
+2:" Ty masz myśli rozdwoione/<br/>Chcesz być Popem cheesz miéc żone.<br/>Páraá Aſow tobie prorokuie/<br/>Ze cie kurwaá uczáruie.",
+
+3:"Spráwiedliwieć życzé tego/<br/>Doydziesz rządu wyſokiego:<br/>Bedziesz powysszon nád ſwoy ſtan /<br/>Ze ſye temu będzteszz dziwowáć ſam.",
+
+4:" Abyś iście temu wierzyć chciała<br/>Nie będziesz ty rychło męża miáła/<br/>Muszeć teraz prawda dojąć/<br/>Złaś /roſpuſtna /nieśmié cię nikt pojać",
+
+5:" Masz mieć ſzczęście w rzeczy każdej/<br/>W młodości y w ſtárości ſwej:<br/>Przyjdziesz ku ſtánu wyſokiemu/<br/>Uczynisz cześć domowi ſwemu.",
+
+6:" Chceßli w tym méj rady vżyć/<br/>Nie rádzęć tu dłużey ſlużyć:<br/>Bo acz ty w tym panie nádzieie maſz/<br/>Wiecznie jednak pożytku nie doczekasz",
+
+7:" Dobry pánie bądz w tym upewnieniu<br/>Myśli twoje przyjdą ku ſkończeniu:<br/>Acz ty o tym máłe dufánie masz/<br/>Bedzieć lepiej niźli ſię nadziewaſz.",
+
+8:"Ten który cię pojąć obiecuje/<br/>Już temu wierz że cię nie miłuje:<br/>Ták ci się to z ciebie śmieje/<br/>Nie miej w nim żadnej nadzieje",
+
+9:"Częstko pomyślasz o żenie/<br/>A mnie też żądasz o poradzenie/<br/>Jeślić się bogata nagodzi/<br/>Wieręć iej pojąć nieszkodzi.",
+
+10:"Możesz o tym nikąska niemyślić/<br/>Abyś kiedy miał Panem być:<br/>Bo się ku statku nic nie chcesz mieć/<br/>Jedno by też pić, srać a jeść.",
+
+11:"Brácie miły miej się do kupiectwa/<br/>A poniechaj wszelakiego rzemiosła:<br/>Będzieszli rzemieślnikiem – wszystko stracisz/<br/>Kupcem będąc tedy się zbogacisz",
+
+12:"Baczę żeć tym nie zachowam/<br/>Boć tu prawdę w oczy wyznam:<br/>Wszystko ważysz na gładkiego/<br/>A musisz mieć chłopa mierzionego",
+
+13:"Masz mieć fortunę w swej rzeczy/<br/>Która teraz masz na pieczy:<br/>A w tym namniej nie pochybuj/<br/>Lecz się tu już ku Posesyjej gotuj.",
+
+14:"Kochasz się barzo w swej miłej/<br/>A rad czynisz wszystko dla niej:<br/>Ona też na cię silno łaskawa<br/>Radaby cię w wychodzie widziała.",
+
+15:"Jeśłi chcesz roskoszy użyć/<br/>Radzieć Duchownemu służyć:<br/>Będziesz miał wiele ku woli swej/<br/>Podziękujesz mi z rady mej.",
+
+16:"Ty byś rada tego doczekała/<br/>Abyś tym połogiem Syna miała:<br/>Ale bądź upewniona w tym/<br/>Będzie Dziewka, nie będzie Syn.",
+
+17:"Naślauj w tym Boskiego uczenia/<br/>Nie daj z siebie nigdy pogorszenia:<br/>Dobremu się zawżdy dobrze stanie.<br/>Miewa każdy dobre dokonanie.",
+
+18:"Ty by przysięgał że to przyjaźń prawa/<br/>Gdy z tobą kto łaskawie sprawia:<br/>Ale ty mnie wierz jeśli chcesz/<br/>Kto to liże/ tego się strzeż.",
+
+19:"Za toż pewnie ślubić mogę/<br/>Ze masz mieć szczęśliwą drogę:<br/>Jedno wiec co najrychlej/<br/>A nieodwłaczaj wolej swej.",
+
+20:"Możesz przestać o tym myślić/<br/>Abyś zaś miał ku tej rzeczy przydż:<br/>Którąś zgubił niedbalstwem swym/<br/>Będzie się inszy kochał w tym.",
+
+21:"Coś przed się wziął śmiele konaj/<br/>A odradzać sobie nie daj:<br/>Będziesz mieć pożytek z tego/<br/>A cześć większą niż z czego inszego.",
+
+22:"Bądź pokorny co możesz najwięcej/<br/>A chciej się strzec zwady wszelakiej:<br/>Bardzo mię twe lata straszą/<br/>Boś nie przyszedł o żywot przez czasu",
+
+23:"Radziec miej się ku święceniu/<br/>Tak przykdziesz i dobremu mieniu:<br/>Kapłaństwoć dobroci przystoi/<br/>Gdyć się w tobie gamractwo ukoi.",
+
+24:"Powiem ci pewnymi słowy/<br/>Niechając tej próżnej mowy:<br/>Ty na wieki nie powstaniesz/<br/>Jeszcze rychlej lekkości dostaniesz.",
+
+25:"Wiedz to Panno za pewną wieść/<br/>Tobie rychło przy mężu sięść:<br/>Nie winidzie spełna ćwierć roku/<br/>Będzieć legał małżonek przy boku.",
+
+26:"Cokolwiek będziesz począć chciał/<br/>Nigdy szczęścia nie będziesz miał:<br/>Boś barzo silnym gamratem/<br/>A u każdej statecznej Ingratem",
+
+27:"Miej nadzieję w swoim Panie/<br/>Dosyć ci się za służbę dostanie:<br/>Ale bądź co najpilniejszy/<br/>Tegoć trzeba w czas dzisiejszy",
+
+28:"Myśisz prożno bardzo wiele/<br/>Nie kotka cię iście to wesele:<br/>A radzeć myśl co inszego/<br/>A poniechaj myślenia pierwszego.",
+
+29:"Słuchaj pilnie biała głowo/<br/>Masz usłyszeć wieczne słowo:<br/>Miłuję cię Panie nad wsze insze/<br/>Nie jest mu żadne stworzenie milsze.",
+
+30:"Słuchaj pilnie co poradzę/<br/>Wierz mi że cię w tym nie zdradzę:<br/>Nie pojmuj ty nigdy żony:<br/>Patrz obeście z innej strony.",
+
+31:"Będziesz Panem w rychłym czasie/<br/>Jednoć powiem drugie zasię:<br/>Pamiętaj miłemu Bogu służyć/<br/>Abyć dał państwa we zdrowiu użyć",
+
+32:"Lepiej by tobie buty szyć/<br/>Niźliby miał kupczykiem być:<br/>Boś pachołek barzo głupi/<br/>Nie zyszczesz ty nic na kupi.",
+
+33:"Służ Bogu a bądź cnotliwą/<br/>Powiemci nowinę miłą:<br/>Będziesz mieć Męża pięknego/<br/>Dobrego/ mądrego i bogatego.",
+
+34:"Za rzecz o którą się starasz/<br/>Nie dojdzie cię sam to poznasz:<br/>A też nie masz o co prosić/<br/>Będziesz tego po chwili mieć dosyć.",
+
+35:"Bądź wesoł w swej miłości/<br/>Bo w niej używiesz radości:<br/>Na tym ci iest miłą twoja/<br/>Abyć na wolą czyniła.",
+
+36:"Porucz się panu Bogu miłemu/<br/>Służ przedśię Panu pierwszemu:<br/>A nie przystay do inszego/<br/>Chceszli po tym nie żałować tego.",
+
+37:"Abyś temu zupełnie wierzyła/<br/>Będziesz miała niedobrego Syna:<br/>A Dziewkę też w drugim roce/<br/>Będzieli kto legał przy twym boce.",
+}};
+        
+        
