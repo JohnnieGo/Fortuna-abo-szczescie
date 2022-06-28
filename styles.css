@@ -38,11 +38,10 @@ body{
     position: relative;
 }
 
-h1, h2{
+h1, h2, h4{
     text-align: center;
     margin: 0;
 }
-
 
 
 h5{
@@ -52,6 +51,8 @@ h5{
 }
 
 a{
+    text-decoration: none;
+    color: #0061b3;
 }
 
 #app{
@@ -172,12 +173,9 @@ overflow-x: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.help{
-    font-size: 5vh;
-}
 
 #auguryWheelPlace img{
     width: 100vw;
@@ -195,13 +193,13 @@ overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
     overflow: hidden;
     position: relative;
     left: 0px;
     top: 0px;
     box-sizing: border-box;
     max-width: 1040px;
-
 }
 
 /* .displayNumber{
@@ -222,6 +220,8 @@ overflow-x: hidden;
     justify-content: center;
     font-size: xx-large;
     text-align: center;
+    margin-bottom: 5px;
+    padding: 5px 0 3px 0;
 }
 
 
@@ -333,6 +333,7 @@ overflow-x: hidden;
     max-height: 80vh;
     max-width: 80vw;
     box-shadow: 0 0 1px 1px #EDCFB2;
+    margin-bottom: 5px;
 }
 
 #animalContainer{
@@ -420,10 +421,12 @@ overflow-x: hidden;
 
   #displayAuguryCoordinates{
        display: none;
-       height: 15vh;
+       height: 12vh;
+       bottom: 0px;
        flex-direction: column;
        align-items: center;
        justify-content: center;
+       position: absolute;
   }
 
   #displayAuguryCoordinatesContainer{
@@ -449,3 +452,187 @@ overflow-x: hidden;
     -o-animation: fadein 2s; /* Opera */
     font-size: medium; 
   }
+
+  #menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    overflow: hidden;
+    }
+
+  #menu img{
+    width: 50px;
+    margin-bottom: 5px;
+    transition: all .5s ease-in-out;
+    }
+
+    #menuTopLine{
+        padding-top: 5px;
+    }
+
+    .menuTopLineTransition{
+        transform: rotate(40deg) translate(5px, 11px)
+    }
+
+    .menuMiddleLineTransition{
+        transform: translateX(55px);
+    }
+
+    .menuBottomLineTransition{
+        transform: rotate(-40deg) translate(5px, -11px)
+    }
+
+  #menuScreen{
+    top: 1vh;
+    overflow: auto;
+    scroll-behavior: auto;
+    overflow-x: hidden;
+    position: fixed;
+    width: 100%;
+    height: 90vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("tłoMenu.png");
+    background-size: cover;
+    background-attachment:scroll;
+    box-shadow: 0 -5px 5px -5px #333;
+
+  }
+
+  .menuScrollUp{
+    animation: menuUpAnimation 1s ease-in-out;
+    transform-origin: bottom center
+  }
+
+  .menuScrollDown{
+    animation: menuDownAnimation 1s ease-in-out;
+    transform-origin: top center
+  }
+
+  @keyframes menuUpAnimation {
+    0% {
+        transform:translateY(100vh)
+    }
+   
+    100% {
+        transform: translateY(0vh)
+    }
+}
+
+@keyframes menuDownAnimation {
+    0% {
+        transform:translateY(0vh)
+    }
+   
+    100% {
+        transform: translateY(100vh)
+    }
+}
+
+#menuContent{
+    width: 80%;
+    height: 85%;
+    border: 30px solid black;
+    border-image: url(frame.png) 33% round;
+}
+
+ul {
+    list-style-type: none;
+    padding: 5vh 0 0 3vw;
+  }
+
+li{
+    margin: 0 0 15px 0;
+    cursor: pointer;
+    width: fit-content;
+}
+  
+#menuSecondContent{
+    width: 100%;
+    height: 98%;
+    background-image: url(tłoMenu.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 1vh;
+    left: 1vh;
+    box-shadow: 0 0 5px #333;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuScrollLeft{
+    animation: menuLeftAnimation 1s ease-in-out;
+    transform-origin: right center
+}
+
+.menuScrollRight{
+    animation: menuRightAnimation 1s ease-in-out;
+    transform-origin: right center
+}
+
+@keyframes menuLeftAnimation {
+    0% {
+        transform:translateX(100vw)
+    }
+   
+    100% {
+        transform: translateX(0vh)
+    }
+}
+
+@keyframes menuRightAnimation {
+    0% {
+        transform:translateX(0vw)
+    }
+   
+    100% {
+        transform: translateX(100vw)
+    }
+}
+
+.inMenuContent{
+    max-width: 1040px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#goBackMenu{
+    bottom: 1vh;
+    left: 0px;
+    width: 50px;
+}
+
+#goBackDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+}
+
+#secondMenuContent{
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#secondMenuContent div{
+    padding: 0 10px 0 10px;
+    max-width: 800px;
+    margin: 15px 0 15px 0;
+}
+
+#secondMenuContent img{
+    width: 95%;
+}

@@ -15,20 +15,117 @@
  const displayAuguryCoordinates = document.querySelector('#displayAuguryCoordinates');
  const clickOnAnimal = document.querySelector('#clickOnAnimal');
  const firstScreenH1 = document.querySelector('#firstScreenTitles');
- const insertAuguryText = document.querySelector('#auguryText')
+ const insertAuguryText = document.querySelector('#auguryText');
+ const menuBtn = document.querySelector('#menu')
+ const showMenu = document.querySelector('#menuScreen')
+ const menuTopLine = document.querySelector('#menuTopLine')
+ const menuMiddleLine = document.querySelector('#menuMiddleLine')
+ const menuBottomLine = document.querySelector('#menuBottomLine')
+ const inMenuContent = document.querySelector('.inMenuContent')
+ const secondMenuContent = document.querySelector('#secondMenuContent')
+ 
+ // przyciski menu
+ const zasadyGry = document.querySelector('#zasadyGry')
+ const oAplikacji = document.querySelector('#oAplikacji')
+ const oFortunie = document.querySelector('#oFortunie')
+ const zasadyGryAutora = document.querySelector('#zasadyGryAutora')
+ const drzeworyty = document.querySelector('#drzeworyty')
+ const wróćDoPoczątku = document.querySelector('#wróćDoPoczątku')
+ const menuSecondContent = document.querySelector('#menuSecondContent')
+ const goBackDiv = document.querySelector('#goBackDiv')
 
+//menu
+menuBtn.addEventListener('click',() => {
+    if (showMenu.style.display === "none"){
+        showMenu.style.display = "flex";
+        showMenu.classList.add('menuScrollUp')
+        showMenu.classList.remove('menuScrollDown')
+        menuTopLine.classList.add('menuTopLineTransition');
+        menuMiddleLine.classList.add('menuMiddleLineTransition');
+        menuBottomLine.classList.add('menuBottomLineTransition');
+
+    } else {
+        showMenu.classList.add('menuScrollDown')
+        showMenu.classList.remove('menuScrollUp')
+        menuTopLine.classList.remove('menuTopLineTransition');
+        menuMiddleLine.classList.remove('menuMiddleLineTransition');
+        menuBottomLine.classList.remove('menuBottomLineTransition');
+        setTimeout (function () {
+            showMenu.style.display = "none";
+            menuSecondContent.style.display = "none"
+            }, 900);
+    }
+});
+
+wróćDoPoczątku.addEventListener('click', () => {
+    resetValues();
+    showMenu.classList.add('menuScrollDown');
+    showMenu.classList.remove('menuScrollUp');
+    menuTopLine.classList.remove('menuTopLineTransition');
+    menuMiddleLine.classList.remove('menuMiddleLineTransition');
+    menuBottomLine.classList.remove('menuBottomLineTransition');
+    setTimeout (function () {
+        showMenu.style.display = "none";
+        }, 900);
+});
 
 changeFont.addEventListener('click',() => {
     if (body.style.fontFamily == "unifrakturmaguntiabook"){
         body.style.fontFamily = "Libre Caslon Text";
         body.style.fontSize = "Large";
         changeFont.innerHTML = "<u>Zmień font na frakturę</u>"
+        changeFont.style.fontFamily = "unifrakturmaguntiabook"
+        changeFont.style.fontSize = "x-Large"
     } else {
         body.style.fontFamily = "unifrakturmaguntiabook";
         body.style.fontSize = "x-large"
         changeFont.innerHTML = "<u>Zmnień font na współczesny</u>"
+        changeFont.style.fontFamily = "Libre Caslon Text"
+        changeFont.style.fontSize = "Large"
     }
 });
+
+function showSecondMenu (){
+    menuSecondContent.style.display = "flex"
+}
+
+function hideSecondMenu (){
+    menuSecondContent.style.display = "none"
+}
+
+document.querySelectorAll('.menuItem').forEach(item => {
+    item.addEventListener('click', event => {
+        showSecondMenu()
+        menuSecondContent.classList.add('menuScrollLeft')
+        menuSecondContent.classList.remove('menuScrollRight')
+    })
+});
+
+goBackDiv.addEventListener ('click', event => {
+    menuSecondContent.classList.add('menuScrollRight')
+    menuSecondContent.classList.remove('menuScrollLeft')
+    setTimeout (function () {
+        menuSecondContent.style.display = "none";
+        }, 800);
+});
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }};
+
+zasadyGry.addEventListener ('click', event => {
+    removeAllChildNodes(secondMenuContent);
+    secondMenuContent.innerHTML += '<img src="nauka.png" style="width: 98%"><div>Gracz na początku wybiera jedną z 21 wróżb, a następnie jest kierowany do koła fortuny. Po naciśnięciu przycisku „Zakręć” losowane i wskazywane są zwierzę i miasto, do których należy przejść, by poznać swoją przyszłość. Przed graczem pojawia się drzeworyt przedstawiający jedną z postaci, w który należy kliknąć, by przejść do następnego koła. Na kole tym automatycznie wybrane jest wylosowane miasto, dzięki czemu ukazany zostają numery Sybilli i konkretnego czterowersowego wiersza z przepowiednią. By poznać los należy nacisnąć w tarczę koła.</div>';
+});
+
+
+oAplikacji.addEventListener ('click', event => {
+    removeAllChildNodes(secondMenuContent)
+    secondMenuContent.innerHTML += '<img src="dmuchacz.png"><div>Niniejsza aplikacja jest próbą przeniesienia do świata wirtualnego pochodzącej z lat ok. 1561–1577 edycji książki do wróżb Stanisława z Bochnie. Mechanika rozgrywki zaproponowana przez XVI wiecznego twórcę pozostała niezmieniona, gracz dalej wybiera jedno z 21 pytań, a następnie przechodzi przez kolejne etapy do przepowiedni. Jednak zamiast rzucać kośćmi, powierza swój los cyberboginii, która obraca koło fortuny w wybrane przez siebie miejsce.<br><br>Projekt aplikacji silnie nawiązuje do krakowskiego wydania Fortuny albo szczęścia. Tła stanowią oryginalne karty edycji Drukarni Łazarzowej, elementy interfejsu zbudowane są z wykorzystanych przez Łazarza Andrysowicza drzeworytów, podstawowy font aplikacji – UnifrakturMaguntia – nawiązuje on oryginalnych czcionek, jakimi złożona był Fortuna, w dowolnym momencie rozgrywki może być on zmieniony na krój współczesny.<br><br>Zmodernizowany tekst przepowiedni, pytania oraz nazwy osób i miejsc podane zostały za wspomnianym wydaniem. Pokuszono się o przybliżenie postaci ujętych na drzeworytach i wyjaśnienie kontekstu, jaki wprowadzają. Większość informacji o grze/książce podawanych jest za wydaniem <a target="_blank" href="https://ksiegarnia.pwn.pl/Fortuna-albo-szczescie,130842766,p.html">Fortuny autorstwa prof. Justyny Kiliańczyk-Zięby</a>.<br><br>Jan Żaborowski 2022</div>'
+});
+
+// koniec menu
 
 function resetValues (){
     document.getElementById("firstScreen").scrollIntoView();
@@ -112,9 +209,6 @@ function getWheel(wheelNumber){
         currentCity=animalWheels[animal][city];
         document.getElementById("secondWheel").src=`animalWheels/${animal}.png`;
 
-        // goButton.addEventListener('click', () => {
-        // displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
-        // });
         setTimeout (function () {
             goToSecondWheelScreen.style.display = "flex";
             startButton.style.pointerEvents = 'auto';
@@ -137,7 +231,7 @@ function getWheel(wheelNumber){
         });
 
         animalWheel.addEventListener('transitionend', () => {
-            displayAuguryCoordinates.innerHTML=`Twoja sybilla to:${currentCity[0]}`;
+            displayAuguryCoordinates.innerHTML=`${currentCity[0]}`;
             clickOnAnimal.innerHTML=`Kliknij na tarczę ${animal}, by przjeść do Sybilli i poznać swoją przyszłość`;
             displayAuguryCoordinates.style.display = "flex";
             animalWheel.addEventListener('click',() => {
