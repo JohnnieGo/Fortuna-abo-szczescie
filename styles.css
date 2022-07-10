@@ -11,6 +11,13 @@ html{
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'beryliumregular';
+    src: url('Fonts/Beryliumbold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @media only screen and (max-width: 600px) {
 
 ::-webkit-scrollbar {
@@ -34,7 +41,7 @@ body{
     top: 0px;
     left: 0px;
     font-family: 'unifrakturmaguntiabook';
-    font-size: x-large;
+    font-size: 28px;
     position: relative;
 }
 
@@ -48,6 +55,12 @@ h5{
     text-align: center;
     margin: 0;
     margin-top: 20px;
+}
+
+p{
+    margin: 0 5px 0 5px;
+    font-size: 16px;
+    text-align: center;
 }
 
 a{
@@ -104,14 +117,6 @@ overflow-x: hidden;
 
 }
 
-
-/* .auguryChooseList::-webkit-scrollbar {
-    display: none;
-} */
-
-/* .auguryChoose::-webkit-scrollbar {
-    display: none;
-} */
 
 ::-webkit-scrollbar-thumb {
     background-image: url('scrollThumb.png'); 
@@ -176,6 +181,9 @@ overflow-x: hidden;
     justify-content: space-evenly;
 }
 
+.changeFont{
+    width: 250px;
+}
 
 #auguryWheelPlace img{
     width: 100vw;
@@ -186,6 +194,38 @@ overflow-x: hidden;
     max-height: 65vh;
 }
 
+#dmuch1{
+    position: absolute;
+    max-width: 29%;
+    z-index: 2;
+    left: 0px;
+    top: 50px;
+}
+
+#dmuch2{
+    position: absolute;
+    max-width: 27%;
+    z-index: 2;
+    right: 0px;
+    top: 50px;
+}
+
+#dmuch3{
+    position: absolute;
+    max-width: 28%;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+
+}
+
+#dmuch4{
+    position: absolute;
+    max-width: 32%;
+    z-index: 2;
+    left: 0px;
+    bottom: 0px;
+}
 
 .container{
     height: 90vh;
@@ -244,7 +284,7 @@ overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("Tło1.png");
+    background-image: url("tło1.png");
     background-size: cover;
     background-attachment: inherit;
     overflow: hidden;
@@ -255,9 +295,8 @@ overflow-x: hidden;
 }
 
 .goToSecondWheelScreen{
-    overflow: auto;
     scroll-behavior: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     display: none;
     position: absolute;
     width: 100%;
@@ -265,13 +304,21 @@ overflow-x: hidden;
     z-index: 4;
     flex-direction: column;
     align-items: center;
-    background-image: url("Tło1.png");
+    background-image: url("tło1.png");
     background-size: cover;
     background-attachment:scroll;
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
 }
 
 @keyframes fadein {
@@ -307,12 +354,44 @@ overflow-x: hidden;
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+@-moz-keyframes fadeOut { /* Firefox */
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+@-webkit-keyframes fadeOut { /* Safari and Chrome */
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+@-o-keyframes fadeOut { /* Opera */
+    from {
+        opacity:1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 .SecondWheelScreenGoBack{
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
 }
 
 .SecondWheelScreenGoBack img{
@@ -326,11 +405,11 @@ overflow-x: hidden;
     width: 100%;
     height: 100%;
     max-width: 1040px;
-    padding-top: 30px;
+    position: relative;
 }
 
 #characterImage{
-    max-height: 80vh;
+    max-height: 60vh;
     max-width: 80vw;
     box-shadow: 0 0 1px 1px #EDCFB2;
     margin-bottom: 5px;
@@ -339,16 +418,14 @@ overflow-x: hidden;
 #animalContainer{
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: center;
     align-items: flex-start;
     position: relative;  
-    padding-top: 20px;
     transform: rotate(-90deg) translatey(10%);
 }
 
 #auguryWheelContainer{
-    width: 100%;
+    width: fit-content;
     position: relative;
     height: fit-content;
     display: flex;
@@ -376,10 +453,18 @@ overflow-x: hidden;
 }
 
 .fadeIn{
+    display: none;
     animation: fadein 4s;
     -moz-animation: fadein 4s; /* Firefox */
     -webkit-animation: fadein 4s; /* Safari and Chrome */
     -o-animation: fadein 4s; /* Opera */
+}
+
+.fadeOut{
+    animation: fadeOut 3s;
+    -moz-animation: fadeOut 3s; /* Firefox */
+    -webkit-animation: fadeOut 3s; /* Safari and Chrome */
+    -o-animation: fadeOut 3s; /* Opera */
 }
 
 
@@ -421,7 +506,6 @@ overflow-x: hidden;
 
   #displayAuguryCoordinates{
        display: none;
-       height: 12vh;
        bottom: 0px;
        flex-direction: column;
        align-items: center;
@@ -432,25 +516,33 @@ overflow-x: hidden;
   #displayAuguryCoordinatesContainer{
     width: 100%;
     height: 15vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     position: relative;
     width: 100%;
-    border: 1px black solid;
+    border-bottom: 30px solid black;
+    border-image: url(liniaDrzeworytowa.png) 33% round;
     align-items: center;
     justify-content: center;
     font-size: xx-large;
     text-align: center;
   }
 
+  #displayAuguryCoordinatesContainer div{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   #clickOnAnimal{
+    padding-top: 10px;
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
     font-size: medium; 
+    width: 100%;
+    text-align: center;
   }
 
   #menu{
@@ -607,16 +699,23 @@ li{
     width: 50px;
 }
 
+
 #goBackDiv{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 50px;
+    box-shadow: 0 -5px 5px -5px #333;
+}
+
+#goBackDiv img{
+    height: 50px;
+    margin: 0 5px 0 5px;
 }
 
 #secondMenuContent{
-    width: 100%;
+    width: 98%;
     height: calc(100% - 50px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -635,4 +734,139 @@ li{
 
 #secondMenuContent img{
     width: 95%;
+}
+
+#sybillaPicture{
+    max-width:100%;
+    max-height: 100%;
+    box-shadow: 0 0 1px 1px #EDCFB2;
+    margin-top: 10px;
+}
+
+#sybillaPictureDiv{
+    position: relative;
+    max-width: 80%;
+    max-height: 60%;
+}
+
+.heart{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 60px;
+    /* display: none; */
+}
+
+#sybillaName{
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    width: 100%;
+    border-bottom: 30px solid black;
+    border-image: url(liniaDrzeworytowa.png) 33% round;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#auguryText{
+    margin: 10px;
+    width: fit-content;
+    font-size: 100%;
+    white-space: nowrap;
+}
+
+.frakturFontProperties{
+    font-size: 28px;
+    font-family: "unifrakturmaguntiabook";
+
+}
+
+.modernFontProprties{
+    font-family: 'beryliumregular';
+    font-size: 24px;
+    line-height: 1.1;
+
+}
+
+@media only screen and (max-width: 5000px) {
+    #auguryText {
+        font-size: 36px;
+    }
+    }
+
+@media only screen and (max-width: 600px) {
+    #auguryText {
+        font-size: 30px;
+    }
+    }
+
+@media only screen and (max-width: 500px) {
+#auguryText, #wierszOdAutora, .results{
+    font-size: 22px;
+}
+}
+
+@media only screen and (max-width: 380px) {
+#auguryText, #wierszOdAutora, .results{
+    font-size: 20px;
+}
+}
+
+@media only screen and (max-width: 320px) {
+#auguryText, #wierszOdAutora, .results{
+    font-size: 18px;
+}
+}
+
+@media only screen and (max-width: 300px) {
+    #auguryText, #wierszOdAutora, .results{
+        font-size: 16px;
+}
+}
+
+
+#fourthScreen .container{
+    scroll-behavior: auto;
+    overflow: auto;
+}
+
+#goBackInfo{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    padding-bottom: 5vh;
+}
+
+#opisPostaci{
+    padding: 15px 10px 20px 10px;
+    border-top: 1px solid #333;
+}
+
+#wróćDoPoczątku{
+    padding: 0 0 0 3vw;
+}
+
+#ozdobnik1SecondWheel{
+    position: absolute;
+    transform: rotate(88deg);
+    width: 37%;
+    top: 0px;
+    right: 0px;
+}
+
+.results{
+    padding: 0;
+}
+
+.deleteImg{
+    width: 40px;
+}
+
+.ulubioneDivName{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
 }
