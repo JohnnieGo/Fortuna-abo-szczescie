@@ -285,7 +285,7 @@ function getWheel(wheelNumber){
                 numbersCheck = (slicedSybillaNr + '-' + slicedWierszNr);
                 itemsRetrieved = JSON.parse(localStorage.getItem('list'));
 
-                if (itemsRetrieved.includes(numbersCheck)){
+                if (itemsRetrieved?.includes(numbersCheck)){
                     console.log("Jest");
                     heartEmpty.style.display = "none";
                     heartFull.style.display = "block";
@@ -337,7 +337,7 @@ function dodajDoUlubionych() {
             console.log("Lista istnieje")
         }
 
-        if (itemsRetrievedNew.includes(numbersCheck)){
+        if (itemsRetrievedNew?.includes(numbersCheck)){
             console.log("Jest");
             heartEmpty.style.display = "block";
             heartFull.style.display = "none";
