@@ -29,9 +29,17 @@
  const opisPostaci = document.querySelector('#opisPostaci')
  const heartEmpty = document.querySelector("#heartEmpty")
  const heartFull = document.querySelector("#heartFull")
- const usuń = document.querySelector('#clear')
- const tekstUlubionejWróżby = document.querySelector(".ulubioneWróżby")
- 
+ const sybillaPictureDiv = document.querySelector("#sybillaPictureDiv")
+//  const usuń = document.querySelector('#clear')
+ const tekstUlubionejWróżby = document.querySelector(".ulubioneWróżby1")
+ const checkBox = document.querySelector('.checkBox')
+ const checkBoxEmpty = document.querySelector('#checkBoxEmpty')
+ const checkBoxFull = document.querySelector('#checkBoxFull')
+ const przejdźDoWróżb = document.querySelector('#przejdźDoWróżb')
+ const zeroScreen = document.querySelector('#zeroScreen')
+ const fortunaZero = document.querySelector('#fortunaZero')
+ const section0 = document.querySelector('#section0')
+
  // przyciski menu
  const zasadyGry = document.querySelector('#zasadyGry')
  const oAplikacji = document.querySelector('#oAplikacji')
@@ -42,6 +50,9 @@
  const wróćDoPoczątku = document.querySelector('#wróćDoPoczątku')
  const menuSecondContent = document.querySelector('#menuSecondContent')
  const goBackDiv = document.querySelector('#goBackDiv')
+
+let numbersCheck = 0
+let checkFirstScreenTrue = 0
 
 //menu
 menuBtn.addEventListener('click',() => {
@@ -63,11 +74,94 @@ menuBtn.addEventListener('click',() => {
             showMenu.style.display = "none";
             menuSecondContent.style.display = "none";
             removeAllChildNodes(tekstUlubionejWróżby);
+            secondMenuContent.style.display = "flex"
             }, 900);
     }
+    tekstUlubionejWróżby.style.display = "none";
 });
 
+if (localStorage.getItem('checkFirstScreenTrue') === "1"){
+    zeroScreen.remove()
+    console.log("równa się 1")
+}else{
+    console.log("równa się 0")
+}
 
+isCheckBoxFull = false;
+
+checkBoxEmpty.addEventListener('click', () => {
+    checkBoxEmpty.style.display = "none";
+    checkBoxFull.style.display = "block";
+    isCheckBoxFull = true;
+    console.log(isCheckBoxFull);
+});
+
+checkBoxFull.addEventListener('click', () => {
+    checkBoxFull.style.display = "none";
+    checkBoxEmpty.style.display = "block";
+    isCheckBoxFull = false
+    console.log(isCheckBoxFull)
+});
+
+// fortunaZero.addEventListener('click', () => {
+
+//     section0.scroll({ 
+//         top: section0.scroll(0, 90 * window.innerHeight/100),
+//         behavior: 'smooth', 
+//       });
+//       console.log("aaa");
+// });
+
+
+var elem = document.getElementById("zasadyZabawy");
+
+
+var topPos = elem.offsetTop
+
+fortunaZero.onclick = function () {
+    console.log('click')
+  scrollTo(document.getElementById('section0'), topPos-30, 90 * window.innerHeight/100);   
+}
+    
+function scrollTo(element, to, duration) {
+    var start = element.scrollTop,
+        change = to - start,
+        currentTime = 0,
+        increment = 20;
+        
+    var animateScroll = function(){        
+        currentTime += increment;
+        var val = Math.easeInOutQuad(currentTime, start, change, duration);
+        element.scrollTop = val;
+        if(currentTime < duration) {
+            setTimeout(animateScroll, increment);
+        }
+    };
+    animateScroll();
+}
+
+//t = current time
+//b = start value
+//c = change in value
+//d = duration
+Math.easeInOutQuad = function (t, b, c, d) {
+	t /= d/2;
+	if (t < 1) return c/2*t*t + b;
+	t--;
+	return -c/2 * (t*(t-2) - 1) + b;
+};
+
+
+
+
+
+przejdźDoWróżb.addEventListener('click', () => {
+    if (isCheckBoxFull === true){
+        localStorage.setItem('checkFirstScreenTrue', JSON.stringify(1));
+    }else{
+    console.log("Ok1.")};
+    document.getElementById("firstScreen").scrollIntoView();
+});
 
 wróćDoPoczątku.addEventListener('click', () => {
     resetValues();
@@ -79,6 +173,7 @@ wróćDoPoczątku.addEventListener('click', () => {
     setTimeout (function () {
         showMenu.style.display = "none";
         }, 900);
+    console.log(localStorage.getItem('checkFirstScreenTrue'))
 });
 
 sybillaPicture.addEventListener('click', () => {
@@ -89,15 +184,28 @@ sybillaPicture.addEventListener('click', () => {
 changeFont.addEventListener('click',() => {
     if (body.style.fontFamily == "unifrakturmaguntiabook"){
         body.style.fontFamily = "beryliumregular";
-        body.classList.add("modernFontProprties");
-        body.classList.remove("frakturFontProperties")
+        body.style.lineHeight = "1.1";
+        // body.classList.add("modernFontProprties");
+        // body.classList.remove("frakturFontProperties");
+        tekstUlubionejWróżby.classList.add("modernFontProprties");
+        tekstUlubionejWróżby.classList.remove("frakturFontProperties");
+        insertAuguryText.classList.add("modernFontProprties");
+        insertAuguryText.classList.remove("frakturFontProperties"); 
+        opisPostaci.classList.add("modernFontProprties");
+        opisPostaci.classList.remove("frakturFontProperties");
         changeFont.innerHTML = "<u>Zmień krój na frakturę</u>";
         changeFont.style.fontSize = "22px"
         changeFont.style.fontFamily = "unifrakturmaguntiabook";
     } else {
         body.style.fontFamily = "unifrakturmaguntiabook";
-        body.classList.add("frakturFontProperties");
-        body.classList.remove("modernFontProprties");
+        // body.classList.add("frakturFontProperties");
+        // body.classList.remove("modernFontProprties");
+        tekstUlubionejWróżby.classList.remove("modernFontProprties");
+        tekstUlubionejWróżby.classList.add("frakturFontProperties");
+        insertAuguryText.classList.remove("modernFontProprties");
+        insertAuguryText.classList.add("frakturFontProperties");
+        opisPostaci.classList.remove("modernFontProprties");
+        opisPostaci.classList.add("frakturFontProperties");
         changeFont.innerHTML = "<u>Zmnień krój na antykwę</u>";
         changeFont.style.fontFamily = "beryliumregular";
         changeFont.style.fontSize = "18px"
@@ -126,29 +234,40 @@ goBackDiv.addEventListener ('click', event => {
     setTimeout (function () {
         menuSecondContent.style.display = "none";
         removeAllChildNodes(tekstUlubionejWróżby);
+        secondMenuContent.style.display = "flex";
+        tekstUlubionejWróżby.style.display = "none";
         }, 800);
 });
 
 function removeAllChildNodes(parent) {
+    // ulubioneWróżby1.style.display = "none";
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }};
 
 zasadyGry.addEventListener ('click', event => {
     removeAllChildNodes(secondMenuContent);
-    secondMenuContent.innerHTML += '<img src="nauka.png" style="width: 98%"><div>Gracz na początku wybiera jedną z 21 wróżb, a następnie jest kierowany do koła fortuny. Po naciśnięciu przycisku „Zakręć” losowane i wskazywane są zwierzę i miasto, do których należy przejść, by poznać swoją przyszłość. Przed graczem pojawia się drzeworyt przedstawiający jedną z postaci, w który należy kliknąć, by przejść do następnego koła. Na kole tym automatycznie wybrane jest wylosowane miasto, dzięki czemu ukazany zostają numery Sybilli i konkretnego czterowersowego wiersza z przepowiednią. By poznać los należy nacisnąć w tarczę koła.</div>';
+    secondMenuContent.innerHTML = '<img src="nauka.png" style="width: 98%"><div>Gracz na początku wybiera jedną z 21 wróżb, a następnie jest kierowany do koła fortuny. By zakręcić kołem, należy kliknąć przycisk "Zakręć". Po zakręceniu koła pojawia się ekran z postacią, na którą należy nacisnąć, by przejść dalej. Kolejne koło obraca się automatycznie, by poznać wróżbę, należy nacisnąć w tarczę koła.</div>';
 });
 
 
 oAplikacji.addEventListener ('click', event => {
     removeAllChildNodes(secondMenuContent)
-    secondMenuContent.innerHTML += '<img src="dmuchacz.png"><div>Niniejsza aplikacja jest próbą przeniesienia do świata wirtualnego pochodzącej z lat ok. 1561–1577 edycji książki do wróżb Stanisława z Bochnie. Mechanika rozgrywki zaproponowana przez XVI wiecznego twórcę pozostała niezmieniona, gracz dalej wybiera jedno z 21 pytań, a następnie przechodzi przez kolejne etapy do przepowiedni. Jednak zamiast rzucać kośćmi, powierza swój los cyberboginii, która obraca koło fortuny w wybrane przez siebie miejsce.<br><br>Projekt aplikacji nawiązuje do krakowskiego wydania Fortuny albo szczęścia. Tła stanowią oryginalne karty edycji Drukarni Łazarzowej, elementy interfejsu zbudowane są z wykorzystanych przez Łazarza Andrysowicza drzeworytów, podstawowy font aplikacji – UnifrakturMaguntia – nawiązuje on oryginalnych czcionek, jakimi złożona był Fortuna, w dowolnym momencie rozgrywki może być on zmieniony na krój współczesny.<br><br>Zmodernizowany tekst przepowiedni, pytania oraz nazwy osób i miejsc podane zostały za wspomnianym wydaniem. Pokuszono się o przybliżenie postaci ujętych na drzeworytach i wyjaśnienie kontekstu, jaki wprowadzają. Większość informacji o grze/książce podawanych jest za wydaniem <a target="_blank" href="https://ksiegarnia.pwn.pl/Fortuna-albo-szczescie,130842766,p.html">Fortuny autorstwa prof. Justyny Kiliańczyk-Zięby</a>.<br><br>Jan Żaborowski 2022</div>'
+    secondMenuContent.innerHTML += '<img src="dmuchacz.png"><div>Niniejsza aplikacja jest próbą przeniesienia do świata wirtualnego pochodzącego z lat ok. 1561–1577 <a target="_blank" href="https://www.digitale-sammlungen.de/en/view/bsb00117329?page=1,2" >wydania książki</a> do wróżb Stanisława z Bochnie. Mechanika rozgrywki zaproponowana przez XVI wiecznego twórcę pozostała niezmieniona, gracz dalej wybiera jedno z 21  pytań, a następnie przechodzi przez kolejne etapy do przepowiedni. Jednak zamiast rzucać fizycznymi kośćmi, powierza swój los cyberbogini, która obraca koło fortuny w wybrane przez siebie miejsce.<br><br>Projekt aplikacji nawiązuje do krakowskiego wydania <i>Fortuny albo szczęścia</i>, które zdigitalizowane zostało przez Bayerische Staatsbibliothek. Tła stanowią oryginalne karty edycji Drukarni Łazarzowej, elementy interfejsu zbudowane są z wykorzystanych przez Łazarza Andrysowicza drzeworytów, obydwa fonty występujące w apliakcji: UnifrakturMaguntia i Berylium nawiązują do dawnych krojów pisma.<br><br>Zmodernizowany tekst przepowiedni, pytania oraz nazwy osób i miejsc podane zostały za wspomnianym wydaniem. Pokuszono się o przybliżenie postaci ujętych na drzeworytach i wyjaśnienie kontekstu, jaki wprowadzają. Wszystkie informacje o oryginalnej <i>Fortunie</i> podawane są za wydaniem <a target="_blank" href="https://ksiegarnia.pwn.pl/Fortuna-albo-szczescie,130842766,p.html"><i>Fortuny</i> autorstwa prof. Justyny Kiliańczyk-Zięby</a>.<br><br>Historię powstania aplikacji prześledzić można w <a>serwisie Behance.net</a><br><br>Dziękuję wszystkim, którzy pomogli mi w tym projekcie, szczególnie moim siostrom i mojej Laurce.<br><br>Jan Żaborowski 2022<br><a href="mailto:zaborowski.janko@gmail.com">zaborowski.janko@gmail.com</a></div>'
 });
 
 odAutora.addEventListener ('click', event => {
     removeAllChildNodes(secondMenuContent)
-secondMenuContent.innerHTML += '<img src="nauka.png" style="width: 98%"><h2 style="padding-bottom: 15px">Wprowadzające teksty od autora</h2><h4>Nauka szukania w tych księgach</h4><div>Kto będzie chciał mieć krotofilę na tych księgach, patrzajże napisów nad pierwszymi koły, które są z kostkami, a ptaki we śrzodku mają. O czym będzie napis nad którym kołem, o to mieć dwiema kostkami na onymże kole, a tam któryć szanc na dwu kostkach stanie, ten w kole najdziesz i przeczćiesz, co napisano przeciwko onemu szancowi. Tedyć ukaże do drugich kół, które są z zwierzęty, szukać któregokolwiek miasteczka. Tam, gdy je najdziesz, przeczci, co przeciwko onemu miasteczku napisano, tedyć zaś ukaże do Sybille którejkolwiek, wiersz którykolwiek, a tam się dowiesz, co się w tej rzeczy stanie, o którąś miotał. Na przykład: jeśli chcesz wiedzieć, długo li żyw będziesz, rzućże dwiema kostkami na kole, w którym jest gąsiorek. Jeśli zezy staną, tedy idź do koła, na którym jest sobol, a szukaj miasta Bochnie, potym idź do Sybile pierwszej (boć tam ukaże), przeczćisz wiersz pierwszy,  tak się dowiesz, długo li żyw masz być. Tymże też obyczajem insze rzeczy, mietając, sprawować będziesz. A pamiętaj, każdy, cóżcikolwiek na tych książkach stanie, bądź dobrze, bądź źle, abyś tey nie wierzył, ale to miał za krotofilę a za śmiech.</div><h4>Każdemu, który tych książek używać ku krotofili będzie </h4><div id="wierszOdAutora">Aby każdy wiedzieć o tym raczył,<br/>Którykolwiek ty książki będzie baczył,<br/>Iż prze krotofile są złożone, <br/>Od Stanisława z Bochnie wymyślone.<br/>Nie trzeba w nich nadzieje pokładać,<br/>Choć komu dobrze będzie przypadać,<br/>Bo miejsca nie mają gusła, czary<br/>Między ludźmi krześcijańskej wiary.<br/>A jeśli też komu co śmiesznego stanie,<br/>Nie mów: „Bodaj zabić za twoje składanie”.</div>'
+secondMenuContent.innerHTML = '<img src="nauka.png" style="width: 98%"><h2 style="padding-bottom: 15px">Wprowadzające teksty Stanisława z Bochnie</h2><h4>Nauka szukania w tych księgach</h4><div>Kto będzie chciał mieć krotofilę na tych księgach, patrzajże napisów nad pierwszymi koły, które są z kostkami, a ptaki we śrzodku mają. O czym będzie napis nad którym kołem, o to mieć dwiema kostkami na onymże kole, a tam któryć szanc na dwu kostkach stanie, ten w kole najdziesz i przeczćiesz, co napisano przeciwko onemu szancowi. Tedyć ukaże do drugich kół, które są z zwierzęty, szukać któregokolwiek miasteczka. Tam, gdy je najdziesz, przeczci, co przeciwko onemu miasteczku napisano, tedyć zaś ukaże do Sybille którejkolwiek, wiersz którykolwiek, a tam się dowiesz, co się w tej rzeczy stanie, o którąś miotał. Na przykład: jeśli chcesz wiedzieć, długo li żyw będziesz, rzućże dwiema kostkami na kole, w którym jest gąsiorek. Jeśli zezy staną, tedy idź do koła, na którym jest sobol, a szukaj miasta Bochnie, potym idź do Sybile pierwszej (boć tam ukaże), przeczćisz wiersz pierwszy,  tak się dowiesz, długo li żyw masz być. Tymże też obyczajem insze rzeczy, mietając, sprawować będziesz. A pamiętaj, każdy, cóżcikolwiek na tych książkach stanie, bądź dobrze, bądź źle, abyś tey nie wierzył, ale to miał za krotofilę a za śmiech.</div><h4>Każdemu, który tych książek używać ku krotofili będzie </h4><div id="wierszOdAutora" class ="modernFontProprties">Aby każdy wiedzieć o tym raczył,<br/>Którykolwiek ty książki będzie baczył,<br/>Iż prze krotofile są złożone, <br/>Od Stanisława z Bochnie wymyślone.<br/>Nie trzeba w nich nadzieje pokładać,<br/>Choć komu dobrze będzie przypadać,<br/>Bo miejsca nie mają gusła, czary<br/>Między ludźmi krześcijańskej wiary.<br/>A jeśli też komu co śmiesznego stanie,<br/>Nie mów: „Bodaj zabić za twoje składanie”.</div>'
 });
+
+
+oFortunie.addEventListener ('click', event => {
+    removeAllChildNodes(secondMenuContent)
+secondMenuContent.innerHTML = '<img src="dmuchacz.png"><div>Stanisław z Bochnie, zwany też Stanisławem Kleryką, był polskim renesansowym poetą. Pochodził ze średniozamożnej rodziny mieszczańskiej. Od 1519 roku odbywał studia wyższe na Akademii Krakowskiej, gdzie najprawdopodobniej zetknął się z twórczością autorów takich jak: Andrzej Frycz Modrzewski, Mikołaj Rej, Stanisław Hozjusz. Od 1529 roku związał się z dworem królewskim Zygmunta Starego, szybko robiąc karierę. Według niektórych, np. prof. Henryka Barycza, to właśnie Stanisławowi z Bochnie powinno przysługiwać miano ojca nowożytnej literatury polskiej. Do dziś jednak zachowało się jednak bardzo niewiele utworów poety.</br>Jednym z kilku dzieł, które dotarły do naszych czasów, jest właśnie <i>Fortuna</i>. Jej pierwodruk miał miejsce najprawdopodobniej ok. roku 1531, nie znamy jednak żadnego jego fragmentu. Książka ta wpisuje się w nurt literatury wróżbiarskiej, której tradycja sięga aż do czasów antycznych i która osiągnęła niezwykłą popularność w średniowieczu. Świadczą o tym wielokrotne wznowienia <i>Fortuny</i>, które szybko zaczytywano. Zabawne przepowiednie czytali zarówno mieszanie, jak i rzemieślnicy mieszkający z dala od miast, kobiety, jak i mężczyźni. Była to jedna z pierwszych książek skierowanych do szerokiej publiczności oraz jedna z pierwszych książek w całości napisanych w języku polskim.</br>Po więcej informacji o tej arcyciekawej książce zapraszam do <a target="_blank" href="https://pressto.amu.edu.pl/index.php/b/article/download/27954/28187">artykułu prof. Justyny Kiliańczyk-Zięby</a> oraz do wydania <i>Fortuny</i> w jej opracowaniu (Kraków, 2015).</div>'
+});
+
+
 
 // koniec menu
 
@@ -172,7 +291,7 @@ function resetValues (){
     clickOnAnimal.style.display="none";
     setTimeout (function () {
         sybillaName.style.display = "none";
-        sybillaPicture.style.display = "none";          
+        sybillaPictureDiv.style.display = "none";          
         insertAuguryText.style.display = "none";
         goBackInfo.style.display = "none";
         sybillaPicture.src = "";
@@ -190,11 +309,18 @@ function getWheel(wheelNumber){
     currentWheelSelected = wheelNumber;
     document.getElementById("secondScreen").scrollIntoView();
     displayMessage.innerHTML = "-";
-    // displayNumber.innerHTML = "-";
     winningSymbolNr=0;
     goToSecondWheelScreen.style.display = "none";
     firstScreenH1.innerHTML = firstScreenTitles[wheelNumber];
+    
 }
+
+
+function przejdźDalejZLandingScreena(){
+    document.getElementById("secondScreen").scrollIntoView();
+
+}
+
 
 (function wheelSpin() {
 
@@ -209,13 +335,12 @@ function getWheel(wheelNumber){
 
     goButton.style.pointerEvents = 'none';
 
- 
+
     startButton.addEventListener('click',() => {
         displayMessage.innerHTML = "-";
-        // displayNumber.innerHTML = "-";
         startButton.style.pointerEvents = 'none';
         goButton.style.pointerEvents = 'none';
-        deg = Math.floor(10 + Math.random() * 2000);
+        deg = Math.floor(1000 + Math.random() * 2000);
         wheel.style.transition = 'all 2s ease';
         wheel.style.transform = `rotate(${deg}deg)`;
         dmuch1.style.display = "block";
@@ -232,9 +357,9 @@ function getWheel(wheelNumber){
         messageChoose = wheelText[currentWheelSelected][winningSymbolNr];
         displayMessage.innerHTML = messageChoose;
        // Zmiana tekstu w buttonie do przejścia do trzeciej sekcji
-        clickCharacterText.innerHTML = `Kliknij w ${postaci[currentWheelSelected]}, by udać się do miasta`;
+        clickCharacterText.innerHTML = `*<span class="element">Kliknij w obrazek</span> ${postaci[currentWheelSelected]}, by udać się do miasta`;
         //Pokaż bohatera
-        document.getElementById("characterImage").src = `characterPictures/characterPicture${currentWheelSelected}.png`;
+        characterImage.src = `characterPictures/characterPicture${currentWheelSelected}.png`;
         goButton.style.pointerEvents = 'auto';
         opisPostaci.innerHTML = `${opisyPostaci[currentWheelSelected]}`;
         // displayAugury.innerHTML = `${tekstTestowy1[currentWheelSelected][winningSymbolNr]}`;
@@ -258,19 +383,22 @@ function getWheel(wheelNumber){
 
         // Ekran 3
         characterImage.addEventListener('click',() => {
-            console.log(animal, city);
+            animalWheel.style.pointerEvents = 'none';
             document.getElementById("thirdScreen").scrollIntoView();
         setTimeout (function () {
             degAnim = zoneSize*currentCity[1];
             animalWheel.style.transition = 'all 2s ease-out';
             animalWheel.style.transform = `rotate(${-degAnim}deg)`;
             }, 1500);
-            console.log(currentCity[0])
+            console.log(currentCity[0]);
+            animalWheel.style.cursor = "default";
         });
 
         animalWheel.addEventListener('transitionend', () => {
+            animalWheel.style.pointerEvents = 'auto'
+            animalWheel.style.cursor = "pointer"
             displayAuguryCoordinates.innerHTML=`${currentCity[0]}`;
-            clickOnAnimal.innerHTML=`Kliknij na tarczę ${animal}, by przjeść do Sybilli i poznać swoją przyszłość`;
+            clickOnAnimal.innerHTML=`<span><span class="element">*Kliknij w tarczę</span> ${animal}, by przjeść do Sybilli i poznać swoją przyszłość</span>`;
             clickOnAnimal.style.display="flex";
             displayAuguryCoordinates.style.display = "flex";
             animalWheel.addEventListener('click',() => {
@@ -283,17 +411,9 @@ function getWheel(wheelNumber){
                 slicedWierszNr=wierszNr.slice(0,-1);
                 //Przygotowanie do ulubionch
                 numbersCheck = (slicedSybillaNr + '-' + slicedWierszNr);
-                itemsRetrieved = JSON.parse(localStorage.getItem('list'));
+                zmieńSerce()
 
-                if (itemsRetrieved?.includes(numbersCheck)){
-                    console.log("Jest");
-                    heartEmpty.style.display = "none";
-                    heartFull.style.display = "block";
-                }else{
-                    console.log("Nie jest");
-                    heartEmpty.style.display = "block";
-                    heartFull.style.display = "none";
-                };
+                
 
                 //Pokazanie Diva z wróżbą i obrazka
                 convertSybillaNr = sybillaNrConversion[slicedSybillaNr];
@@ -305,7 +425,7 @@ function getWheel(wheelNumber){
                     sybillaName.style.display = "flex";
                     }, 200);
                 setTimeout (function () {
-                        sybillaPicture.style.display = "flex";
+                        sybillaPictureDiv.style.display = "flex";
                     }, 600); 
                 setTimeout (function () {
                         insertAuguryText.style.display = "flex";
@@ -328,27 +448,34 @@ items = [];
 //     // Tu zdobić tak, żeby blokowało 
 // };
 
-function dodajDoUlubionych() {
-        let itemsRetrievedNew = JSON.parse(localStorage.getItem('list'));
-        checkStorage = localStorage.getItem('list');
-        if (checkStorage === null){
-            localStorage.setItem('list', JSON.stringify(items));
-        }else{
-            console.log("Lista istnieje")
-        }
+function dodaj (){
+if (itemsRetrievedNew?.includes(numbersCheck)){
+    console.log(numbersCheck);
+    heartEmpty.style.display = "block";
+    heartFull.style.display = "none";
+}else{
+    console.log(numbersCheck); 
+    console.log(itemsRetrievedNew);
+    heartEmpty.style.display = "none";
+    heartFull.style.display = "block";
+    itemsRetrievedNew.push(slicedSybillaNr + '-' + slicedWierszNr);
+    localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
+}};  
 
-        if (itemsRetrievedNew?.includes(numbersCheck)){
-            console.log("Jest");
-            heartEmpty.style.display = "block";
-            heartFull.style.display = "none";
-        }else{
-            console.log("Nie jest");
-            heartEmpty.style.display = "none";
-            heartFull.style.display = "block";
-            itemsRetrievedNew.push(slicedSybillaNr + '-' + slicedWierszNr);
-            localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
-            console.log("Ok.");
-        };          
+function sprawdzenie () {
+    checkStorage = localStorage.getItem('list');
+    if (checkStorage === null){
+        localStorage.setItem('list', JSON.stringify(items));
+        console.log("Lista nie istnieje, dodano")
+    }else{
+        console.log("Lista istnieje")
+    }
+}
+
+function dodajDoUlubionych() {
+        sprawdzenie ();
+        itemsRetrievedNew = JSON.parse(localStorage.getItem('list'));
+        dodaj ();
     };
 
 function usuńZUlubionych() {
@@ -360,13 +487,14 @@ function usuńZUlubionych() {
     console.log("Ok.");
     heartEmpty.style.display = "block";
     heartFull.style.display = "none";
-
 }
 
-usuń.addEventListener('click',() => {
-    window.localStorage.clear();
-    console.log("Usunięto pamięć")
-});  
+// usuń.addEven tListener('click',() => {
+//     window.localStorage.clear();
+//     console.log("Usunięto pamięć");
+//     sprawdzenie();
+//     zmieńSerce();
+// });  
 
 heartEmpty.addEventListener('click',() => {
     dodajDoUlubionych ()
@@ -377,10 +505,11 @@ heartFull.addEventListener('click',() => {
 });  
 
 ulubioneWróżby.addEventListener('click',() => {
-    pokażUlubione()
+    removeAllChildNodes(secondMenuContent);
+    tekstUlubionejWróżby.style.display = "flex";
+    secondMenuContent.style.display = "none";
+    pokażUlubionePętla()
 })
-
-
 
 })();
     
@@ -389,7 +518,7 @@ function myFunction(a) {
     let test = itemsRetrievedNew.splice(a, 1);
     localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
     removeAllChildNodes(tekstUlubionejWróżby);
-    pokażUlubione()
+    pokażUlubionePętla()
     console.log("Ok.");    
 }
 
@@ -413,18 +542,19 @@ function pokażUlubione(){
         ulubioneDiv.className = 'results';
         ulubioneDiv.id=`results${index}`
 
-        ulubioneDivName = document.createElement('div');
+        ulubioneDivName = document.createElement('span');
         ulubioneDivName.innerHTML+=`Sybilla ${splittedNumberSybilla}, wiersz ${splittedNumberWiersz}:<br/>`;
         ulubioneDivName.className = 'ulubioneDivName';
         ulubioneDivName.innerHTML += `<img src='Del.png' id='deleteImg${index}' onclick = 'myFunction(${index})' style='width: 20px; height: 20px'>`;
         
-        ulubioneDivContent = document.createElement('div');
+        ulubioneDivContent = document.createElement('span');
         ulubioneDivContent.className = 'ulubioneDivContent';
         ulubioneDivContent.innerHTML+=wróżby[splittedNumberSybilla][splittedNumberWiersz];
 
         tekstUlubionejWróżby.appendChild(ulubioneDiv);
         document.querySelector(`#results${index}`).appendChild(ulubioneDivName);
         document.querySelector(`#results${index}`).appendChild(ulubioneDivContent);
+        console.log("Halo jak")
         });
 
 
@@ -435,6 +565,30 @@ function pokażUlubione(){
             // localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
         }
 };
+
+function zmieńSerce (){
+    itemsRetrieved = JSON.parse(localStorage.getItem('list'));
+
+    if (itemsRetrieved?.includes(numbersCheck)){
+        console.log("Jest");
+        heartEmpty.style.display = "none";
+        heartFull.style.display = "block";
+    }else{
+        console.log("Nie jest");
+        heartEmpty.style.display = "block";
+        heartFull.style.display = "none";
+    }};
+
+function pokażUlubionePętla(){
+    console.log(localStorage.getItem('list'))
+    if (localStorage.getItem('list') === "[]"){
+        tekstUlubionejWróżby.innerHTML = "<h4>Nie masz ulubionych wróżb. Dodaj je za pomocą serduszka w prawym górnym rogu Sybilli.<h4>";
+        console.log("Ulubionepętlaop1")
+    }else{
+    pokażUlubione()}
+    zmieńSerce()}
+
+
 
     const symbolZones = {
         1: "1 1",
@@ -1576,7 +1730,7 @@ function pokażUlubione(){
 
     const wróżby = {
         1: {
-        1:".<br/>Żadnemu Bóg nie raczył dać tego, <br/>Iżby wiedział wiek zdrowia swego.<br/>Wszakże to powiem iście tobie,<br/>Że ty pomieszkasz na świecie sobie.",
+        1:"Żadnemu Bóg nie raczył dać tego, <br/>Iżby wiedział wiek zdrowia swego.<br/>Wszakże to powiem iście tobie,<br/>Że ty pomieszkasz na świecie sobie.",
         
         2:"Ty masz myśli rozdwojone,<br/>Chcesz być popem, chcesz mieć żonę.<br/>Para asów tobie prorokuje,  <br/>Że cię kurwa uczaruje.",
         
@@ -2096,7 +2250,7 @@ function pokażUlubione(){
         
         32:"Nie chcęć, synku, próżno tuszyć,<br/>Złyś, krnąbrny, nie chcesz się uczyć,<br/>Przeto kapłanem nie będziesz<br/>I na świecie się nie zbędziesz.",
         
-        33:"Chciej to wiedzieć, panie miły<br/>Że ty wskórasz w rychłej chwili.<br/>Takie ma być twe wskóranie,<br/>Że twój dom przez cię powstanie.",
+        33:"Chciej to wiedzieć, panie miły,<br/>Że ty wskórasz w rychłej chwili.<br/>Takie ma być twe wskóranie,<br/>Że twój dom przez cię powstanie.",
         
         34:"Po twej chęci łacno baczyć,<br/>Chciałabyś rychło za mąż iść,<br/>A tyś jest każdemu pyszna,<br/>Nie wiem, by-ć ta hardość w dobre wyszła.",
         
