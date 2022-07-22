@@ -550,9 +550,9 @@ overflow-x: hidden;
     font-size: medium; 
     width: 98%;
     text-align: center;
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
 }
 
   #menu{
