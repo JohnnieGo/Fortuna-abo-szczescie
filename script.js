@@ -82,9 +82,7 @@ menuBtn.addEventListener('click',() => {
 
 if (localStorage.getItem('checkFirstScreenTrue') === "1"){
     zeroScreen.remove()
-    console.log("równa się 1")
 }else{
-    console.log("równa się 0")
 }
 
 isCheckBoxFull = false;
@@ -93,33 +91,24 @@ checkBoxEmpty.addEventListener('click', () => {
     checkBoxEmpty.style.display = "none";
     checkBoxFull.style.display = "block";
     isCheckBoxFull = true;
-    console.log(isCheckBoxFull);
 });
 
 checkBoxFull.addEventListener('click', () => {
     checkBoxFull.style.display = "none";
     checkBoxEmpty.style.display = "block";
     isCheckBoxFull = false
-    console.log(isCheckBoxFull)
 });
-
-// fortunaZero.addEventListener('click', () => {
-
-//     section0.scroll({ 
-//         top: section0.scroll(0, 90 * window.innerHeight/100),
-//         behavior: 'smooth', 
-//       });
-//       console.log("aaa");
-// });
 
 
 var elem = document.getElementById("zasadyZabawy");
 
-
-var topPos = elem.offsetTop
+if (elem === null){
+    console.log("ok.")
+}else{
+    topPos = elem.offsetTop;
+};
 
 fortunaZero.onclick = function () {
-    console.log('click')
   scrollTo(document.getElementById('section0'), topPos-30, 90 * window.innerHeight/100);   
 }
     
@@ -159,7 +148,7 @@ przejdźDoWróżb.addEventListener('click', () => {
     if (isCheckBoxFull === true){
         localStorage.setItem('checkFirstScreenTrue', JSON.stringify(1));
     }else{
-    console.log("Ok1.")};
+   };
     document.getElementById("firstScreen").scrollIntoView();
 });
 
@@ -173,7 +162,6 @@ wróćDoPoczątku.addEventListener('click', () => {
     setTimeout (function () {
         showMenu.style.display = "none";
         }, 900);
-    console.log(localStorage.getItem('checkFirstScreenTrue'))
 });
 
 sybillaPicture.addEventListener('click', () => {
@@ -253,7 +241,7 @@ zasadyGry.addEventListener ('click', event => {
 
 oAplikacji.addEventListener ('click', event => {
     removeAllChildNodes(secondMenuContent)
-    secondMenuContent.innerHTML += '<img src="dmuchacz.png"><div>Niniejsza aplikacja jest próbą przeniesienia do świata wirtualnego pochodzącego z lat ok. 1561–1577 <a target="_blank" href="https://www.digitale-sammlungen.de/en/view/bsb00117329?page=1,2" >wydania książki</a> do wróżb Stanisława z Bochnie. Mechanika rozgrywki zaproponowana przez XVI wiecznego twórcę pozostała niezmieniona, gracz dalej wybiera jedno z 21  pytań, a następnie przechodzi przez kolejne etapy do przepowiedni. Jednak zamiast rzucać fizycznymi kośćmi, powierza swój los cyberbogini, która obraca koło fortuny w wybrane przez siebie miejsce.<br><br>Projekt aplikacji nawiązuje do krakowskiego wydania <i>Fortuny albo szczęścia</i>, które zdigitalizowane zostało przez Bayerische Staatsbibliothek. Tła stanowią oryginalne karty edycji Drukarni Łazarzowej, elementy interfejsu zbudowane są z wykorzystanych przez Łazarza Andrysowicza drzeworytów, obydwa fonty występujące w apliakcji: UnifrakturMaguntia i Berylium nawiązują do dawnych krojów pisma.<br><br>Zmodernizowany tekst przepowiedni, pytania oraz nazwy osób i miejsc podane zostały za wspomnianym wydaniem. Pokuszono się o przybliżenie postaci ujętych na drzeworytach i wyjaśnienie kontekstu, jaki wprowadzają. Wszystkie informacje o oryginalnej <i>Fortunie</i> podawane są za wydaniem <a target="_blank" href="https://ksiegarnia.pwn.pl/Fortuna-albo-szczescie,130842766,p.html"><i>Fortuny</i> autorstwa prof. Justyny Kiliańczyk-Zięby</a>.<br><br>Historię powstania aplikacji prześledzić można w <a>serwisie Behance.net</a><br><br>Dziękuję wszystkim, którzy pomogli mi w tym projekcie, szczególnie moim siostrom i mojej Laurce.<br><br>Jan Żaborowski 2022<br><a href="mailto:zaborowski.janko@gmail.com">zaborowski.janko@gmail.com</a></div>'
+    secondMenuContent.innerHTML += '<img src="dmuchacz.png"><div>Niniejsza aplikacja jest próbą przeniesienia do świata wirtualnego pochodzącego z lat ok. 1561–1577 <a target="_blank" href="https://www.digitale-sammlungen.de/en/view/bsb00117329?page=1,2" >wydania książki</a> do wróżb Stanisława z Bochnie. Mechanika rozgrywki zaproponowana przez XVI wiecznego twórcę pozostała niezmieniona, gracz dalej wybiera jedno z 21  pytań, a następnie przechodzi przez kolejne etapy do przepowiedni. Jednak zamiast rzucać fizycznymi kośćmi, powierza swój los cyberbogini, która obraca koło fortuny w wybrane przez siebie miejsce.<br><br>Projekt aplikacji nawiązuje do krakowskiego wydania <i>Fortuny albo szczęścia</i>, które zdigitalizowane zostało przez Bayerische Staatsbibliothek. Tła stanowią oryginalne karty edycji Drukarni Łazarzowej, elementy interfejsu zbudowane są z wykorzystanych przez Łazarza Andrysowicza drzeworytów, obydwa fonty występujące w apliakcji: UnifrakturMaguntia i Berylium nawiązują do dawnych krojów pisma.<br><br>Zmodernizowany tekst przepowiedni, pytania oraz nazwy osób i miejsc podane zostały za wspomnianym wydaniem. Pokuszono się o przybliżenie postaci ujętych na drzeworytach i wyjaśnienie kontekstu, jaki wprowadzają. Wszystkie informacje o oryginalnej <i>Fortunie</i> podawane są za wydaniem <a target="_blank" href="https://ksiegarnia.pwn.pl/Fortuna-albo-szczescie,130842766,p.html"><i>Fortuny</i> autorstwa prof. Justyny Kiliańczyk-Zięby</a>.<br><br>Historię powstania aplikacji prześledzić można w <a href="https://www.behance.net/gallery/148906383/Aplikacja-Fortuna-abo-szczescie" target="_blank">serwisie Behance.net</a><br><br>Dziękuję wszystkim, którzy pomogli mi w tym projekcie, szczególnie mojej Laurce, Tomaszkowi, najlepszej autoryzowanej developerce Oli i moim siostrom.<br><br>Jan Żaborowski 2022<br><a href="mailto:zaborowski.janko@gmail.com">zaborowski.janko@gmail.com</a></div>'
 });
 
 odAutora.addEventListener ('click', event => {
@@ -390,7 +378,6 @@ function przejdźDalejZLandingScreena(){
             animalWheel.style.transition = 'all 2s ease-out';
             animalWheel.style.transform = `rotate(${-degAnim}deg)`;
             }, 1500);
-            console.log(currentCity[0]);
             animalWheel.style.cursor = "default";
         });
 
@@ -442,20 +429,12 @@ function przejdźDalejZLandingScreena(){
         // Dodaj do ulubionych
 
 items = [];
-// if (itemsRetrieved.includes(numbersCheck)){
-//     console.log("Jest")
-// }else{
-//     // Tu zdobić tak, żeby blokowało 
-// };
 
 function dodaj (){
 if (itemsRetrievedNew?.includes(numbersCheck)){
-    console.log(numbersCheck);
     heartEmpty.style.display = "block";
     heartFull.style.display = "none";
 }else{
-    console.log(numbersCheck); 
-    console.log(itemsRetrievedNew);
     heartEmpty.style.display = "none";
     heartFull.style.display = "block";
     itemsRetrievedNew.push(slicedSybillaNr + '-' + slicedWierszNr);
@@ -466,9 +445,7 @@ function sprawdzenie () {
     checkStorage = localStorage.getItem('list');
     if (checkStorage === null){
         localStorage.setItem('list', JSON.stringify(items));
-        console.log("Lista nie istnieje, dodano")
     }else{
-        console.log("Lista istnieje")
     }
 }
 
@@ -482,19 +459,10 @@ function usuńZUlubionych() {
     let itemsRetrievedNew = JSON.parse(localStorage.getItem('list'));
     let index = itemsRetrievedNew.indexOf(slicedSybillaNr + "-" + slicedWierszNr);
     itemsRetrievedNew.splice(index, 1);
-    console.log(index)
     localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
-    console.log("Ok.");
     heartEmpty.style.display = "block";
     heartFull.style.display = "none";
 }
-
-// usuń.addEven tListener('click',() => {
-//     window.localStorage.clear();
-//     console.log("Usunięto pamięć");
-//     sprawdzenie();
-//     zmieńSerce();
-// });  
 
 heartEmpty.addEventListener('click',() => {
     dodajDoUlubionych ()
@@ -519,13 +487,11 @@ function myFunction(a) {
     localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
     removeAllChildNodes(tekstUlubionejWróżby);
     pokażUlubionePętla()
-    console.log("Ok.");    
 }
 
 function pokażUlubione(){
     arrayUlubione = window.localStorage.getItem('list');
     arrayFromString = JSON.parse(arrayUlubione.split(','));
-    console.log(arrayFromString);
     let ulubioneDiv;
     let ulubioneDivContainer;
     let ulubioneDivName;
@@ -534,7 +500,6 @@ function pokażUlubione(){
     arrayFromString.forEach(function (objectNumber, index) {
 
         let splittedNumbers = objectNumber.split('-');
-        console.log(splittedNumbers);
         splittedNumberSybilla = splittedNumbers[0];
         splittedNumberWiersz = splittedNumbers[1];
         
@@ -554,15 +519,12 @@ function pokażUlubione(){
         tekstUlubionejWróżby.appendChild(ulubioneDiv);
         document.querySelector(`#results${index}`).appendChild(ulubioneDivName);
         document.querySelector(`#results${index}`).appendChild(ulubioneDivContent);
-        console.log("Halo jak")
         });
 
 
 
         function usuńZUlubionychZUlubionych() {
             arrayFromString.splice(index, 1);
-
-            // localStorage.setItem('list', JSON.stringify(itemsRetrievedNew));
         }
 };
 
@@ -570,20 +532,19 @@ function zmieńSerce (){
     itemsRetrieved = JSON.parse(localStorage.getItem('list'));
 
     if (itemsRetrieved?.includes(numbersCheck)){
-        console.log("Jest");
         heartEmpty.style.display = "none";
         heartFull.style.display = "block";
     }else{
-        console.log("Nie jest");
         heartEmpty.style.display = "block";
         heartFull.style.display = "none";
     }};
 
 function pokażUlubionePętla(){
     console.log(localStorage.getItem('list'))
-    if (localStorage.getItem('list') === "[]"){
+    if (localStorage.getItem('list') === null){
         tekstUlubionejWróżby.innerHTML = "<h4>Nie masz ulubionych wróżb. Dodaj je za pomocą serduszka w prawym górnym rogu Sybilli.<h4>";
-        console.log("Ulubionepętlaop1")
+    }else if (localStorage.getItem('list') === "[]"){
+        tekstUlubionejWróżby.innerHTML = "<h4>Nie masz ulubionych wróżb. Dodaj je za pomocą serduszka w prawym górnym rogu Sybilli.<h4>";
     }else{
     pokażUlubione()}
     zmieńSerce()}
@@ -1199,7 +1160,7 @@ function pokażUlubionePętla(){
 
     const animalWheels = {
         Baráná: {
-            Kámionká: ["Sybillá 12. wiersz 1.", 0.01],		// 1
+            Kámionká: ["Sybillá 12. wiersz 1.", 0.1],		// 1
             Bóbrká: ["Sybillá 12. wiersz 2.", 1], 		// 2
             Dąbrowno: ["Sybillá 12. wiersz 3.", 2], 		// 3
             Leszczysko: ["Sybillá 12. wiersz 4.", 3], 		// 4
@@ -1223,7 +1184,7 @@ function pokażUlubionePętla(){
             },
         
         Borsuká: {
-            Pomorzány: ["Sybillá 11. wiersz 16.", 0.01], 		// 1
+            Pomorzány: ["Sybillá 11. wiersz 16.", 0.1], 		// 1
             Számotuły: ["Sybillá 11. wiersz 17.", 1], 		// 2
             Wieruszów: ["Sybillá 11. wiersz 18.", 2], 		// 3
             Smálino: ["Sybillá 11. wiersz 19.", 3], 		// 4
@@ -1247,7 +1208,7 @@ function pokażUlubionePętla(){
         },
         
         Bobru: {
-            Peplin: ["Sybillá 2. wiersz 22.", 0.01], 		// 1
+            Peplin: ["Sybillá 2. wiersz 22.", 0.1], 		// 1
             Secemin: ["Sybillá 2. wiersz 23.", 1], 		// 2
             Kłódnicá: ["Sybillá 2. wiersz 24.", 2], 		// 3
             Brzostek: ["Sybillá 2. wiersz 25.", 3], 		// 4
@@ -1271,7 +1232,7 @@ function pokażUlubionePętla(){
         },
         
         Gronostáiá: {
-            Kołáczyce: ["Sybillá 5. wiersz 37.", 0.01], 		// 1
+            Kołáczyce: ["Sybillá 5. wiersz 37.", 0.1], 		// 1
             Gorzków: ["Sybillá 6. wiersz 1.", 1], 		// 2
             Látowić: ["Sybillá 6. wiersz 2.", 2], 		// 3
             Bukowiec: ["Sybillá 6. wiersz 3.", 3], 		// 4
@@ -1295,7 +1256,7 @@ function pokażUlubionePętla(){
         },
         
         Kozy: {
-            Srzem: ["Sybillá 12. wiersz 30.", 0.01], 		// 1
+            Srzem: ["Sybillá 12. wiersz 30.", 0.1], 		// 1
             Rypno: ["Sybillá 12. wiersz 31.", 1], 		// 2
             Wártá: ["Sybillá 12. wiersz 32.", 2], 		// 3
             Krzywin: ["Sybillá 12. wiersz 33.", 3], 		// 4
@@ -1319,7 +1280,7 @@ function pokażUlubionePętla(){
         },
         
         Króliká: {
-            Oporów: ["Sybillá 6. wiersz 31.", 0.01], 		// 1
+            Oporów: ["Sybillá 6. wiersz 31.", 0.1], 		// 1
             Páczánów: ["Sybillá 6. wiersz 30.", 1], 		// 2
             Rádzieiów: ["Sybillá 6. wiersz 29.", 2], 		// 3
             Oleszko: ["Sybillá 6. wiersz 28.", 3], 		// 4
@@ -1343,7 +1304,7 @@ function pokażUlubionePętla(){
         },
         
         Krzeczká: {
-            Włodźimiérz: ["Sybillá 6. wiersz 21.", 0.01], 		// 1
+            Włodźimiérz: ["Sybillá 6. wiersz 21.", 0.1], 		// 1
             Słupia: ["Sybillá 8. wiersz 20.", 1], 		// 2
             Koło: ["Sybillá 8. wiersz 19.", 2], 		// 3
             Turek: ["Sybillá 8. wiersz 18.", 3], 		// 4
@@ -1367,7 +1328,7 @@ function pokażUlubionePętla(){
         },
         
         Kuny: {
-            Tyszkowice: ["Sybillá 3. wiersz 5.", 0.01], 		// 1
+            Tyszkowice: ["Sybillá 3. wiersz 5.", 0.1], 		// 1
             Młáwá: ["Sybillá 3. wiersz 4.", 1], 		// 2
             Czyrkaszno: ["Sybillá 3. wiersz 3.", 2], 		// 3
             Jwánowice: ["Sybillá 3. wiersz 2.", 3], 		// 4
@@ -1391,7 +1352,7 @@ function pokażUlubionePętla(){
         },
         
         Liszki: {
-            Czyrsk: ["Sybillá 3. wiersz 32.", 0.01], 		// 1
+            Czyrsk: ["Sybillá 3. wiersz 32.", 0.1], 		// 1
             Lepno: ["Sybillá 3. wiersz 33.", 1], 		// 2
             Biéle: ["Sybillá 3. wiersz 34.", 2], 		// 3
             Dolsko: ["Sybillá 3. wiersz 35.", 3], 		// 4
@@ -1415,7 +1376,7 @@ function pokażUlubionePętla(){
         },
         
         Láśice: {
-            Wieluń: ["Sybillá 9. wiersz 32.", 0.01], 		// 1
+            Wieluń: ["Sybillá 9. wiersz 32.", 0.1], 		// 1
             Znin: ["Sybillá 9. wiersz 31.", 1], 		// 2
             Rádymno: ["Sybillá 9. wiersz 30.", 2], 		// 3
             Brzeńsk: ["Sybillá 9. wiersz 29.", 3], 		// 4
@@ -1439,7 +1400,7 @@ function pokażUlubionePętla(){
         },
         
         Niedźwiedzia: {
-            Zarki: ["Sybillá 5. wiersz 16.", 0.01], 		// 1
+            Zarki: ["Sybillá 5. wiersz 16.", 0.1], 		// 1
             Września: ["Sybillá 5. wiersz 17.", 1], 		// 2
             Sąchoczyn: ["Sybillá 5. wiersz 18.", 2], 		// 3
             Kromołów: ["Sybillá 5. wiersz 19.", 3], 		// 4
@@ -1463,7 +1424,7 @@ function pokażUlubionePętla(){
         },
         
         Nowogródká: {
-            Brzyská: ["Sybillá 7. wiersz 35.", 0.01], 		// 1
+            Brzyská: ["Sybillá 7. wiersz 35.", 0.1], 		// 1
             Skierbieszów: ["Sybillá 7. wiersz 34.", 1], 		// 2
             Trębowla: ["Sybillá 7. wiersz 33.", 2], 		// 3
             Urzędów: ["Sybillá 7. wiersz 32.", 3], 		// 4
@@ -1487,7 +1448,7 @@ function pokażUlubionePętla(){
         },
         
         Popielice: {
-            Jásło: ["Sybillá 6. wiersz 21.", 0.01], 		// 1
+            Jásło: ["Sybillá 6. wiersz 21.", 0.1], 		// 1
             Sieluń: ["Sybillá 6. wiersz 22.", 1], 		// 2
             Włocłáw: ["Sybillá 6. wiersz 23.", 2], 		// 3
             Przedecz: ["Sybillá 6. wiersz 24.", 3], 		// 4
@@ -1511,7 +1472,7 @@ function pokażUlubionePętla(){
         },
         
         Rosomaká: {
-            Lwówek: ["Sybillá 7. wiersz 26.", 0.01], 		// 1
+            Lwówek: ["Sybillá 7. wiersz 26.", 0.1], 		// 1
             Kolno: ["Sybillá 7. wiersz 27.", 1], 		// 2
             Iłkusz: ["Sybillá 7. wiersz 28.", 2], 		// 3
             Uście: ["Sybillá 7. wiersz 29.", 3], 		// 4
@@ -1535,7 +1496,7 @@ function pokażUlubionePętla(){
         },
         
         Rysiá: {
-            Cieszkowice: ["Sybillá 2. wiersz 1.", 0.01], 		// 1
+            Cieszkowice: ["Sybillá 2. wiersz 1.", 0.1], 		// 1
             Huchań: ["Sybillá 2. wiersz 2.", 1], 		// 2
             Bełz: ["Sybillá 2. wiersz 3.", 2], 		// 3
             Krákowiec: ["Sybillá 2. wiersz 4.", 3], 		// 4
@@ -1559,7 +1520,7 @@ function pokażUlubionePętla(){
         },
         
         Sobolá: {
-            Brzostek: ["Sybillá 1. wiersz 7.", 0.01], 		// 1
+            Brzostek: ["Sybillá 1. wiersz 7.", 0.1], 		// 1
             Dźiergów: ["Sybillá 1. wiersz 6.", 1], 		// 2
             Gołogóry: ["Sybillá 1. wiersz 5.", 2], 		// 3
             Zárnowá: ["Sybillá 1. wiersz 4.", 3], 		// 4
@@ -1583,7 +1544,7 @@ function pokażUlubionePętla(){
         },
         
         Tchorzá: {
-            Wárzymów: ["Sybillá 2. wiersz 4.", 0.01], 		// 1
+            Wárzymów: ["Sybillá 2. wiersz 4.", 0.1], 		// 1
             Szrákowo: ["Sybillá 2. wiersz 5.", 1], 		// 2
             Mośćiská: ["Sybillá 2. wiersz 6.", 2], 		// 3
             Skármierz: ["Sybillá 2. wiersz 7.", 3], 		// 4
@@ -1607,7 +1568,7 @@ function pokażUlubionePętla(){
         },
         
         Wiewiórki: {
-            Sępelbork: ["Sybillá 10. wiersz 9.", 0.01], 		// 1
+            Sępelbork: ["Sybillá 10. wiersz 9.", 0.1], 		// 1
             Kleczów: ["Sybillá 10. wiersz 10.", 1], 		// 2
             Brzozów: ["Sybillá 10. wiersz 11.", 2], 		// 3
             Stárościanki: ["Sybillá 10. wiersz 12.", 3], 		// 4
@@ -1631,7 +1592,7 @@ function pokażUlubionePętla(){
         },
         
         Wilká: {
-            Grodźisko: ["Sybillá 3. wiersz 27.", 0.01], 		// 1
+            Grodźisko: ["Sybillá 3. wiersz 27.", 0.1], 		// 1
             Kostrzyn: ["Sybillá 3. wiersz 28.", 1], 		// 2
             Rádzieiów: ["Sybillá 3. wiersz 29.", 2], 		// 3
             Oborniki: ["Sybillá 3. wiersz 30.", 3], 		// 4
@@ -1655,7 +1616,7 @@ function pokażUlubionePętla(){
         },
         
         Wydry: {
-            Gołanczá: ["Sybillá 4. wiersz 32.", 0.01], 		// 1
+            Gołanczá: ["Sybillá 4. wiersz 32.", 0.1], 		// 1
             Koźiegłowy: ["Sybillá 4. wiersz 33.", 1], 		// 2
             Bráńsk: ["Sybillá 4. wiersz 34.", 2], 		// 3
             Káńczugá: ["Sybillá 4. wiersz 35.", 3], 		// 4
@@ -1679,7 +1640,7 @@ function pokażUlubionePętla(){
         },
         
         Záiącá: {
-            Radomskie: ["Sybillá 9. wiersz 1.", 0.01], 		// 1
+            Radomskie: ["Sybillá 9. wiersz 1.", 0.1], 		// 1
             Ośieczno: ["Sybillá 8. wiersz 37.", 1], 		// 2
             Mieśćisko: ["Sybillá 8. wiersz 36.", 2], 		// 3
             Rćina: ["Sybillá 9. wiersz 19.", 3], 		// 4
