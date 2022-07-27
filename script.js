@@ -4,6 +4,7 @@
  const wheel = document.querySelector('.wheel');
  const startButton = document.querySelector('.buttonSpin');
  const goButton = document.querySelector('.goButton')
+ const firstWheel = document.querySelector('#imageid')
  const displayMessage = document.querySelector('.displayMessage');
 //  const displayNumber = document.querySelector('.displayNumber');
  const goToSecondWheelScreen = document.querySelector('.goToSecondWheelScreen');
@@ -173,8 +174,6 @@ changeFont.addEventListener('click',() => {
     if (body.style.fontFamily == "unifrakturmaguntiabook"){
         body.style.fontFamily = "beryliumregular";
         body.style.lineHeight = "1.1";
-        // body.classList.add("modernFontProprties");
-        // body.classList.remove("frakturFontProperties");
         tekstUlubionejWróżby.classList.add("modernFontProprties");
         tekstUlubionejWróżby.classList.remove("frakturFontProperties");
         insertAuguryText.classList.add("modernFontProprties");
@@ -186,8 +185,6 @@ changeFont.addEventListener('click',() => {
         changeFont.style.fontFamily = "unifrakturmaguntiabook";
     } else {
         body.style.fontFamily = "unifrakturmaguntiabook";
-        // body.classList.add("frakturFontProperties");
-        // body.classList.remove("modernFontProprties");
         tekstUlubionejWróżby.classList.remove("modernFontProprties");
         tekstUlubionejWróżby.classList.add("frakturFontProperties");
         insertAuguryText.classList.remove("modernFontProprties");
@@ -273,6 +270,7 @@ function resetValues (){
     wheel.style.transform = `rotate(${actualDeg}deg)`;
     wheel.style.transition = 'none';
     startButton.style.pointerEvents = 'auto';
+    firstWheel.style.pointerEvents = 'auto';
     displayAuguryCoordinates.innerHTML = '';
     displayAuguryCoordinates.style.display = 'none';
     clickOnAnimal.innerHTML="";
@@ -321,18 +319,28 @@ function przejdźDalejZLandingScreena(){
         winningSymbolNr = Math.ceil(actualDeg / zoneSize);
     }
 
-    goButton.style.pointerEvents = 'none';
+    // goButton.style.pointerEvents = 'none';
+    // firstWheel.style.pointerEvents = 'none';
 
 
     startButton.addEventListener('click',() => {
+        buttonSpinFunction()
+    });
+
+    firstWheel.addEventListener('click',() => {
+        buttonSpinFunction()
+    });
+
+    function buttonSpinFunction(){
         displayMessage.innerHTML = "-";
         startButton.style.pointerEvents = 'none';
         goButton.style.pointerEvents = 'none';
+        firstWheel.style.pointerEvents = 'none';
         deg = Math.floor(1000 + Math.random() * 2000);
         wheel.style.transition = 'all 2s ease';
         wheel.style.transform = `rotate(${deg}deg)`;
         dmuch1.style.display = "block";
-    });
+    }
 
     wheel.addEventListener('transitionend', () => {
         wheel.style.transition = 'none';
@@ -362,12 +370,17 @@ function przejdźDalejZLandingScreena(){
 
         setTimeout (function () {
             goToSecondWheelScreen.style.display = "flex";
-            startButton.style.pointerEvents = 'auto';
             }, 1000);
         SecondWheelScreenGoBack.addEventListener('click',() => {
             goToSecondWheelScreen.style.display = "none";
             });
-        });
+
+            setTimeout (function () {
+                startButton.style.pointerEvents = 'auto';
+                firstWheel.style.pointerEvents = 'auto'
+            }, 1300);
+        });  
+          
 
         // Ekran 3
         characterImage.addEventListener('click',() => {
@@ -1697,11 +1710,11 @@ function pokażUlubionePętla(){
         
         3:"Sprawiedliwieć życzę tego,<br/>Dojdziesz rządu wysokiego,<br/>Będziesz podwyższon nad swój stan,<br/>Ze się temu będziesz dziwować sam.",
         
-        4:"Abyś iście temu wierzyć chciała,<br/>Nie będziesz ty rychło męża miała.<br/>Muszę-ć teraz prawdą dojąć.<br/>Złaś, rozpustna, nie śmie cię nikt pojąć.",
+        4:"Abyś iście temu wierzyć chciała,<br/>Nie będziesz ty rychło męża miała.<br/>Muszęć teraz prawdą dojąć.<br/>Złaś, rozpustna, nie śmie cię nikt pojąć.",
         
         5:"Masz mieć szczęście w rzeczy każdej<br/>W młodości i w starości swej.<br/>Przyjdziesz ku stanu wysokiemu,<br/>Uczynisz cześć domowi swemu.",
         
-        6:"Chceszli w tym mej rady użyć,<br/>Nie radzę-ć tu dłużej służyć,<br/>Bo acz ty w tym panie nadzieję masz,<br/>Wiecznie jednak pożytku nie doznasz.",
+        6:"Chceszli w tym mej rady użyć,<br/>Nie radzęć tu dłużej służyć,<br/>Bo acz ty w tym panie nadzieję masz,<br/>Wiecznie jednak pożytku nie doznasz.",
         
         7:"Dobry panie, bądź w tym upewnieniu,<br/>Myśli twoje przyjdą ku skończeniu.<br/>Acz ty o tym małe dufanie masz,<br/>Będzieć lepiej, niżli się nadziewasz.",
         
@@ -1719,7 +1732,7 @@ function pokażUlubionePętla(){
         
         14:"Kochasz się barzo w swej miłej,<br/>A rad czynisz wszytko dla niej.<br/>Ona też na cię silno łaskawa,<br/>Rada by cię w wychodzie widziała.",
         
-        15:"Jeśli chcesz rozkoszy użyć,<br/>Radzę-ć duchownemu służyć.<br/>Będziesz miał wiele ku woli swej,<br/>Podziękujesz mi z rady mej.",
+        15:"Jeśli chcesz rozkoszy użyć,<br/>Radzęć duchownemu służyć.<br/>Będziesz miał wiele ku woli swej,<br/>Podziękujesz mi z rady mej.",
         
         16:"Ty byś rada tego doczekała,<br/>Abyś tym połogiem syna miała,<br/>Ale bądź upewniona w tym:<br/>Będzie dziewka, nie będzie syn.",
         
@@ -1735,7 +1748,7 @@ function pokażUlubionePętla(){
         
         22:"Bądź pokorny co możesz nawięcej,<br/>A chciej się strzec zwady wszelkiej,<br/>Barzo mię twe fata straszą,<br/>Byś nie przyszedł o żywot przez czasu.",
         
-        23:"Radzę-ć, miej się ku święceniu,<br/>Tak przyjdziesz i dobremu mieniu,<br/>Kapłaństwo-ć dobroć przystoi,<br/>Gdyć się w tobie gamractwo ukoi.",
+        23:"Radzęć, miej się ku święceniu,<br/>Tak przyjdziesz i dobremu mieniu,<br/>Kapłaństwoć dobroć przystoi,<br/>Gdyć się w tobie gamractwo ukoi.",
         
         24:"Powiem ci pewnymi słowy,<br/>Niechając tej próżnej wymowy,<br/>Ty na wieki nie powstaniesz,<br/>Jeszcze rychlej lekkości dostaniesz. ",
         
@@ -1745,13 +1758,13 @@ function pokażUlubionePętla(){
         
         27:"Miej nadzieję w swoim panie:<br/>Dosyć ci się za służbę dostanie,<br/>Ale bądź co najpilniejszy,<br/>Tegoć trzeba w czas dzisiejszy.",
         
-        28:"Myślisz próżno barzo wiele,<br/>Nie potka cię iście to wesele.<br/>A radzę-ć, myśl co inszego,<br/>A poniechaj myślenia pierwszego.",
+        28:"Myślisz próżno barzo wiele,<br/>Nie potka cię iście to wesele.<br/>A radzęć, myśl co inszego,<br/>A poniechaj myślenia pierwszego.",
         
         29:"Słuchaj pilnie, biała głowo,<br/>Masz usłyszeć wdzięczne słowo,<br/>Miłuje cię panic nad wsze insze,<br/>Nie jest mu żadne stworzenie milsze.",
         
         30:"Słuchaj pilnie, co poradzę,<br/>Wierz mi, że cię w tym nie zdradzę,<br/>Nie pojmuj ty nigdy żony,<br/>Patrz obeścia z innej strony.",
         
-        31:"Będziesz Panem w rychłym czasie,<br/>Jednoć powiem drugie zasię,<br/>Pamiętaj miłemu Bogu służyć,<br/>Aby-ć dał państwa we zdrowiu użyć.",
+        31:"Będziesz Panem w rychłym czasie,<br/>Jednoć powiem drugie zasię,<br/>Pamiętaj miłemu Bogu służyć,<br/>Abyć dał państwa we zdrowiu użyć.",
         
         32:"Lepiej by tobie buty szyć,<br/>Niźliby miał kupczykiem być,<br/>Boś pachołek barzo głupi,<br/>Nie zyszczesz ty nic na kupi.",
         
@@ -1773,7 +1786,7 @@ function pokażUlubionePętla(){
         
         3:"Ja by tobie chciała radzić,<br/>Byś mi w tym chciał powolen być,<br/>Abyś dał pokój tej drodze,<br/>Nie chcesz li mieć rany w nodze.",
         
-        4:"Nie chciej tego powiedzieć nikomu,<br/>Jest twa zguba u jednego w domu,<br/>A ma-ć się zaś iście wrócić,<br/>Jedno tego chciej pilen być.",
+        4:"Nie chciej tego powiedzieć nikomu,<br/>Jest twa zguba u jednego w domu,<br/>A mać się zaś iście wrócić,<br/>Jedno tego chciej pilen być.",
         
         5:"Używaj w tym rady ludzkiej,<br/>Nie chciej nigdy rzeczy takiej,<br/>Która rada próżni mieszki  <br/>Kto utraci, niecudne to śmieszki.",
         
@@ -1785,13 +1798,13 @@ function pokażUlubionePętla(){
         
         9:"Przejdzie jeszcze czasu wiele,<br/>Niżli u ciebie będzie wesele.<br/>Twą rozpustność słyszeć wszędzie,<br/>Żadny mądry twym mężem nie będzie.",
         
-        10:"Szczęście-ć wielkie obiecuję, <br/>Na długi czas toć ślubuję,<br/>Cokolwiek będziesz chciał działać,<br/>W każdej rzeczy masz szczęście znać.",
+        10:"Szczęścieć wielkie obiecuję, <br/>Na długi czas toć ślubuję,<br/>Cokolwiek będziesz chciał działać,<br/>W każdej rzeczy masz szczęście znać.",
         
         11:"Miej ku tym słowom pilne uszy,<br/>Wiem, żeć twój pan siła tuszy,<br/>Ale dam się osrać na krzyż,<br/>Jeśli na nim co wysłużysz.",
         
-        12:"Powiedzą-ć dryje, jeśli chcesz:<br/>W swym myśleniu dobry koniec weźmiesz,<br/>Jedno się ku temu pilnie miej,<br/>Panu swemu usługować umiej.",
+        12:"Powiedząć dryje, jeśli chcesz:<br/>W swym myśleniu dobry koniec weźmiesz,<br/>Jedno się ku temu pilnie miej,<br/>Panu swemu usługować umiej.",
         
-        13:"Daj ty pokój młodzieńcowi temu,<br/>Boś nierówna niewymownie ku niemu.<br/> A też to wiedz, że cię nie miłuje, <br/>Łaski-ć nieco na żart okazuje.",
+        13:"Daj ty pokój młodzieńcowi temu,<br/>Boś nierówna niewymownie ku niemu.<br/> A też to wiedz, że cię nie miłuje, <br/>Łaskić nieco na żart okazuje.",
         
         14:"Przebóg pofolguj myśli swej,<br/>A ożeń się co możesz najrychlej,<br/>Boć to będzie ku twemu polepszeniu,<br/>I przyjacielom ku pocieszeniu.",
         
@@ -1811,7 +1824,7 @@ function pokażUlubionePętla(){
         
         22:"Dla twojej sprawiedliwości,<br/>Będziesz mieć dosyć radości.<br/>Na tym i na onym świecie<br/>I z pamięcią wyborną umrzecie.",
         
-        23:"Gdyż to chcesz ode mnie wiedzieć,<br/>Muszę-ć to teraz powiedzieć:<br/>Ten, któregoś teraz myślił,<br/>Rad by cię w łyżce wody utopił.",
+        23:"Gdyż to chcesz ode mnie wiedzieć,<br/>Muszęć to teraz powiedzieć:<br/>Ten, któregoś teraz myślił,<br/>Rad by cię w łyżce wody utopił.",
         
         24:"Wiem, że się na drogę bierzesz,<br/>A powiem ci, że nieźle chcesz,<br/>Bo to będzie ku powstaniu twemu <br/>I ku pożytkowi niemałemu.",
         
@@ -1827,7 +1840,7 @@ function pokażUlubionePętla(){
         
         30:"Tego maja, który ma przydź,<br/>Masz iście za starego idź, <br/>Ale na tym nie będziesz szkodować,<br/>Będziesz młodsze od niego miłować.",
         
-        31:"Gdyż to chcesz ode mnie wiedzieć,<br/>Ninacz szczęścia nie będziesz mżeć,<br/>Jeszcze-ć muszę ten strach zadać,<br/>Waruj gardła marnie stradać.",
+        31:"Gdyż to chcesz ode mnie wiedzieć,<br/>Ninacz szczęścia nie będziesz mżeć,<br/>Jeszczeć muszę ten strach zadać,<br/>Waruj gardła marnie stradać.",
         
         32:"To jest pewna, synaczku, nowina,<br/>Miłuje cię twój pan jako syna.<br/>Z jego ręki masz panem być,<br/>Jedno mu chciej wiernie służyć.",
         
@@ -1835,7 +1848,7 @@ function pokażUlubionePętla(){
         
         34:"Nie wątp namniej w swoim miłym,<br/>Ma cię głęboko w sercu swym.<br/>Nie będzie mu taka żadna miła,<br/>Która by cię do niego skaziła.",
         
-        35:"Radzę-ć, abyś nie pomyślał,<br/>Byś się kiedy ożenić miał,<br/>Boć żona zawżdy nałaje,<br/>Będziesz u niej stał za jaje.",
+        35:"Radzęć, abyś nie pomyślał,<br/>Byś się kiedy ożenić miał,<br/>Boć żona zawżdy nałaje,<br/>Będziesz u niej stał za jaje.",
         
         36:"Pierwej nie będziesz skarbu mieć,<br/>Aż musisz na swym chlebie sieść.<br/>Po tym dojdziesz zacnej żony,<br/>Będzieć rosło z każdej strony.",
         
@@ -1861,9 +1874,9 @@ function pokażUlubionePętla(){
         
         9:"Chceszli dostać zguby swojej,<br/>Słuchajże w tym rady mojej,<br/>Chciej szukać w kupie kamienia,<br/>Tam ją najdziesz bez wątpienia.",
         
-        10:"Jeśli mię w tym chcesz posłuchać,<br/>Radzę-ć tej rzeczy pokój dać,<br/>Którą teraz na myśli masz,<br/>Jeśli poczniesz, źle jej dokonasz.",
+        10:"Jeśli mię w tym chcesz posłuchać,<br/>Radzęć tej rzeczy pokój dać,<br/>Którą teraz na myśli masz,<br/>Jeśli poczniesz, źle jej dokonasz.",
         
-        11:"Chcesz li, abyś długo żyw był,<br/>Radzę-ć, abyś Bogu służył,<br/>Bo jeśli nie umrzesz lecie,<br/>Pomieszkasz długo na świecie.",
+        11:"Chcesz li, abyś długo żyw był,<br/>Radzęć, abyś Bogu służył,<br/>Bo jeśli nie umrzesz lecie,<br/>Pomieszkasz długo na świecie.",
         
         12:"Będziesz duchownym, ale złym,<br/>Zgorszysz wiele ludzi przykładem swym,<br/>A toć ma nawięcej szkodzić,<br/>Ze cię kurwa za nos będzie wodzić.",
         
@@ -1879,7 +1892,7 @@ function pokażUlubionePętla(){
         
         18:"Pan, na któregoś ty pomyśliła,<br/>Na wieki nie będzie taki wiła,<br/>Aby ciebie miłować miał,<br/>Bo niestałość w tobie poznał.",
         
-        19:"Ożeń się, radzę-ć, za młodu,<br/>Chcesz li doczkać nieco płodu,<br/>Jeśli omieszkasz do roku,<br/>Omierznie-ć żona przy boku.",
+        19:"Ożeń się, radzęć, za młodu,<br/>Chcesz li doczkać nieco płodu,<br/>Jeśli omieszkasz do roku,<br/>Omierznieć żona przy boku.",
         
         20:"Tobie wiecznie nędznikiem być,<br/>Bo kto z młodu nie chce robić,<br/>Na to mu po tym przychodzi,<br/>Że więc z mantykami chodzi.",
         
@@ -1891,7 +1904,7 @@ function pokażUlubionePętla(){
         
         24:"Wiedz ty o tym, iż tam, gdzie miłujesz,<br/>Na miłości namniej nie zyskujesz,<br/>A prawie się twoja miła wstydzi,<br/>Gdy cię kolwiek w swoim domu widzi.",
         
-        25:"Radzę-ć do młodszego przystać,<br/>Chcesz li nieco w służbie zyskać,<br/>Bo młody pospolicie utraca,<br/>Tam sługa zwyśi, który nie straca.",
+        25:"Radzęć do młodszego przystać,<br/>Chcesz li nieco w służbie zyskać,<br/>Bo młody pospolicie utraca,<br/>Tam sługa zwyśi, który nie straca.",
         
         26:"Abyś temu wierzyć chciała,<br/>Ty nie będziesz syna miała,<br/>Ale dziewczysko szkarade,<br/>Lisowate, ku temu zawżdy blade.",
         
@@ -1899,7 +1912,7 @@ function pokażUlubionePętla(){
         
         28:"Człowiek, którego w myśli masz,<br/>Jest zakryty, a tego nie znasz.<br/>Możeć się stawić łaskawie,<br/>Aleć z żadnym nigdy nie jest prawie.",
         
-        29:"Na tę drogę prześpiecznie jedź,<br/>Masz mieć szczęście, to iście wiedz.<br/>A radzę-ć: chciej rychło jechać,<br/>Masz tam silną fortunę znać.",
+        29:"Na tę drogę prześpiecznie jedź,<br/>Masz mieć szczęście, to iście wiedz.<br/>A radzęć: chciej rychło jechać,<br/>Masz tam silną fortunę znać.",
         
         30:"Coś stracił, już nie myśl o tym, <br/>Przyrzekam ci to słowem swym, <br/>żeć się to już wrócić nie ma,<br/>Bo ten, co wziął, duże trzyma.",
         
@@ -1923,7 +1936,7 @@ function pokażUlubionePętla(){
         
         2:"Byś ty temu wierzyć chciała,<br/>Nigdyś większej wierności nie znała,<br/>Jaką ten ma naprzeciwko tobie,<br/>Coś go teraz pomyśliła sobie.",
         
-        3:"Myślisz ty pilno o żenie,<br/>Iżby-ć się z nią dostało imienie.<br/>Ale by-ć miała po sobie tysiąc,<br/>Nie radzę jej tobie pojąć.",
+        3:"Myślisz ty pilno o żenie,<br/>Iżbyć się z nią dostało imienie.<br/>Ale być miała po sobie tysiąc,<br/>Nie radzę jej tobie pojąć.",
         
         4:"Będziesz panem znamienitym<br/>I w swym państwie tak obfitym,<br/>Iż każdą rzecz będziesz mógł mieć,<br/>Którą jedno będziesz sam chcieć.",
         
@@ -1937,19 +1950,19 @@ function pokażUlubionePętla(){
         
         9:"Nie chcęć radzić tam przystawać,<br/>Gdzie nic nie chcą z łaski dawać,<br/>A ty chcesz być u takiego,<br/>Co nie dawa i uroczystego.",
         
-        10:"Pana Boga nie przestajesz prosić,<br/>By cię raczył synaczkiem pocieszyć,<br/>Otóż za proszenie twoje,<br/>Da-ć ich Pan Bóg razem dwoje.",
+        10:"Pana Boga nie przestajesz prosić,<br/>By cię raczył synaczkiem pocieszyć,<br/>Otóż za proszenie twoje,<br/>Dać ich Pan Bóg razem dwoje.",
         
         11:"To nagorszy obyczaj masz,<br/>Że się z kurwami przemieniasz,<br/>Dziś jedna, a jutro wtóra,<br/> Strzeż, by cię nie otruła która.",
         
         12:"Wiem, że cię nie omylę w tym,<br/>Nie wątp nic w przyjacielu swym,<br/>Boć się silno kocha w tobie,<br/>Inaczej nie daj powiadać sobie.",
         
-        13:"Nie jedź, radzę-ć, gdzieś umyślił,<br/>Boby jednak nic nie zwyśił,<br/>Jeszcze to tak chcę powiedzieć,<br/>Musiałby w więzieniu siedzieć.",
+        13:"Nie jedź, radzęć, gdzieś umyślił,<br/>Boby jednak nic nie zwyśił,<br/>Jeszcze to tak chcę powiedzieć,<br/>Musiałby w więzieniu siedzieć.",
         
         14:"Chciej być serca wesołego,<br/>Masz naleść złodzieja swego,<br/>W poniedziałek, niżli słońce zajdzie,<br/>Przy którym się twoja zguba najdzie.",
         
         15:"Chceszli nie żałować potym,<br/>Niechaj tego, co masz w umyśle swym,<br/>Bo na tym utracisz siła,<br/>Zabłaznujesz by naczystszy wiła.",
         
-        16:"Bacząc twoje przyrodzenie,<br/>Czas poczęcia, narodzenie,<br/>Mogę-ć to pewnie ślubować,<br/>Że masz dobrze przez sto lat trwać.",
+        16:"Bacząc twoje przyrodzenie,<br/>Czas poczęcia, narodzenie,<br/>Mogęć to pewnie ślubować,<br/>Że masz dobrze przez sto lat trwać.",
         
         17:"Kapłanem tym nie będziesz iście,<br/>A też ci tak barzo czyście,<br/>Zwłaszcza gdy te lata nastawaią,<br/>Iż też na kapłany i wrony krakają.",
         
@@ -1965,17 +1978,17 @@ function pokażUlubionePętla(){
         
         23:"Nie miej nadzieje w swym miłym,<br/>Nie wierz jego słowom pięknym,<br/>Na toć się pilnie nasadził,<br/>Aby cię na twej czci przyzdradził.",
         
-        24:"Jeśli chcesz mnie starej słuchać,<br/>Radzę-ć rychlej żony szukać,<br/>Bo niewolny siła za rok stoi,<br/>I barzo rad ku rtęci przystoi.",
+        24:"Jeśli chcesz mnie starej słuchać,<br/>Radzęć rychlej żony szukać,<br/>Bo niewolny siła za rok stoi,<br/>I barzo rad ku rtęci przystoi.",
         
         25:"Ty na wieki panem nie możesz być<br/>I to, co masz, wszytko masz utracić,<br/>Bo twój przodek nabywał barzo źle,<br/>Tak żeć też to imienie odejdzie.",
         
-        26:"Dzierżę ja siła o tobie,<br/>Gdy z młodu myślisz o sobie,<br/>Radzę-ć tym rychlej kupcem być,<br/>Masz kupiectwie ku państwu przydź.",
+        26:"Dzierżę ja siła o tobie,<br/>Gdy z młodu myślisz o sobie,<br/>Radzęć tym rychlej kupcem być,<br/>Masz kupiectwie ku państwu przydź.",
         
         27:"Przez twą pychę i pierzchliwość<br/>Odpłoszysz sobie mężów dość,<br/>Wszak mi to jeden powiadał,<br/>Gdy cię poznał, by mu po gębie dał.",
         
         28:"W swej rzeczy się nic nie troszczy,<br/>Jedno jeszcze małą chwilę pożdży.<br/>Nie możeć to inaczej być,<br/>Ta rzecz ciebie nie ma chybić.",
         
-        29:"Ty w swej szalonej miłości,<br/>Masz przydź ku wielkiej lekkości.<br/>A muszę-ć jawnie powiedzieć:<br/>Będzieć o tym wiele ludzi wiedzieć.",
+        29:"Ty w swej szalonej miłości,<br/>Masz przydź ku wielkiej lekkości.<br/>A muszęć jawnie powiedzieć:<br/>Będzieć o tym wiele ludzi wiedzieć.",
         
         30:"Nie dawaj sobie rozradzać,<br/>Abyś nie miał indzie przystać,<br/>Gdy twój pan próżno swarzy,<br/>A zalić się indzie lepiej zdarzy.",
         
@@ -2013,7 +2026,7 @@ function pokażUlubionePętla(){
         
         9:"To proroctwo ciebie nie omyli,<br/>Będziesz panem w rychłej chwili,<br/>Ale się strzeż byś nie upadł,<br/>Kiedyć będzie pięćdziesiąt lat.",
         
-        10:"Synu, nie radzę-ć kupcem być,<br/>Chceszli wszego nie utracić,<br/>Bo co ociec z matką nabył,<br/>To by ty kupcząc utracił.",
+        10:"Synu, nie radzęć kupcem być,<br/>Chceszli wszego nie utracić,<br/>Bo co ociec z matką nabył,<br/>To by ty kupcząc utracił.",
         
         11:"Twa cudność, dobroć, mierność w mowie,<br/>Ta zjedna dobrego męża tobie,<br/>Boś jest godna męża szlachetnego,<br/>Jedno się nie zgarszaj z chwalenia mojego.",
         
@@ -2039,13 +2052,13 @@ function pokażUlubionePętla(){
         
         22:"Jeśli się możesz z tego wykręcić,<br/>Miły bracie, nie dawaj się święcić,<br/>Źle czyni, kto cię do kielicha stroi,<br/>Lepiej ci z konewką przystoi.",
         
-        23:"Dobry panie, prawdę-ć powiem,<br/>Masz być podwyszon w stanie swym.<br/>Będąć chcieć niektórzy kazić,<br/>Aleć to nie ma nic wadzić.",
+        23:"Dobry panie, prawdęć powiem,<br/>Masz być podwyszon w stanie swym.<br/>Będąć chcieć niektórzy kazić,<br/>Aleć to nie ma nic wadzić.",
         
         24:"O tym, dziewko, za pewne wiedz,<br/>Będzie się ciebie każdy strzec,<br/>Boś nazbyt świebodna w mowie,<br/>A to nie przysłusze białejgłowie.",
         
         25:"Matka, ociec i czas fortunny był,<br/>Dzień, godzina, w którąś się narodził,<br/>Masz pocieszyć swych przyjaciół wiele,<br/>Będą z ciebie mieć wielkie wesele.",
         
-        26:"Żal mi cię, mój miły bracie,<br/>Że twój pan źle baczy na cię.<br/>Radzę-ć pomyślić o sobie,<br/>Boć ten pan nic nie da tobie.",
+        26:"Żal mi cię, mój miły bracie,<br/>Że twój pan źle baczy na cię.<br/>Radzęć pomyślić o sobie,<br/>Boć ten pan nic nie da tobie.",
         
         27:"Dziwne ty przyrodzenie masz,<br/>Wiele myślisz, mało działasz,<br/>Wszakże cię w tym nie chcę winić<br/>Ma człek długo myślić, rychło czynić.",
         
@@ -2081,7 +2094,7 @@ function pokażUlubionePętla(){
         
         5:"Za to ty sobie pewnie masz,<br/>Żeć to zdrowo, iż się tak opijasz,<br/>Ale tego chciej pewien być,<br/>Że masz w rychle żywot przepić.",
         
-        6:"Radzę-ć, zostań już kapłanem lecie,<br/>Chceszli użyć rozkoszy na świecie,<br/>Ale chciej być przykładu dobrego,<br/>Nie chceszli wziąć upadku dusznego.",
+        6:"Radzęć, zostań już kapłanem lecie,<br/>Chceszli użyć rozkoszy na świecie,<br/>Ale chciej być przykładu dobrego,<br/>Nie chceszli wziąć upadku dusznego.",
         
         7:"Tobie na wieki nie powstać,<br/>Musisz tak w swej jusze zostać,<br/>Próżno się wysoko wznosisz,<br/>Nic zacnego sobie nie uprosisz.",
         
@@ -2089,7 +2102,7 @@ function pokażUlubionePętla(){
         
         9:"Ty masz szczęścia barzo mało,<br/>Tak mi się o tobie zdało,<br/>A wżdy się więc na nie sadzisz,<br/>Nie dufaj mu, iście się sam zdradzisz.",
         
-        10:"Ty na swej służbie dzisiejszej,<br/>Nie masz podjąć szkody żadnej, <br/>To jest w tym otucha twoja,<br/>Zapłaci-ć się dobrze służba twoja.",
+        10:"Ty na swej służbie dzisiejszej,<br/>Nie masz podjąć szkody żadnej, <br/>To jest w tym otucha twoja,<br/>Zapłacić się dobrze służba twoja.",
         
         11:"Ten siła myśli za młodu,<br/>Rad by przyszedł ku dobremu obchodu,<br/>Ale mu tak zez, cynki prorokuje,<br/>Że on próżno sobie głowę psuje.",
         
@@ -2107,13 +2120,13 @@ function pokażUlubionePętla(){
         
         18:"Co mi dasz, żeć prawdę powiem?<br/>Toć mówię, o czym dobrze wiem,<br/>O tym twoja miła myśli,<br/>Byście ku sobie rychło przyszli.",
         
-        19:"Miły bracie, słuchaj mię w tym,<br/>A nie dufaj w rozumie swym,<br/>Nie radzę-ć indzie przystawać,<br/>Boć tam nie będą nic dawać.",
+        19:"Miły bracie, słuchaj mię w tym,<br/>A nie dufaj w rozumie swym,<br/>Nie radzęć indzie przystawać,<br/>Boć tam nie będą nic dawać.",
         
         20:"Ta mię doszła nowina o tobie,<br/>Że ty masz urodzić syna sobie,<br/>Który będzie to szczęście miał,<br/>Będzie go każdy miłował.",
         
-        21:"Radzę-ć koni się wystrzegać,<br/>Chceszli gardła źle nie stradać.<br/>Zwłaszcza, który sierści siwej,<br/>Tego się strzeż, co nawięcej.",
+        21:"Radzęć koni się wystrzegać,<br/>Chceszli gardła źle nie stradać.<br/>Zwłaszcza, który sierści siwej,<br/>Tego się strzeż, co nawięcej.",
         
-        22:"Synu miły, wiernie radzę tobie,<br/>Tego, o kim myślisz, nie trać sobie,<br/>Boć jest przyjacielem silnym,<br/> <br/>By-ć miał być bratem rodzonym.",
+        22:"Synu miły, wiernie radzę tobie,<br/>Tego, o kim myślisz, nie trać sobie,<br/>Boć jest przyjacielem silnym,<br/>Być miał być bratem rodzonym.",
         
         23:"Byś wiedział, co cię ma potkać,<br/>Nie kwapiłbyś się precz jechać.<br/>Mają cię tam silno zdradzić,<br/>Przeto nie jeźdź, daj sobie poradzić.",
         
@@ -2141,7 +2154,7 @@ function pokażUlubionePętla(){
         
         35:"Miasto tego, co byś miał być panem,<br/>Będziesz rychło żebraczym hetmanem,<br/>Będziesz baby po odpuściech wodził,<br/>Złym przykłade będziesz inszym szkodził.",
         
-        36:"Tobie dozwalam kupcem być,<br/>Bo masz przez nie ku chlebu przydź.<br/>Ale by-ć też nawięcej dać,<br/>Radzęć sprawne sługi chować.",
+        36:"Tobie dozwalam kupcem być,<br/>Bo masz przez nie ku chlebu przydź.<br/>Ale być też nawięcej dać,<br/>Radzęć sprawne sługi chować.",
         
         37:"Córko, pilnie tego słuchaj,<br/>A cześć i chwałę Bogu daj,<br/>Będziesz mieć męża dobrego<br/>I syna w rok nadobnego."
         },
@@ -2161,7 +2174,7 @@ function pokażUlubionePętla(){
         
         7:"Jeśli tymi czasy na koń wsiędziesz,<br/>Wiedz to iście, że fortunny będziesz.<br/>Większy będziesz mieć pożytek,<br/>Niżby żeglował rok wszytek.",
         
-        8:"O tym ci nie trzeba myślić,<br/>By-ć się zguba miała wrócić,<br/>Bo ta rzecz już dziwno chodzi,<br/>Skażono ją, aż się czertu godzi.",
+        8:"O tym ci nie trzeba myślić,<br/>Być się zguba miała wrócić,<br/>Bo ta rzecz już dziwno chodzi,<br/>Skażono ją, aż się czertu godzi.",
         
         9:"Ta rzecz, którąś teraz myślił,<br/>Kiedyś kwater z dryją rzucił,<br/>Ma być ku skóraniu tobie,<br/>Zwysisz barzo wiele na niej sobie.",
         
@@ -2175,7 +2188,7 @@ function pokażUlubionePętla(){
         
         14:"Bracie miły, nie barzoś szczęśliwy,<br/>Ku temuś głupi a barzo zwadliwy.<br/>Nie będzieszli się zwady strzec,<br/>Urąbają cię, to iście wiedz.",
         
-        15:"Byś też nie wiem komu służył,<br/>Nie wiem, byś takiej fortuny użył,<br/>Jaką masz mieć przy tym panie,<br/>Imienie-ć się od niego dostanie.",
+        15:"Byś też nie wiem komu służył,<br/>Nie wiem, byś takiej fortuny użył,<br/>Jaką masz mieć przy tym panie,<br/>Imienieć się od niego dostanie.",
         
         16:"Ostrzegam cię, bracie miły,<br/>Próżno się myśl w tobie sili,<br/>Myśl co inszego, jeśli chcesz,<br/>Tego pierwszego nie dojdziesz.",
         
@@ -2185,7 +2198,7 @@ function pokażUlubionePętla(){
         
         19:"To jest pewna a dobra nowina,<br/>Że ty będziesz panem co godzina,<br/>Bo to twój pan już umyślił,<br/>Aby cię wrychle opatrzył.",
         
-        20:"Nie kupcz, by-ć też mnichem zostać,<br/>Nie będziesz mógł temu sprostać,<br/>Bo rozumu mało w tobie,<br/>Z innej strony, radzęć, myśl o sobie.",
+        20:"Nie kupcz, być też mnichem zostać,<br/>Nie będziesz mógł temu sprostać,<br/>Bo rozumu mało w tobie,<br/>Z innej strony, radzęć, myśl o sobie.",
         
         21:"Masz mieć męża dobrzuchnego,<br/>Miłego, rączego, chędogiego,<br/>Pożywiesz z nim rozkoszy na świecie,<br/>Na każdy dzień tobą dom umiecie.",
         
@@ -2213,7 +2226,7 @@ function pokażUlubionePętla(){
         
         33:"Chciej to wiedzieć, panie miły,<br/>Że ty wskórasz w rychłej chwili.<br/>Takie ma być twe wskóranie,<br/>Że twój dom przez cię powstanie.",
         
-        34:"Po twej chęci łacno baczyć,<br/>Chciałabyś rychło za mąż iść,<br/>A tyś jest każdemu pyszna,<br/>Nie wiem, by-ć ta hardość w dobre wyszła.",
+        34:"Po twej chęci łacno baczyć,<br/>Chciałabyś rychło za mąż iść,<br/>A tyś jest każdemu pyszna,<br/>Nie wiem, być ta hardość w dobre wyszła.",
         
         35:"Jedno chciej być sprawiedliwy,<br/>Będziesz aż nazbyt szczęśliwy,<br/>Pomnoży cię Pan Bóg miły,<br/>Będziesz panem w rychłej chwili.",
         
@@ -2267,13 +2280,13 @@ function pokażUlubionePętla(){
         
         22:"Białagłowo, tak się mnie zda,<br/>Że twój panic o cię namniej nie dba.<br/>Abych prawdę powiedzieć chciał,<br/>Nierad by cię wiecznie widział.",
         
-        23:"Cóż wżdy tobie po żonie, powiedz mi,<br/>Tyś już jest pachołek letni,<br/>By-ć nalepsza twoja żona była,<br/>Tedyć będzie młodszego woliła.",
+        23:"Cóż wżdy tobie po żonie, powiedz mi,<br/>Tyś już jest pachołek letni,<br/>Być nalepsza twoja żona była,<br/>Tedyć będzie młodszego woliła.",
         
         24:"Synaczku mój, daj się nędzy,<br/>Będziesz miał dosyć pieniędzy,<br/>Jedno je umiej dobrze szafować,<br/>Możesz ich siła nachować.",
         
         25:"Radszej się im kożuchów szyć,<br/>Niźliby ty miał kupcem być,<br/>Boś jest chłop tak barzo głupi <br/>Nie wiesz, co za pieniądz mydła kupi.",
         
-        26:"Dobrego ty męża będziesz miała,<br/>A lepszego niżliś sama chciała,<br/>Jednoć powiem: nie da-ć rozpustnie żyć,<br/>Będzieszli zła, będzie cię barzo bić.",
+        26:"Dobrego ty męża będziesz miała,<br/>A lepszego niżliś sama chciała,<br/>Jednoć powiem: nie dać rozpustnie żyć,<br/>Będzieszli zła, będzie cię barzo bić.",
         
         27:"Barzo silno o swej rzeczy pilisz,<br/>Lecz ja baczę, że się w tym omylisz.<br/>O tym ci myślić nie trzeba,<br/>Szkoda by też psu białego chleba.",
         
@@ -2287,11 +2300,11 @@ function pokażUlubionePętla(){
         
         32:"Ten człowiek, coś o nim myślił,<br/>Niżliś cynk, kwater urzucił,<br/>Jest ci lepiej niż kto inszy,<br/>Boś mu nade wszytko milszy.",
         
-        33:"Droga twoja ma-ć siła zawadzić,<br/>Towarzysz twój ma cię zdradzić.<br/>Przyjdziesz ku lekkości silnej,<br/>Przeto nie jedź, odejm się woli swej.",
+        33:"Droga twoja mać siła zawadzić,<br/>Towarzysz twój ma cię zdradzić.<br/>Przyjdziesz ku lekkości silnej,<br/>Przeto nie jedź, odejm się woli swej.",
         
         34:"Znać po tobie czyście, miły bracie,<br/>Że ty myślisz pilnie o swej stracie.<br/>Ale się namniej nie trzeba troskać,<br/>Masz jej bez wątpienia dostać.",
         
-        35:"By-ć ma rada wdzięczna była,<br/>Ja bych tobie wiernie poradziła,<br/>Byś poniechał swoich myśli, <br/>Abyć po tym ku lekkości nie przyszły.",
+        35:"Być ma rada wdzięczna była,<br/>Ja bych tobie wiernie poradziła,<br/>Byś poniechał swoich myśli, <br/>Abyć po tym ku lekkości nie przyszły.",
         
         36:"Muszę cię nieco przestraszyć,<br/>Nie miałby ty długo żyw być,<br/>Nie wątp jednak w łasce Bożej,<br/>Boć on więcej niż proroctwo może.",
         
@@ -2319,7 +2332,7 @@ function pokażUlubionePętla(){
         
         10:"Ty się barzo kwapisz za męża iść,<br/>Bowiem nie wiesz, ku czemu masz przyść;<br/>Lecz, niebogo, gdybyś wieszczą była,<br/>Iście by się za mąż nie kwapiła.",
         
-        11:"Nie wątp namniej w rzeczy swojej,<br/>Da-ć ją Pan Bóg z łaski swojej,<br/>Aleć się jeszcze odwlecze,<br/>Ta grzanka się za rok nie upiecze.",
+        11:"Nie wątp namniej w rzeczy swojej,<br/>Dać ją Pan Bóg z łaski swojej,<br/>Aleć się jeszcze odwlecze,<br/>Ta grzanka się za rok nie upiecze.",
         
         12:"Niewymowne głupstwo twoje,<br/>Że ty próżno kazisz serce swoje,<br/>Gdy to wszyscy dobrze znają,<br/>Że tam o cię nic nie dbają.",
         
@@ -2333,7 +2346,7 @@ function pokażUlubionePętla(){
         
         17:"Jedź na drogę, kiedy raczysz.<br/>Tam więc, jeśli nie przebaczysz<br/>Dosyć pieniędzy nabędziesz,<br/>Przyjechawszy imienie osiędziesz.",
         
-        18:"Synaczku, ja tobie ślubuję,<br/>Ze ty najdziesz swoję zgubę.<br/>A nie trzebać barzo szukać <br/>Ma-ć ją jeden człowiek w ręce dać.",
+        18:"Synaczku, ja tobie ślubuję,<br/>Ze ty najdziesz swoję zgubę.<br/>A nie trzebać barzo szukać <br/>Mać ją jeden człowiek w ręce dać.",
         
         19:"Poczni rzecz swą kiedy raczysz.<br/>Sam to okiem swym obaczysz,<br/>Żeć wszytko pójdzie fortunnie.<br/>Przyjdziesz po tym o poradę ku mnie.",
         
@@ -2377,7 +2390,7 @@ function pokażUlubionePętla(){
         10: {
         1:"Prze Bóg, chciej mi powolen być,<br/>Nie racz na tę drogę jeździć,<br/>Bo pojedzieszli przez wodę,<br/>Masz wziąć barzo wielką szkodę.",
         
-        2:"Prawda, żeć teraz nieśmieszno,<br/>Że cię po twej zgubie tęskno,<br/>Aleć nie trzeba w tym wątpić,<br/>Ma-ć się zasię iście wrócić.",
+        2:"Prawda, żeć teraz nieśmieszno,<br/>Że cię po twej zgubie tęskno,<br/>Aleć nie trzeba w tym wątpić,<br/>Mać się zasię iście wrócić.",
         
         3:"Masz umysł ku rzeczy jednej<br/>A w tym żądasz porady mej.<br/>Ja bych rzekła, byś pokój dał,<br/>Chceszli, abyś potym nie żałował.",
         
@@ -2429,7 +2442,7 @@ function pokażUlubionePętla(){
         
         27:"Każdyć to mądry za złe ma,<br/>Iż to łakomstwo w tobie zna:<br/>Masz już dosyć, wżdy dworujesz.<br/>Abo na dyszlu umrzeć chcesz?",
         
-        28:"Nie trzebać się o to troskać,<br/>Masz mężatką wrychle zostać,<br/>Stara-ć się o to jeden pan,<br/>By cię sobie za żonę wziął.",
+        28:"Nie trzebać się o to troskać,<br/>Masz mężatką wrychle zostać,<br/>Starać się o to jeden pan,<br/>By cię sobie za żonę wziął.",
         
         29:"Synaczku, bądź już tego ist:<br/>Nie omyli ciebie tenlist.<br/>Nie masz szczęścia na żadną rzecz,<br/>Jeszczeć wrychle pan każe precz.",
         
@@ -2437,7 +2450,7 @@ function pokażUlubionePętla(){
         
         31:"Możesz mi za dobre nie mieć,<br/>Kazałyć siedm ok powiedzieć,<br/>Abyś próżno przestał myślić,<br/>Nie chceszli ku lekkości przyść.",
         
-        32:"Pomyśliłaś na panica swego,<br/>Miłuje cię więcej niż ty jego,<br/>A ty namniej o to nie dbasz.<br/>Odda-ć się to zinąd, sama poznasz.",
+        32:"Pomyśliłaś na panica swego,<br/>Miłuje cię więcej niż ty jego,<br/>A ty namniej o to nie dbasz.<br/>Oddać się to zinąd, sama poznasz.",
         
         33:"Nie wiem, byś ty małżonkiem był,<br/>Jednakbyś też mało zwyśił,<br/>Bo w małżeństwie niewczesności wiele,<br/>Długi smutek za krótkie wesele.",
         
@@ -2455,7 +2468,7 @@ function pokażUlubionePętla(){
         
         2:"Możesz do młodego przystać,<br/>Ale nie masz na tym zyskać,<br/>Będzie tobą robił jako wołem, <br/>A musisz się źle miewać za stołem.",
         
-        3:"Dobra pani, wesoła bądź,<br/>Masz pociechę od Boga wziąć:<br/>Urodzi-ć się syn nadobny, <br/>Dobry, mądry, cichy i pokorny.",
+        3:"Dobra pani, wesoła bądź,<br/>Masz pociechę od Boga wziąć:<br/>Urodzić się syn nadobny, <br/>Dobry, mądry, cichy i pokorny.",
         
         4:"Jeszczem nie znała żadnego<br/>Nad cię na świecie gorszego,<br/>Przeto nie ujdziesz lekkości,<br/>Zginiesz marnie dla miłości.",
         
@@ -2501,13 +2514,13 @@ function pokażUlubionePętla(){
         
         25:"Bracie miły, gdy wiedzieć chcesz,<br/>Ty swą własną śmiercią umrzesz,<br/>A nie umrzesz aż w starości,<br/>Aleć podagra dochłości.",
         
-        26:"Ten, o którym myślisz, powiem tobie,<br/>Życzy-ć wszego tak jako sam sobie, <br/>W nim nie trzeba wątpić namniej,<br/>Masz go mieć zawżdy ku woli swej.",
+        26:"Ten, o którym myślisz, powiem tobie,<br/>Życzyć wszego tak jako sam sobie, <br/>W nim nie trzeba wątpić namniej,<br/>Masz go mieć zawżdy ku woli swej.",
         
         27:"Acześ umyślił precz jechać,<br/>Radzęć tego teraz niechać,<br/>Nie masz mieć szczęśliwej drogi,<br/>Pójdzieszli, masz nałomić nogi.",
         
         28:"Chcesz, żeć powiem o twej zgubie:<br/>Szukaj w piwnicy i w grubie,<br/>Najdziesz, będzieszli szukać wczas,<br/>Na świetleć jej nigdy niemasz.",
         
-        29:"Dobrze mi się w tym podobasz,<br/>Że takowe umysły masz,<br/>Z których pożytek być może,<br/>Dajże-ć szczęście, miły Boże!",
+        29:"Dobrze mi się w tym podobasz,<br/>Że takowe umysły masz,<br/>Z których pożytek być może,<br/>Dajżeć szczęście, miły Boże!",
         
         30:"Idź do spowiednika rychlej,<br/>A spowiadaj się złości swej,<br/>Oto śmierć za tobą chodzi,<br/>Na każdy dzień zagryznąć cię godz",
         
@@ -2541,7 +2554,7 @@ function pokażUlubionePętla(){
         
         7:"Przystać tamo nie chcęć radzić,<br/>Mogłoć by to siła wadzić,<br/>Przyszedłbyś tam ku dziwnej ranie,<br/>Miałbyś przez twarz szpetne znamię.",
         
-        8:"Życzęć tego, dobra pani,<br/>Że miły Bóg łaską z wami:<br/>Urodzi-ć się syn nadobny,<br/>A będzie z niego duchowny.",
+        8:"Życzęć tego, dobra pani,<br/>Że miły Bóg łaską z wami:<br/>Urodzić się syn nadobny,<br/>A będzie z niego duchowny.",
         
         9:"Witajże panie luteryjanie,<br/>Ważysz sobie duszę tanie,<br/>Naśladujesz złości jego,<br/>Przeto cię zabiją jako złego.",
         

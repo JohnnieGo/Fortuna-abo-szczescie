@@ -775,6 +775,10 @@ li{
     cursor: pointer;
 }
 
+.heart img{
+    width: 60px;
+}
+
 #sybillaName{
     width: 100%;
     height: 10vh;
