@@ -327,6 +327,14 @@ overflow-x: hidden;
     width: 100%;
 }
 
+#sectionAugury{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+}
+
 @keyframes fadein {
     from {
         opacity:0;
@@ -755,11 +763,9 @@ li{
 }
 
 #sybillaPicture{
-    max-width:100%;
-    max-height: 100%;
+    max-width:80vw;
+    max-height: 50vh;
     box-shadow: 0 0 1px 1px #EDCFB2;
-    margin-top: 10px;
-    padding-bottom: 10px;
     cursor: pointer;
 }
 
@@ -768,16 +774,20 @@ li{
     max-width: 80vw;
     max-height: 50vh;
     margin-bottom: 10px;
+    margin-top: 10px;
 
 }
 
 .heart{
     position: absolute;
-    right: 5px;
-    top: 10px;
-    width: 60px;
+    left: 75%;
+    top: 15px;
+    width: 20%;
     cursor: pointer;
+    animation: 1.5s ease 0s infinite beat;
 }
+
+
 
 .element img{
     width: 60px;
@@ -797,7 +807,7 @@ li{
 }
 
 #auguryText{
-    padding: 0px 0 10px 0;
+    padding: 0px 0 20px 0;
     width: fit-content;
     white-space: nowrap;
 }
@@ -905,9 +915,16 @@ li{
     justify-content: center;
     align-items: center;
     bottom: 10px;
-    padding-bottom: 5vh;
+    padding-bottom: 1vh;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    #goBackInfo{
+        font-size: small;
+    }
+      }
+    
 
 
 #opisPostaci{
@@ -1090,4 +1107,20 @@ li{
 @keyframes underline {
   0% { width: 0%; background-color: black;}
   100% {width: 100%; background-color: transparent;}
+}
+
+@keyframes beat {
+    0%, 50%, 100% { transform: scale(1, 1); }
+    30%, 80% { transform: scale(0.92, 0.95); }
+  }
+  
+#commentary{
+    padding: 0 10px 10px 10px;
+}
+
+#share{
+    width: 30px;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
 }
