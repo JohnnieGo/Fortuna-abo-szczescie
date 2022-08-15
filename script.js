@@ -1289,7 +1289,7 @@ function pokażUlubionePętla(){
         },
         
         Krzeczká: {
-            Włodźimiérz: ["Sybillá 6. wiersz 21.", 0.1], 		// 1
+            Włodźimiérz: ["Sybillá 8. wiersz 21.", 0.1], 		// 1
             Słupia: ["Sybillá 8. wiersz 20.", 1], 		// 2
             Koło: ["Sybillá 8. wiersz 19.", 2], 		// 3
             Turek: ["Sybillá 8. wiersz 18.", 3], 		// 4
